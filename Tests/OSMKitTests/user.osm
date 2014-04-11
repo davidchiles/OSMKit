@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server">
+  <user id="355617" display_name="pnorman" account_created="2010-10-06T21:06:23Z">
+    <description>I consider my "home" area for mapping to be New Westminster and the adjoining parts of Burnaby, as well as UBC and Surrey. I have high resolution imagery sources for Surrey, so if you're interested in mapping there and want them, let me know.
+
+I maintain [ogr2osm](https://github.com/pnorman/ogr2osm), a program to convert data to .osm format and tags.
+
+I'm a member of the Data Working Group and deal mainly with imports. I can help with reverting imports or mistakes.
+
+## Other accounts
+My other accounts are [pnorman_imports](http://www.openstreetmap.org/user/pnorman_imports) and [pnorman redaction revert](http://www.openstreetmap.org/user/pnorman%20redaction%20revert)</description>
+    <contributor-terms agreed="true"/>
+    <img href="http://www.gravatar.com/avatar/5634c46072077e10f5b7c0da9b4bbb62.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-82d94ac521dc6dc7a27fee5c8aa13901.png"/>
+    <roles>
+      <moderator/>
+    </roles>
+    <changesets count="2203"/>
+    <traces count="42"/>
+    <blocks>
+      <received count="0" active="0"/>
+      <issued count="181" active="10"/>
+    </blocks>
+  </user>
+</osm>

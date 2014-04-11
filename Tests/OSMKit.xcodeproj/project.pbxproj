@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		251B397885CD48EA8EA69B3D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BF532DF8444F97FEB157 /* libPods.a */; };
+		4FE261B1DAD3428DADC84093 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BF532DF8444F97FEB157 /* libPods.a */; };
+		630FBABF1905D0B200C82D34 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 630FBABE1905D0B200C82D34 /* user.osm */; };
+		630FBAC01905D0B200C82D34 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 630FBABE1905D0B200C82D34 /* user.osm */; };
+		630FBAC61905DD5400C82D34 /* OSMKNSJSONSerializationParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationParser.m */; };
+		630FBAC71905DD5400C82D34 /* OSMKNSJSONSerializationParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationParser.m */; };
+		630FBAC91905E92800C82D34 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBAC81905E92800C82D34 /* notes.json */; };
+		630FBACA1905E92800C82D34 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBAC81905E92800C82D34 /* notes.json */; };
+		630FBACC1905EB4200C82D34 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBACB1905EB4200C82D34 /* note.json */; };
+		630FBACD1905EB4200C82D34 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBACB1905EB4200C82D34 /* note.json */; };
+		632C3CA318FDE815001E8C69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA218FDE815001E8C69 /* Foundation.framework */; };
+		632C3CA518FDE815001E8C69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA418FDE815001E8C69 /* CoreGraphics.framework */; };
+		632C3CA718FDE815001E8C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA618FDE815001E8C69 /* UIKit.framework */; };
+		632C3CAD18FDE815001E8C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CAB18FDE815001E8C69 /* InfoPlist.strings */; };
+		632C3CAF18FDE815001E8C69 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CAE18FDE815001E8C69 /* main.mm */; };
+		632C3CB318FDE815001E8C69 /* OSMKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CB218FDE815001E8C69 /* OSMKAppDelegate.m */; };
+		632C3CB518FDE815001E8C69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CB418FDE815001E8C69 /* Images.xcassets */; };
+		632C3CBC18FDE815001E8C69 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CBB18FDE815001E8C69 /* XCTest.framework */; };
+		632C3CBD18FDE815001E8C69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA218FDE815001E8C69 /* Foundation.framework */; };
+		632C3CBE18FDE815001E8C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA618FDE815001E8C69 /* UIKit.framework */; };
+		632C3CC618FDE815001E8C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CC418FDE815001E8C69 /* InfoPlist.strings */; };
+		632C3CD218FDE893001E8C69 /* berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CD118FDE893001E8C69 /* berkeley.osm */; };
+		632C3CD818FDE8A1001E8C69 /* OSMKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */; };
+		632C3CD918FDE8A1001E8C69 /* OSMKParserDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CD518FDE8A1001E8C69 /* OSMKParserDelegateTest.m */; };
+		632C3CDA18FDE8A1001E8C69 /* OSMKStorageDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */; };
+		632C3D0C18FDE9A0001E8C69 /* OSMKComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */; };
+		632C3D0D18FDE9A0001E8C69 /* OSMKNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF018FDE9A0001E8C69 /* OSMKNode.m */; };
+		632C3D0E18FDE9A0001E8C69 /* OSMKNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF218FDE9A0001E8C69 /* OSMKNote.m */; };
+		632C3D0F18FDE9A0001E8C69 /* OSMKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF418FDE9A0001E8C69 /* OSMKObject.m */; };
+		632C3D1018FDE9A0001E8C69 /* OSMKRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */; };
+		632C3D1118FDE9A0001E8C69 /* OSMKRelationMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */; };
+		632C3D1218FDE9A0001E8C69 /* OSMKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */; };
+		632C3D1318FDE9A0001E8C69 /* OSMKWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */; };
+		632C3D1418FDE9A0001E8C69 /* OSMKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */; };
+		632C3D1518FDE9A0001E8C69 /* OSMKNSXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParser.m */; };
+		632C3D1618FDE9A0001E8C69 /* OSMKTBXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParser.m */; };
+		632C3D1718FDE9A0001E8C69 /* OSMKXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0618FDE9A0001E8C69 /* OSMKXMLParser.m */; };
+		632C3D1818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */; };
+		632C3D1918FDE9A0001E8C69 /* OSMKStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */; };
+		637A91AC1905F343000541BE /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 637A91AB1905F343000541BE /* notes.xml */; };
+		637A91AD1905F436000541BE /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 637A91AB1905F343000541BE /* notes.xml */; };
+		63E0F54018FF5776002AE79F /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E0F53F18FF5776002AE79F /* small_berkeley.osm */; };
+		63E0F54118FF5881002AE79F /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E0F53F18FF5776002AE79F /* small_berkeley.osm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		632C3CBF18FDE815001E8C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 632C3C9718FDE814001E8C69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 632C3C9E18FDE815001E8C69;
+			remoteInfo = OSMKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		630FBABE1905D0B200C82D34 /* user.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = user.osm; sourceTree = "<group>"; };
+		630FBAC41905DD5400C82D34 /* OSMKNSJSONSerializationParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNSJSONSerializationParser.h; sourceTree = "<group>"; };
+		630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNSJSONSerializationParser.m; sourceTree = "<group>"; };
+		630FBAC81905E92800C82D34 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
+		630FBACB1905EB4200C82D34 /* note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; };
+		632C3C9F18FDE815001E8C69 /* OSMKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSMKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		632C3CA218FDE815001E8C69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		632C3CA418FDE815001E8C69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		632C3CA618FDE815001E8C69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		632C3CAA18FDE815001E8C69 /* OSMKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OSMKit-Info.plist"; sourceTree = "<group>"; };
+		632C3CAC18FDE815001E8C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		632C3CAE18FDE815001E8C69 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		632C3CB018FDE815001E8C69 /* OSMKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSMKit-Prefix.pch"; sourceTree = "<group>"; };
+		632C3CB118FDE815001E8C69 /* OSMKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSMKAppDelegate.h; sourceTree = "<group>"; };
+		632C3CB218FDE815001E8C69 /* OSMKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSMKAppDelegate.m; sourceTree = "<group>"; };
+		632C3CB418FDE815001E8C69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		632C3CBA18FDE815001E8C69 /* OSMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OSMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		632C3CBB18FDE815001E8C69 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		632C3CC318FDE815001E8C69 /* OSMKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OSMKitTests-Info.plist"; sourceTree = "<group>"; };
+		632C3CC518FDE815001E8C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		632C3CD118FDE893001E8C69 /* berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = berkeley.osm; sourceTree = "<group>"; };
+		632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKitTests.m; sourceTree = "<group>"; };
+		632C3CD418FDE8A1001E8C69 /* OSMKParserDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKParserDelegateTest.h; sourceTree = "<group>"; };
+		632C3CD518FDE8A1001E8C69 /* OSMKParserDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKParserDelegateTest.m; sourceTree = "<group>"; };
+		632C3CD618FDE8A1001E8C69 /* OSMKStorageDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKStorageDelegateTest.h; sourceTree = "<group>"; };
+		632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKStorageDelegateTest.m; sourceTree = "<group>"; };
+		632C3CED18FDE9A0001E8C69 /* OSMKComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKComment.h; sourceTree = "<group>"; };
+		632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKComment.m; sourceTree = "<group>"; };
+		632C3CEF18FDE9A0001E8C69 /* OSMKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNode.h; sourceTree = "<group>"; };
+		632C3CF018FDE9A0001E8C69 /* OSMKNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNode.m; sourceTree = "<group>"; };
+		632C3CF118FDE9A0001E8C69 /* OSMKNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNote.h; sourceTree = "<group>"; };
+		632C3CF218FDE9A0001E8C69 /* OSMKNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNote.m; sourceTree = "<group>"; };
+		632C3CF318FDE9A0001E8C69 /* OSMKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKObject.h; sourceTree = "<group>"; };
+		632C3CF418FDE9A0001E8C69 /* OSMKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKObject.m; sourceTree = "<group>"; };
+		632C3CF518FDE9A0001E8C69 /* OSMKRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKRelation.h; sourceTree = "<group>"; };
+		632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKRelation.m; sourceTree = "<group>"; };
+		632C3CF718FDE9A0001E8C69 /* OSMKRelationMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKRelationMember.h; sourceTree = "<group>"; };
+		632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKRelationMember.m; sourceTree = "<group>"; };
+		632C3CF918FDE9A0001E8C69 /* OSMKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKUser.h; sourceTree = "<group>"; };
+		632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKUser.m; sourceTree = "<group>"; };
+		632C3CFB18FDE9A0001E8C69 /* OSMKWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKWay.h; sourceTree = "<group>"; };
+		632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKWay.m; sourceTree = "<group>"; };
+		632C3CFE18FDE9A0001E8C69 /* OSMKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKParser.h; sourceTree = "<group>"; };
+		632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKParser.m; sourceTree = "<group>"; };
+		632C3D0118FDE9A0001E8C69 /* OSMKNSXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNSXMLParser.h; sourceTree = "<group>"; };
+		632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNSXMLParser.m; sourceTree = "<group>"; };
+		632C3D0318FDE9A0001E8C69 /* OSMKTBXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKTBXMLParser.h; sourceTree = "<group>"; };
+		632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKTBXMLParser.m; sourceTree = "<group>"; };
+		632C3D0518FDE9A0001E8C69 /* OSMKXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKXMLParser.h; sourceTree = "<group>"; };
+		632C3D0618FDE9A0001E8C69 /* OSMKXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKXMLParser.m; sourceTree = "<group>"; };
+		632C3D0818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKSpatiaLiteStorage.h; sourceTree = "<group>"; };
+		632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKSpatiaLiteStorage.m; sourceTree = "<group>"; };
+		632C3D0A18FDE9A0001E8C69 /* OSMKStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKStorage.h; sourceTree = "<group>"; };
+		632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKStorage.m; sourceTree = "<group>"; };
+		637A91AB1905F343000541BE /* notes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = notes.xml; sourceTree = "<group>"; };
+		63E0F53F18FF5776002AE79F /* small_berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = small_berkeley.osm; sourceTree = "<group>"; };
+		8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C587BF532DF8444F97FEB157 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		632C3C9C18FDE815001E8C69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				632C3CA518FDE815001E8C69 /* CoreGraphics.framework in Frameworks */,
+				632C3CA718FDE815001E8C69 /* UIKit.framework in Frameworks */,
+				632C3CA318FDE815001E8C69 /* Foundation.framework in Frameworks */,
+				4FE261B1DAD3428DADC84093 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632C3CB718FDE815001E8C69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				632C3CBC18FDE815001E8C69 /* XCTest.framework in Frameworks */,
+				632C3CBE18FDE815001E8C69 /* UIKit.framework in Frameworks */,
+				632C3CBD18FDE815001E8C69 /* Foundation.framework in Frameworks */,
+				251B397885CD48EA8EA69B3D /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		632C3C9618FDE814001E8C69 = {
+			isa = PBXGroup;
+			children = (
+				632C3CA818FDE815001E8C69 /* OSMKit */,
+				632C3CC118FDE815001E8C69 /* OSMKitTests */,
+				632C3CA118FDE815001E8C69 /* Frameworks */,
+				632C3CA018FDE815001E8C69 /* Products */,
+				8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		632C3CA018FDE815001E8C69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				632C3C9F18FDE815001E8C69 /* OSMKit.app */,
+				632C3CBA18FDE815001E8C69 /* OSMKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		632C3CA118FDE815001E8C69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CA218FDE815001E8C69 /* Foundation.framework */,
+				632C3CA418FDE815001E8C69 /* CoreGraphics.framework */,
+				632C3CA618FDE815001E8C69 /* UIKit.framework */,
+				632C3CBB18FDE815001E8C69 /* XCTest.framework */,
+				C587BF532DF8444F97FEB157 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		632C3CA818FDE815001E8C69 /* OSMKit */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CB118FDE815001E8C69 /* OSMKAppDelegate.h */,
+				632C3CB218FDE815001E8C69 /* OSMKAppDelegate.m */,
+				632C3CB418FDE815001E8C69 /* Images.xcassets */,
+				632C3CEB18FDE9A0001E8C69 /* OSMKit */,
+				632C3CA918FDE815001E8C69 /* Supporting Files */,
+			);
+			path = OSMKit;
+			sourceTree = "<group>";
+		};
+		632C3CA918FDE815001E8C69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CAA18FDE815001E8C69 /* OSMKit-Info.plist */,
+				632C3CAB18FDE815001E8C69 /* InfoPlist.strings */,
+				632C3CAE18FDE815001E8C69 /* main.mm */,
+				632C3CB018FDE815001E8C69 /* OSMKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		632C3CC118FDE815001E8C69 /* OSMKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */,
+				632C3CD418FDE8A1001E8C69 /* OSMKParserDelegateTest.h */,
+				632C3CD518FDE8A1001E8C69 /* OSMKParserDelegateTest.m */,
+				632C3CD618FDE8A1001E8C69 /* OSMKStorageDelegateTest.h */,
+				632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */,
+				63E0F53F18FF5776002AE79F /* small_berkeley.osm */,
+				630FBABE1905D0B200C82D34 /* user.osm */,
+				630FBACB1905EB4200C82D34 /* note.json */,
+				630FBAC81905E92800C82D34 /* notes.json */,
+				637A91AB1905F343000541BE /* notes.xml */,
+				632C3CD118FDE893001E8C69 /* berkeley.osm */,
+				632C3CC218FDE815001E8C69 /* Supporting Files */,
+			);
+			path = OSMKitTests;
+			sourceTree = "<group>";
+		};
+		632C3CC218FDE815001E8C69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CC318FDE815001E8C69 /* OSMKitTests-Info.plist */,
+				632C3CC418FDE815001E8C69 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		632C3CEB18FDE9A0001E8C69 /* OSMKit */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CEC18FDE9A0001E8C69 /* Model */,
+				632C3CFD18FDE9A0001E8C69 /* Parsers */,
+				632C3D0718FDE9A0001E8C69 /* Storage */,
+			);
+			name = OSMKit;
+			path = ../../OSMKit;
+			sourceTree = "<group>";
+		};
+		632C3CEC18FDE9A0001E8C69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CF318FDE9A0001E8C69 /* OSMKObject.h */,
+				632C3CF418FDE9A0001E8C69 /* OSMKObject.m */,
+				632C3CEF18FDE9A0001E8C69 /* OSMKNode.h */,
+				632C3CF018FDE9A0001E8C69 /* OSMKNode.m */,
+				632C3CFB18FDE9A0001E8C69 /* OSMKWay.h */,
+				632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */,
+				632C3CF518FDE9A0001E8C69 /* OSMKRelation.h */,
+				632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */,
+				632C3CF718FDE9A0001E8C69 /* OSMKRelationMember.h */,
+				632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */,
+				632C3CF918FDE9A0001E8C69 /* OSMKUser.h */,
+				632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */,
+				632C3CF118FDE9A0001E8C69 /* OSMKNote.h */,
+				632C3CF218FDE9A0001E8C69 /* OSMKNote.m */,
+				632C3CED18FDE9A0001E8C69 /* OSMKComment.h */,
+				632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		632C3CFD18FDE9A0001E8C69 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				632C3CFE18FDE9A0001E8C69 /* OSMKParser.h */,
+				632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */,
+				632C3D0018FDE9A0001E8C69 /* XMLParsers */,
+				630FBAC41905DD5400C82D34 /* OSMKNSJSONSerializationParser.h */,
+				630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationParser.m */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		632C3D0018FDE9A0001E8C69 /* XMLParsers */ = {
+			isa = PBXGroup;
+			children = (
+				632C3D0518FDE9A0001E8C69 /* OSMKXMLParser.h */,
+				632C3D0618FDE9A0001E8C69 /* OSMKXMLParser.m */,
+				632C3D0118FDE9A0001E8C69 /* OSMKNSXMLParser.h */,
+				632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParser.m */,
+				632C3D0318FDE9A0001E8C69 /* OSMKTBXMLParser.h */,
+				632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParser.m */,
+			);
+			path = XMLParsers;
+			sourceTree = "<group>";
+		};
+		632C3D0718FDE9A0001E8C69 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				632C3D0A18FDE9A0001E8C69 /* OSMKStorage.h */,
+				632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */,
+				632C3D0818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.h */,
+				632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		632C3C9E18FDE815001E8C69 /* OSMKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 632C3CCB18FDE815001E8C69 /* Build configuration list for PBXNativeTarget "OSMKit" */;
+			buildPhases = (
+				F76AA410EFEF48178FB8A1D3 /* Check Pods Manifest.lock */,
+				632C3C9B18FDE815001E8C69 /* Sources */,
+				632C3C9C18FDE815001E8C69 /* Frameworks */,
+				632C3C9D18FDE815001E8C69 /* Resources */,
+				B19C28EF369E464FB0CD78AD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OSMKit;
+			productName = OSMKit;
+			productReference = 632C3C9F18FDE815001E8C69 /* OSMKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		632C3CB918FDE815001E8C69 /* OSMKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 632C3CCE18FDE815001E8C69 /* Build configuration list for PBXNativeTarget "OSMKitTests" */;
+			buildPhases = (
+				5AE6B5120C004514A2572A4C /* Check Pods Manifest.lock */,
+				632C3CB618FDE815001E8C69 /* Sources */,
+				632C3CB718FDE815001E8C69 /* Frameworks */,
+				632C3CB818FDE815001E8C69 /* Resources */,
+				83822B81243F4C19AF8DCFAD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				632C3CC018FDE815001E8C69 /* PBXTargetDependency */,
+			);
+			name = OSMKitTests;
+			productName = OSMKitTests;
+			productReference = 632C3CBA18FDE815001E8C69 /* OSMKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		632C3C9718FDE814001E8C69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OSMK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = davidchiles;
+				TargetAttributes = {
+					632C3CB918FDE815001E8C69 = {
+						TestTargetID = 632C3C9E18FDE815001E8C69;
+					};
+				};
+			};
+			buildConfigurationList = 632C3C9A18FDE814001E8C69 /* Build configuration list for PBXProject "OSMKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 632C3C9618FDE814001E8C69;
+			productRefGroup = 632C3CA018FDE815001E8C69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				632C3C9E18FDE815001E8C69 /* OSMKit */,
+				632C3CB918FDE815001E8C69 /* OSMKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		632C3C9D18FDE815001E8C69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630FBABF1905D0B200C82D34 /* user.osm in Resources */,
+				630FBAC91905E92800C82D34 /* notes.json in Resources */,
+				632C3CAD18FDE815001E8C69 /* InfoPlist.strings in Resources */,
+				630FBACC1905EB4200C82D34 /* note.json in Resources */,
+				63E0F54118FF5881002AE79F /* small_berkeley.osm in Resources */,
+				637A91AD1905F436000541BE /* notes.xml in Resources */,
+				632C3CB518FDE815001E8C69 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632C3CB818FDE815001E8C69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630FBAC01905D0B200C82D34 /* user.osm in Resources */,
+				630FBACA1905E92800C82D34 /* notes.json in Resources */,
+				632C3CD218FDE893001E8C69 /* berkeley.osm in Resources */,
+				630FBACD1905EB4200C82D34 /* note.json in Resources */,
+				63E0F54018FF5776002AE79F /* small_berkeley.osm in Resources */,
+				637A91AC1905F343000541BE /* notes.xml in Resources */,
+				632C3CC618FDE815001E8C69 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AE6B5120C004514A2572A4C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		83822B81243F4C19AF8DCFAD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B19C28EF369E464FB0CD78AD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F76AA410EFEF48178FB8A1D3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		632C3C9B18FDE815001E8C69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630FBAC61905DD5400C82D34 /* OSMKNSJSONSerializationParser.m in Sources */,
+				632C3D1718FDE9A0001E8C69 /* OSMKXMLParser.m in Sources */,
+				632C3D1818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m in Sources */,
+				632C3D1218FDE9A0001E8C69 /* OSMKUser.m in Sources */,
+				632C3D0E18FDE9A0001E8C69 /* OSMKNote.m in Sources */,
+				632C3D0C18FDE9A0001E8C69 /* OSMKComment.m in Sources */,
+				632C3D0F18FDE9A0001E8C69 /* OSMKObject.m in Sources */,
+				632C3D0D18FDE9A0001E8C69 /* OSMKNode.m in Sources */,
+				632C3D1918FDE9A0001E8C69 /* OSMKStorage.m in Sources */,
+				632C3CB318FDE815001E8C69 /* OSMKAppDelegate.m in Sources */,
+				632C3D1418FDE9A0001E8C69 /* OSMKParser.m in Sources */,
+				632C3CAF18FDE815001E8C69 /* main.mm in Sources */,
+				632C3D1318FDE9A0001E8C69 /* OSMKWay.m in Sources */,
+				632C3D1518FDE9A0001E8C69 /* OSMKNSXMLParser.m in Sources */,
+				632C3D1018FDE9A0001E8C69 /* OSMKRelation.m in Sources */,
+				632C3D1618FDE9A0001E8C69 /* OSMKTBXMLParser.m in Sources */,
+				632C3D1118FDE9A0001E8C69 /* OSMKRelationMember.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		632C3CB618FDE815001E8C69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630FBAC71905DD5400C82D34 /* OSMKNSJSONSerializationParser.m in Sources */,
+				632C3CD918FDE8A1001E8C69 /* OSMKParserDelegateTest.m in Sources */,
+				632C3CD818FDE8A1001E8C69 /* OSMKitTests.m in Sources */,
+				632C3CDA18FDE8A1001E8C69 /* OSMKStorageDelegateTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		632C3CC018FDE815001E8C69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 632C3C9E18FDE815001E8C69 /* OSMKit */;
+			targetProxy = 632C3CBF18FDE815001E8C69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		632C3CAB18FDE815001E8C69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				632C3CAC18FDE815001E8C69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		632C3CC418FDE815001E8C69 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				632C3CC518FDE815001E8C69 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		632C3CC918FDE815001E8C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		632C3CCA18FDE815001E8C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		632C3CCC18FDE815001E8C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OSMKit/OSMKit-Prefix.pch";
+				INFOPLIST_FILE = "OSMKit/OSMKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		632C3CCD18FDE815001E8C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OSMKit/OSMKit-Prefix.pch";
+				INFOPLIST_FILE = "OSMKit/OSMKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		632C3CCF18FDE815001E8C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OSMKit.app/OSMKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OSMKit/OSMKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OSMKitTests/OSMKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		632C3CD018FDE815001E8C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DBF5F5BF9834A3485DAB40F /* Pods.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OSMKit.app/OSMKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OSMKit/OSMKit-Prefix.pch";
+				INFOPLIST_FILE = "OSMKitTests/OSMKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		632C3C9A18FDE814001E8C69 /* Build configuration list for PBXProject "OSMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632C3CC918FDE815001E8C69 /* Debug */,
+				632C3CCA18FDE815001E8C69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		632C3CCB18FDE815001E8C69 /* Build configuration list for PBXNativeTarget "OSMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632C3CCC18FDE815001E8C69 /* Debug */,
+				632C3CCD18FDE815001E8C69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		632C3CCE18FDE815001E8C69 /* Build configuration list for PBXNativeTarget "OSMKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632C3CCF18FDE815001E8C69 /* Debug */,
+				632C3CD018FDE815001E8C69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 632C3C9718FDE814001E8C69 /* Project object */;
+}

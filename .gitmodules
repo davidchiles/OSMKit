@@ -1,0 +1,3 @@
+[submodule "Tests/OSMKitTests/Submodules"]
+	path = Tests/OSMKitTests/Submodules
+	url = git@github.com:travisjeffery/TRVSMonitor.git

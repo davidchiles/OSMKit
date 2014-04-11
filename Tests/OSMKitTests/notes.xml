@@ -1,0 +1,2272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server">
+<note lon="-0.3050423" lat="51.3550064">
+  <id>154977</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/154977</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/154977/reopen</reopen_url>
+  <date_created>2014-04-21 19:43:38 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-21 19:44:45 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-21 19:43:38 UTC</date>
+      <uid>2041753</uid>
+      <user>chessingtonn</user>
+      <user_url>http://www.openstreetmap.org/user/chessingtonn</user_url>
+      <action>opened</action>
+      <text>Chessington Golf Club</text>
+      <html>&lt;p&gt;Chessington Golf Club&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-21 19:44:45 UTC</date>
+      <uid>2041753</uid>
+      <user>chessingtonn</user>
+      <user_url>http://www.openstreetmap.org/user/chessingtonn</user_url>
+      <action>closed</action>
+      <text>chessington Golf Club</text>
+      <html>&lt;p&gt;chessington Golf Club&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0322723" lat="51.5095972">
+  <id>154563</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/154563</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/154563/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/154563/close</close_url>
+  <date_created>2014-04-21 10:38:24 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-21 10:38:24 UTC</date>
+      <action>opened</action>
+      <text>Weg is verlegt</text>
+      <html>&lt;p&gt;Weg is verlegt&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.4728413" lat="51.4680178">
+  <id>153884</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/153884</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/153884/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/153884/close</close_url>
+  <date_created>2014-04-20 08:23:40 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-20 08:23:40 UTC</date>
+      <action>opened</action>
+      <text>From here Westbound the Heathrow Airside Road Tunnel becomes the Southern Airside Road.</text>
+      <html>&lt;p&gt;From here Westbound the Heathrow Airside Road Tunnel becomes the Southern Airside Road.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.5620623" lat="51.6682434">
+  <id>153698</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/153698</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/153698/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/153698/close</close_url>
+  <date_created>2014-04-19 23:29:52 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-19 23:29:52 UTC</date>
+      <uid>30525</uid>
+      <user>The Maarssen Mapper</user>
+      <user_url>http://www.openstreetmap.org/user/The%20Maarssen%20Mapper</user_url>
+      <action>opened</action>
+      <text>rail track layout doesn't seem to reflect the ending of the chesham shuttle in favour of through trains to london</text>
+      <html>&lt;p&gt;rail track layout doesn't seem to reflect the ending of the chesham shuttle in favour of through trains to london&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1538032" lat="51.6167475">
+  <id>105562</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/105562</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/105562/reopen</reopen_url>
+  <date_created>2014-01-21 15:22:42 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 16:27:07 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-01-21 15:22:42 UTC</date>
+      <action>opened</action>
+      <text>Check access. Probably shouldn't be routable.</text>
+      <html>&lt;p&gt;Check access. Probably shouldn't be routable.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 16:27:07 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Fixed.</text>
+      <html>&lt;p&gt;Fixed.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1626787" lat="51.6279978">
+  <id>151627</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151627</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151627/reopen</reopen_url>
+  <date_created>2014-04-16 13:49:25 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 16:25:23 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 13:49:25 UTC</date>
+      <action>opened</action>
+      <text>Arnos Grove</text>
+      <html>&lt;p&gt;Arnos Grove&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 16:25:23 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Wrong location, sorry.</text>
+      <html>&lt;p&gt;Wrong location, sorry.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2239105" lat="51.5028473">
+  <id>153407</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/153407</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/153407/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/153407/close</close_url>
+  <date_created>2014-04-19 10:37:40 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-19 10:37:40 UTC</date>
+      <uid>19630</uid>
+      <user>Hooloovoo</user>
+      <user_url>http://www.openstreetmap.org/user/Hooloovoo</user_url>
+      <action>opened</action>
+      <text>Now Brewdog.</text>
+      <html>&lt;p&gt;Now Brewdog.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.061546" lat="51.4287183">
+  <id>102115</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/102115</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/102115/reopen</reopen_url>
+  <date_created>2014-01-15 07:03:31 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 09:38:19 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-01-15 07:03:31 UTC</date>
+      <action>opened</action>
+      <text>Beaulieu Avenue- a quiet residential estate of 60/70's style townhouses
+</text>
+      <html>&lt;p&gt;Beaulieu Avenue- a quiet residential estate of 60/70's style townhouses
+&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 09:38:19 UTC</date>
+      <uid>113518</uid>
+      <user>hadw</user>
+      <user_url>http://www.openstreetmap.org/user/hadw</user_url>
+      <action>closed</action>
+      <text>Feature already present.</text>
+      <html>&lt;p&gt;Feature already present.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2262497" lat="51.5077408">
+  <id>110670</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/110670</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/110670/reopen</reopen_url>
+  <date_created>2014-01-31 17:09:24 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 02:03:16 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-01-31 17:09:24 UTC</date>
+      <action>opened</action>
+      <text>Visite BBC</text>
+      <html>&lt;p&gt;Visite BBC&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 02:03:17 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Closed as the BBC has generally vacated the site.</text>
+      <html>&lt;p&gt;Closed as the BBC has generally vacated the site.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0963664" lat="51.4931143">
+  <id>153279</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/153279</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/153279/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/153279/close</close_url>
+  <date_created>2014-04-19 01:59:32 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-19 01:59:32 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>opened</action>
+      <text>General note: Major development in progress in this area. Please survey and update regularly.</text>
+      <html>&lt;p&gt;General note: Major development in progress in this area. Please survey and update regularly.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0959802" lat="51.4901349">
+  <id>120667</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/120667</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/120667/reopen</reopen_url>
+  <date_created>2014-02-18 13:49:55 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:54:16 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-02-18 13:49:55 UTC</date>
+      <action>opened</action>
+      <text>the nick</text>
+      <html>&lt;p&gt;the nick&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:54:16 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Closed for being too unclear. No police station found, either.</text>
+      <html>&lt;p&gt;Closed for being too unclear. No police station found, either.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0991988" lat="51.491658">
+  <id>120666</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/120666</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/120666/reopen</reopen_url>
+  <date_created>2014-02-18 13:48:43 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:53:40 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-02-18 13:48:43 UTC</date>
+      <action>opened</action>
+      <text>the nick</text>
+      <html>&lt;p&gt;the nick&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:53:40 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Closed for being too unclear.</text>
+      <html>&lt;p&gt;Closed for being too unclear.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1259083" lat="51.5169919">
+  <id>14720</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/14720</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/14720/reopen</reopen_url>
+  <date_created>2013-07-19 11:35:08 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:51:43 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2013-07-19 11:35:08 UTC</date>
+      <action>opened</action>
+      <text>Central line, Eastbound under Westbound tube tunnel.</text>
+      <html>&lt;p&gt;Central line, Eastbound under Westbound tube tunnel.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2013-11-03 03:59:12 UTC</date>
+      <action>commented</action>
+      <text>well just walking around</text>
+      <html>&lt;p&gt;well just walking around&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:51:43 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Wrong location. That scenario is roughly between Holborn and Bank.</text>
+      <html>&lt;p&gt;Wrong location. That scenario is roughly between Holborn and Bank.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1278663" lat="51.5176762">
+  <id>101732</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/101732</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/101732/reopen</reopen_url>
+  <date_created>2014-01-14 20:02:11 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:50:32 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-01-14 20:02:11 UTC</date>
+      <uid>1883229</uid>
+      <user>navahoe</user>
+      <user_url>http://www.openstreetmap.org/user/navahoe</user_url>
+      <action>opened</action>
+      <text>This is a trafic ticket blackspot. If you're heading East on Great Russel Street DON'T turn right onto Bloomsbury Street -- the cameras will catch you!</text>
+      <html>&lt;p&gt;This is a trafic ticket blackspot. If you're heading East on Great Russel Street DON'T turn right onto Bloomsbury Street -- the cameras will catch you!&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:50:32 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>OSM already has that sorted. I've gone ahead and added a camera to the junction.</text>
+      <html>&lt;p&gt;OSM already has that sorted. I've gone ahead and added a camera to the junction.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.14198" lat="51.515276">
+  <id>112113</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/112113</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/112113/reopen</reopen_url>
+  <date_created>2014-02-02 23:58:47 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:45:47 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-02-02 23:58:47 UTC</date>
+      <action>opened</action>
+      <text>Moved from OSB ID679394:
+ There is an incorrect turning restriction here. It is possible to go striaght on on Oxford St. [Emil (Citymapper), 2012-09-23 12:22:37 CEST]</text>
+      <html>&lt;p&gt;Moved from OSB ID679394:
+&lt;br /&gt; There is an incorrect turning restriction here. It is possible to go striaght on on Oxford St. [Emil (Citymapper), 2012-09-23 12:22:37 CEST]&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:45:47 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>This has been long addressed: only some types of vehicles can go straight when I last checked.</text>
+      <html>&lt;p&gt;This has been long addressed: only some types of vehicles can go straight when I last checked.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1777688" lat="51.4891663">
+  <id>96746</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/96746</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/96746/reopen</reopen_url>
+  <date_created>2014-01-06 03:13:21 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-19 01:44:05 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-01-06 03:13:21 UTC</date>
+      <action>opened</action>
+      <text>15</text>
+      <html>&lt;p&gt;15&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-19 01:44:05 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>closed</action>
+      <text>Closed for being too unclear.</text>
+      <html>&lt;p&gt;Closed for being too unclear.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.3202772" lat="51.5209741">
+  <id>84876</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/84876</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/84876/reopen</reopen_url>
+  <date_created>2013-12-11 09:50:43 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-18 15:04:02 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2013-12-11 09:50:43 UTC</date>
+      <action>opened</action>
+      <text>Location of Gardens</text>
+      <html>&lt;p&gt;Location of Gardens&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2013-12-22 12:20:27 UTC</date>
+      <uid>113518</uid>
+      <user>hadw</user>
+      <user_url>http://www.openstreetmap.org/user/hadw</user_url>
+      <action>commented</action>
+      <text>Please explain in more detail.  As far as I can see, from the Bing imagery, this area is just housing.</text>
+      <html>&lt;p&gt;Please explain in more detail.  As far as I can see, from the Bing imagery, this area is just housing.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-18 15:04:02 UTC</date>
+      <uid>113518</uid>
+      <user>hadw</user>
+      <user_url>http://www.openstreetmap.org/user/hadw</user_url>
+      <action>closed</action>
+      <text>No explanation.  Closing as probable personal mapping.</text>
+      <html>&lt;p&gt;No explanation.  Closing as probable personal mapping.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.05027" lat="51.5661684">
+  <id>62695</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/62695</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/62695/reopen</reopen_url>
+  <date_created>2013-10-24 18:36:34 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-17 18:28:56 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2013-10-24 18:36:34 UTC</date>
+      <action>opened</action>
+      <text>This bridge has been permanently closed and isn't a valid path.</text>
+      <html>&lt;p&gt;This bridge has been permanently closed and isn't a valid path.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-01-09 08:06:08 UTC</date>
+      <uid>1874789</uid>
+      <user>dylan_</user>
+      <user_url>http://www.openstreetmap.org/user/dylan_</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-01-11 11:54:13 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-17 18:28:56 UTC</date>
+      <uid>327499</uid>
+      <user>Skyguy</user>
+      <user_url>http://www.openstreetmap.org/user/Skyguy</user_url>
+      <action>closed</action>
+      <text>Surveyed &amp; corrected</text>
+      <html>&lt;p&gt;Surveyed &amp;amp; corrected&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.032208" lat="51.5656132">
+  <id>62699</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/62699</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/62699/reopen</reopen_url>
+  <date_created>2013-10-24 18:43:06 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-17 18:27:33 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2013-10-24 18:43:06 UTC</date>
+      <action>opened</action>
+      <text>Missing alternate foot path that parallels the park border to Blake hall Road.</text>
+      <html>&lt;p&gt;Missing alternate foot path that parallels the park border to Blake hall Road.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-01-09 08:05:50 UTC</date>
+      <uid>1874789</uid>
+      <user>dylan_</user>
+      <user_url>http://www.openstreetmap.org/user/dylan_</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-01-11 11:53:40 UTC</date>
+      <uid>1016290</uid>
+      <user>Amaroussi</user>
+      <user_url>http://www.openstreetmap.org/user/Amaroussi</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-17 18:27:33 UTC</date>
+      <uid>327499</uid>
+      <user>Skyguy</user>
+      <user_url>http://www.openstreetmap.org/user/Skyguy</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2998066" lat="51.3907441">
+  <id>152200</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/152200</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/152200/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/152200/close</close_url>
+  <date_created>2014-04-17 16:10:15 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-17 16:10:15 UTC</date>
+      <action>opened</action>
+      <text>Surbiton Hospital now closed and demolished.Replaced by 1. Surbiton Health Centre clinic (eastern half of site) and 2. Lime tree Primary school (western half of site)</text>
+      <html>&lt;p&gt;Surbiton Hospital now closed and demolished.Replaced by 1. Surbiton Health Centre clinic (eastern half of site) and 2. Lime tree Primary school (western half of site)&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.3059703" lat="51.4094391">
+  <id>151555</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151555</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151555/reopen</reopen_url>
+  <date_created>2014-04-16 10:03:02 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-17 09:15:37 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 10:03:02 UTC</date>
+      <action>opened</action>
+      <text>ciao
+</text>
+      <html>&lt;p&gt;ciao
+&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 10:07:26 UTC</date>
+      <action>commented</action>
+      <text>Bye.</text>
+      <html>&lt;p&gt;Bye.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-17 09:15:37 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1922661" lat="51.4914543">
+  <id>151859</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151859</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151859/reopen</reopen_url>
+  <date_created>2014-04-16 19:36:19 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:17:35 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:36:19 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>M&amp;S Simply Food - Again, not a restaraunt or pub, but Marks and Spencers is a very famous supermarket chain started by Jewish immigrants.</text>
+      <html>&lt;p&gt;M&amp;amp;S Simply Food - Again, not a restaraunt or pub, but Marks and Spencers is a very famous supermarket chain started by Jewish immigrants.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:17:35 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>the store is already in OSM data, this is spam</text>
+      <html>&lt;p&gt;the store is already in OSM data, this is spam&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1909626" lat="51.489036">
+  <id>151834</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151834</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151834/reopen</reopen_url>
+  <date_created>2014-04-16 19:21:03 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:16:59 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:21:03 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>La Pappardella - Italian restaraunt where my best Italian friend works (a London native)</text>
+      <html>&lt;p&gt;La Pappardella - Italian restaraunt where my best Italian friend works (a London native)&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:16:59 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>This is already in OSM data. This note is spam</text>
+      <html>&lt;p&gt;This is already in OSM data. This note is spam&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1915044" lat="51.4888523">
+  <id>151831</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151831</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151831/reopen</reopen_url>
+  <date_created>2014-04-16 19:19:12 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:16:36 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:19:12 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>The Pembroke - traditionally gay English bar</text>
+      <html>&lt;p&gt;The Pembroke - traditionally gay English bar&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:16:36 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>The pub is already in OSM data. Please stop spamming OSM with these notes</text>
+      <html>&lt;p&gt;The pub is already in OSM data. Please stop spamming OSM with these notes&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.191735" lat="51.4887655">
+  <id>151833</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151833</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151833/reopen</reopen_url>
+  <date_created>2014-04-16 19:19:52 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:15:47 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:19:52 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>The Troubador - English pub with many musical acts</text>
+      <html>&lt;p&gt;The Troubador - English pub with many musical acts&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:15:47 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>The pub is already in the map data, so why are you creating a note? </text>
+      <html>&lt;p&gt;The pub is already in the map data, so why are you creating a note? &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1905441" lat="51.4897575">
+  <id>151856</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151856</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151856/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151856/close</close_url>
+  <date_created>2014-04-16 19:32:02 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:32:02 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>Convenience Star - While not a restaraunt or pub, I felt it should be included; the lady who owns this convenience store is Indian and a genuinely nice person.</text>
+      <html>&lt;p&gt;Convenience Star - While not a restaraunt or pub, I felt it should be included; the lady who owns this convenience store is Indian and a genuinely nice person.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:14:14 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>commented</action>
+      <text>Are you abusing Notes as a set of markers for another site? I'm leaving this note as it may point to a needed improvement.</text>
+      <html>&lt;p&gt;Are you abusing Notes as a set of markers for another site? I'm leaving this note as it may point to a needed improvement.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1905441" lat="51.4895137">
+  <id>151837</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151837</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151837/reopen</reopen_url>
+  <date_created>2014-04-16 19:22:00 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:10:12 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:22:00 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>O'Neils - Irish pub; O'Neils is a large chain</text>
+      <html>&lt;p&gt;O'Neils - Irish pub; O'Neils is a large chain&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 19:29:31 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 19:29:41 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 19:34:29 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>commented</action>
+      <text>The bartender's name is Ramsey, an Irishman and a tremendous fellow.</text>
+      <html>&lt;p&gt;The bartender's name is Ramsey, an Irishman and a tremendous fellow.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 19:35:27 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 19:35:30 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:10:12 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>Please stop this junk use of Notes.</text>
+      <html>&lt;p&gt;Please stop this junk use of Notes.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1905629" lat="51.489188">
+  <id>151840</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151840</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151840/reopen</reopen_url>
+  <date_created>2014-04-16 19:23:13 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:09:38 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:23:13 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>Dall Artista - Italian restaraunt owned by an Italian man named Salvo - very interesting man who has a portrait of himself with Robert DeNiro and Al Pacino; only a drawing but still interesting.</text>
+      <html>&lt;p&gt;Dall Artista - Italian restaraunt owned by an Italian man named Salvo - very interesting man who has a portrait of himself with Robert DeNiro and Al Pacino; only a drawing but still interesting.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:09:38 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>Why are you flagging up a restaurant that is already in the map data? Notes are for improving the map.</text>
+      <html>&lt;p&gt;Why are you flagging up a restaurant that is already in the map data? Notes are for improving the map.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1939291" lat="51.4925498">
+  <id>151852</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151852</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151852/reopen</reopen_url>
+  <date_created>2014-04-16 19:27:46 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:08:34 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:27:46 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>Nando's - While not the exact Nando's I am familiar with, all Nando's are remarkably international restaraunts; I have frequented Nando's parties where all the staff hang around until around 3 in the morning just conversing and in general having a good time.</text>
+      <html>&lt;p&gt;Nando's - While not the exact Nando's I am familiar with, all Nando's are remarkably international restaraunts; I have frequented Nando's parties where all the staff hang around until around 3 in the morning just conversing and in general having a good time.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:08:34 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>What has this to do with improving OSM's map data, which is what Notes are for?</text>
+      <html>&lt;p&gt;What has this to do with improving OSM's map data, which is what Notes are for?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1928374" lat="51.4920037">
+  <id>151853</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151853</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151853/reopen</reopen_url>
+  <date_created>2014-04-16 19:29:13 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-16 21:07:36 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:29:13 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>Burger King - This Burger King has a young French lady who works behind the counter; I have yet to identify the nationalities of the rest of the staff.</text>
+      <html>&lt;p&gt;Burger King - This Burger King has a young French lady who works behind the counter; I have yet to identify the nationalities of the rest of the staff.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-16 21:07:36 UTC</date>
+      <uid>12355</uid>
+      <user>chillly</user>
+      <user_url>http://www.openstreetmap.org/user/chillly</user_url>
+      <action>closed</action>
+      <text>What is this twaddle about?</text>
+      <html>&lt;p&gt;What is this twaddle about?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1907185" lat="51.4891178">
+  <id>151858</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151858</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151858/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151858/close</close_url>
+  <date_created>2014-04-16 19:33:46 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:33:46 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>The Brownie Box - It is indeed the Brownie Box, not the Brownie Bar. My best Italian friend primarily works here. The place is owned by Sicilians and the man who works here is South African. This is a remarkably diverse establishment and is not part of a chain.</text>
+      <html>&lt;p&gt;The Brownie Box - It is indeed the Brownie Box, not the Brownie Bar. My best Italian friend primarily works here. The place is owned by Sicilians and the man who works here is South African. This is a remarkably diverse establishment and is not part of a chain.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1905817" lat="51.489831">
+  <id>151848</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151848</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151848/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151848/close</close_url>
+  <date_created>2014-04-16 19:25:59 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:25:59 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>Kings - Kings is a Mediterranean place that serves Mediterranean food 23/7. They close from 8-9 every morning. There are two guys who run the place - one is Syrian and one is Egyptian.</text>
+      <html>&lt;p&gt;Kings - Kings is a Mediterranean place that serves Mediterranean food 23/7. They close from 8-9 every morning. There are two guys who run the place - one is Syrian and one is Egyptian.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1910162" lat="51.4902034">
+  <id>151843</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151843</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151843/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151843/close</close_url>
+  <date_created>2014-04-16 19:23:52 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 19:23:52 UTC</date>
+      <uid>2035100</uid>
+      <user>Mr Vader</user>
+      <user_url>http://www.openstreetmap.org/user/Mr%20Vader</user_url>
+      <action>opened</action>
+      <text>New French Place - I have not been as it is too expensive but this is a new French place.</text>
+      <html>&lt;p&gt;New French Place - I have not been as it is too expensive but this is a new French place.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0081083" lat="51.5366662">
+  <id>151709</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151709</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151709/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151709/close</close_url>
+  <date_created>2014-04-16 16:30:45 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 16:30:45 UTC</date>
+      <action>opened</action>
+      <text>Unadopted access road here - Lime Walk.</text>
+      <html>&lt;p&gt;Unadopted access road here - Lime Walk.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2105427" lat="51.4133002">
+  <id>151568</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151568</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151568/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151568/close</close_url>
+  <date_created>2014-04-16 11:02:50 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-16 11:02:50 UTC</date>
+      <action>opened</action>
+      <text>dfhrasdkjflakdflk</text>
+      <html>&lt;p&gt;dfhrasdkjflakdflk&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0582147" lat="51.5885663">
+  <id>151067</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151067</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151067/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151067/close</close_url>
+  <date_created>2014-04-15 13:36:32 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-15 13:36:32 UTC</date>
+      <action>opened</action>
+      <text>http://www.minutes.haringey.gov.uk/Published/C00000728/M00005960/AI00031198/$20121687PCReport.doc.pdf#page=4
+
+Kidney Care Centre? (dialysis)</text>
+      <html>&lt;p&gt;&lt;a href="http://www.minutes.haringey.gov.uk/Published/C00000728/M00005960/AI00031198/$20121687PCReport.doc.pdf#page=4" rel="nofollow"&gt;http://www.minutes.haringey.gov.uk/Published/C00000728/M00005960/AI00031198/$20121687PCReport.doc.pdf#page=4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Kidney Care Centre? (dialysis)&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0836313" lat="51.5175493">
+  <id>151012</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151012</url>
+  <reopen_url>http://api.openstreetmap.org/api/0.6/notes/151012/reopen</reopen_url>
+  <date_created>2014-04-15 11:23:03 UTC</date_created>
+  <status>closed</status>
+  <date_closed>2014-04-15 11:25:38 UTC</date_closed>
+  <comments>
+    <comment>
+      <date>2014-04-15 11:23:03 UTC</date>
+      <action>opened</action>
+      <text>liverpool street station</text>
+      <html>&lt;p&gt;liverpool street station&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-15 11:25:38 UTC</date>
+      <uid>37137</uid>
+      <user>Derick Rethans</user>
+      <user_url>http://www.openstreetmap.org/user/Derick%20Rethans</user_url>
+      <action>closed</action>
+      <text>LST is already well mapped.</text>
+      <html>&lt;p&gt;LST is already well mapped.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.5993128" lat="51.4555579">
+  <id>151001</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/151001</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/151001/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/151001/close</close_url>
+  <date_created>2014-04-15 10:29:54 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-15 10:29:54 UTC</date>
+      <action>opened</action>
+      <text>gtrtt</text>
+      <html>&lt;p&gt;gtrtt&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.3349757" lat="51.4710253">
+  <id>150392</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/150392</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/150392/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/150392/close</close_url>
+  <date_created>2014-04-14 10:53:28 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-14 10:53:28 UTC</date>
+      <action>opened</action>
+      <text>Spelling error on river name</text>
+      <html>&lt;p&gt;Spelling error on river name&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1261497" lat="51.514832">
+  <id>150238</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/150238</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/150238/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/150238/close</close_url>
+  <date_created>2014-04-13 22:29:43 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-13 22:29:43 UTC</date>
+      <uid>2030787</uid>
+      <user>ebird</user>
+      <user_url>http://www.openstreetmap.org/user/ebird</user_url>
+      <action>opened</action>
+      <text>London Hair &amp; Beauty Institsute</text>
+      <html>&lt;p&gt;London Hair &amp;amp; Beauty Institsute&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-13 22:29:51 UTC</date>
+      <uid>2030787</uid>
+      <user>ebird</user>
+      <user_url>http://www.openstreetmap.org/user/ebird</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-13 22:29:56 UTC</date>
+      <uid>2030787</uid>
+      <user>ebird</user>
+      <user_url>http://www.openstreetmap.org/user/ebird</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1756901" lat="51.5148353">
+  <id>147689</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/147689</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/147689/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/147689/close</close_url>
+  <date_created>2014-04-09 10:31:38 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-09 10:31:38 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>Check whether Gyngleboy is pub or bar. Says bar on outside, superficially looks like a pub.</text>
+      <html>&lt;p&gt;Check whether Gyngleboy is pub or bar. Says bar on outside, superficially looks like a pub.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-10 11:42:58 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>commented</action>
+      <text>still looks more like a pub inside; forgot to check whether it serves real ale</text>
+      <html>&lt;p&gt;still looks more like a pub inside; forgot to check whether it serves real ale&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1722944" lat="51.5126587">
+  <id>145685</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/145685</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/145685/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/145685/close</close_url>
+  <date_created>2014-04-05 16:39:39 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-05 16:39:39 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>According to street signs #24 is here. Entrance to #23 is on Hyde Park Gardens, and there is another entrance to this building from Brook Street</text>
+      <html>&lt;p&gt;According to street signs #24 is here. Entrance to #23 is on Hyde Park Gardens, and there is another entrance to this building from Brook Street&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-10 11:42:22 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>commented</action>
+      <text>Brook Street entrance is definitely #24</text>
+      <html>&lt;p&gt;Brook Street entrance is definitely #24&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0568253" lat="51.6065339">
+  <id>148185</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/148185</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/148185/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/148185/close</close_url>
+  <date_created>2014-04-10 09:22:58 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-10 09:22:58 UTC</date>
+      <action>opened</action>
+      <text>Compass West Industrial Estate </text>
+      <html>&lt;p&gt;Compass West Industrial Estate &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1781845" lat="51.5167348">
+  <id>147713</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/147713</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/147713/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/147713/close</close_url>
+  <date_created>2014-04-09 12:20:58 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-09 12:20:58 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>Are these loos still open given there are new step free access ones on Platform 12 now.</text>
+      <html>&lt;p&gt;Are these loos still open given there are new step free access ones on Platform 12 now.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1066232" lat="51.4966369">
+  <id>146694</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/146694</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/146694/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/146694/close</close_url>
+  <date_created>2014-04-07 13:10:27 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-07 13:10:27 UTC</date>
+      <action>opened</action>
+      <text>good place for bacon milkshakes</text>
+      <html>&lt;p&gt;good place for bacon milkshakes&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-07 17:49:09 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>What's that? What's its name?</text>
+      <html>&lt;p&gt;What's that? What's its name?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0189364" lat="51.5036973">
+  <id>146428</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/146428</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/146428/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/146428/close</close_url>
+  <date_created>2014-04-06 20:42:53 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-06 20:42:53 UTC</date>
+      <action>opened</action>
+      <text>Bulk of tree planting here is Dawn Redwood (Metasequioa glytostroboides) - survey,
+
+Hedgerow facing Citigroup building is Beech
+
+More on original scheme at http://www.willerby-landscapes.co.uk/jubilee-park-canary-wharf.html</text>
+      <html>&lt;p&gt;Bulk of tree planting here is Dawn Redwood (Metasequioa glytostroboides) - survey,&lt;/p&gt;
+
+&lt;p&gt;Hedgerow facing Citigroup building is Beech&lt;/p&gt;
+
+&lt;p&gt;More on original scheme at &lt;a href="http://www.willerby-landscapes.co.uk/jubilee-park-canary-wharf.html" rel="nofollow"&gt;http://www.willerby-landscapes.co.uk/jubilee-park-canary-wharf.html&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2858484" lat="51.5533335">
+  <id>145084</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/145084</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/145084/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/145084/close</close_url>
+  <date_created>2014-04-04 13:18:43 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-04 13:18:43 UTC</date>
+      <action>opened</action>
+      <text>toilet</text>
+      <html>&lt;p&gt;toilet&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-04 13:22:06 UTC</date>
+      <uid>12992</uid>
+      <user>trigpoint</user>
+      <user_url>http://www.openstreetmap.org/user/trigpoint</user_url>
+      <action>commented</action>
+      <text>This one, is again mapped, although possibly in the wrong place. It is shown between the pavement and road.</text>
+      <html>&lt;p&gt;This one, is again mapped, although possibly in the wrong place. It is shown between the pavement and road.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2476752" lat="51.5366795">
+  <id>145086</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/145086</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/145086/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/145086/close</close_url>
+  <date_created>2014-04-04 13:21:42 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-04 13:21:42 UTC</date>
+      <action>opened</action>
+      <text>toilet</text>
+      <html>&lt;p&gt;toilet&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2971995" lat="51.553587">
+  <id>145082</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/145082</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/145082/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/145082/close</close_url>
+  <date_created>2014-04-04 13:15:50 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-04 13:15:50 UTC</date>
+      <action>opened</action>
+      <text>toilet</text>
+      <html>&lt;p&gt;toilet&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2862668" lat="51.5560485">
+  <id>145080</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/145080</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/145080/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/145080/close</close_url>
+  <date_created>2014-04-04 13:14:58 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-04 13:14:58 UTC</date>
+      <action>opened</action>
+      <text>Toilet</text>
+      <html>&lt;p&gt;Toilet&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1748452" lat="51.5136118">
+  <id>144407</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/144407</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/144407/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/144407/close</close_url>
+  <date_created>2014-04-03 07:59:23 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-03 07:59:23 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>Housenumbers dont quite match up here (surveyed both from E &amp; W): suspect it is because terraced buildings are slightly too big. Needs a quick check if anyone is in the area.</text>
+      <html>&lt;p&gt;Housenumbers dont quite match up here (surveyed both from E &amp;amp; W): suspect it is because terraced buildings are slightly too big. Needs a quick check if anyone is in the area.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2917278" lat="51.4089355">
+  <id>144105</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/144105</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/144105/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/144105/close</close_url>
+  <date_created>2014-04-02 15:30:19 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-02 15:30:19 UTC</date>
+      <uid>2013908</uid>
+      <user>DirectTraveller</user>
+      <user_url>http://www.openstreetmap.org/user/DirectTraveller</user_url>
+      <action>opened</action>
+      <text>Direct Traveller (Travel Agent)</text>
+      <html>&lt;p&gt;Direct Traveller (Travel Agent)&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-02 15:30:40 UTC</date>
+      <uid>2013908</uid>
+      <user>DirectTraveller</user>
+      <user_url>http://www.openstreetmap.org/user/DirectTraveller</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-04-02 15:31:08 UTC</date>
+      <uid>2013908</uid>
+      <user>DirectTraveller</user>
+      <user_url>http://www.openstreetmap.org/user/DirectTraveller</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1418352" lat="51.4977432">
+  <id>144046</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/144046</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/144046/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/144046/close</close_url>
+  <date_created>2014-04-02 13:15:47 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-04-02 13:15:47 UTC</date>
+      <action>opened</action>
+      <text>High Speed Two (HS2) Limited</text>
+      <html>&lt;p&gt;High Speed Two (HS2) Limited&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.116601" lat="51.4730101">
+  <id>143094</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/143094</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/143094/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/143094/close</close_url>
+  <date_created>2014-03-31 16:07:56 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-31 16:07:56 UTC</date>
+      <action>opened</action>
+      <text>50 Groveway</text>
+      <html>&lt;p&gt;50 Groveway&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-31 19:15:09 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>Is 50 the house number? Is that just an house?</text>
+      <html>&lt;p&gt;Is 50 the house number? Is that just an house?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1091766" lat="51.5039076">
+  <id>142739</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/142739</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/142739/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/142739/close</close_url>
+  <date_created>2014-03-31 08:38:45 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-31 08:38:45 UTC</date>
+      <action>opened</action>
+      <text>waterloo</text>
+      <html>&lt;p&gt;waterloo&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-31 10:45:46 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>Where's the problem?</text>
+      <html>&lt;p&gt;Where's the problem?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.122931" lat="51.485866">
+  <id>142740</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/142740</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/142740/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/142740/close</close_url>
+  <date_created>2014-03-31 08:39:11 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-31 08:39:11 UTC</date>
+      <action>opened</action>
+      <text>vauxhall</text>
+      <html>&lt;p&gt;vauxhall&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-31 10:44:46 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>I don't get it; where's the problem?</text>
+      <html>&lt;p&gt;I don't get it; where's the problem?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0768721" lat="51.4543178">
+  <id>140932</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/140932</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/140932/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/140932/close</close_url>
+  <date_created>2014-03-27 18:03:33 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-27 18:03:33 UTC</date>
+      <uid>12624</uid>
+      <user>andrewblack</user>
+      <user_url>http://www.openstreetmap.org/user/andrewblack</user_url>
+      <action>opened</action>
+      <text>Not a cafe any more</text>
+      <html>&lt;p&gt;Not a cafe any more&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-28 12:59:36 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>What's it now?</text>
+      <html>&lt;p&gt;What's it now?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.200538" lat="51.5468088">
+  <id>113130</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/113130</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/113130/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/113130/close</close_url>
+  <date_created>2014-02-04 19:03:31 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-02-04 19:03:31 UTC</date>
+      <action>opened</action>
+      <text>STUDIO</text>
+      <html>&lt;p&gt;STUDIO&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-28 12:55:16 UTC</date>
+      <uid>37137</uid>
+      <user>Derick Rethans</user>
+      <user_url>http://www.openstreetmap.org/user/Derick%20Rethans</user_url>
+      <action>commented</action>
+      <text>What do you mean by this?</text>
+      <html>&lt;p&gt;What do you mean by this?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0806996" lat="51.4621476">
+  <id>140608</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/140608</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/140608/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/140608/close</close_url>
+  <date_created>2014-03-27 00:10:43 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-27 00:10:43 UTC</date>
+      <uid>61942</uid>
+      <user>SomeoneElse</user>
+      <user_url>http://www.openstreetmap.org/user/SomeoneElse</user_url>
+      <action>opened</action>
+      <text>Would this "southbound oneway primary road" be perhaps better described as a cycleway?  Should it join Quorn Road, or does it go underneath it?</text>
+      <html>&lt;p&gt;Would this "southbound oneway primary road" be perhaps better described as a cycleway?  Should it join Quorn Road, or does it go underneath it?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.1375705" lat="51.5400095">
+  <id>140081</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/140081</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/140081/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/140081/close</close_url>
+  <date_created>2014-03-25 23:47:11 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 23:47:11 UTC</date>
+      <uid>2002378</uid>
+      <user>Nutta100</user>
+      <user_url>http://www.openstreetmap.org/user/Nutta100</user_url>
+      <action>opened</action>
+      <text>This is a continuation of Hatfield Road until the corner where the footpath commences, THEN it becomes Coleman Road.</text>
+      <html>&lt;p&gt;This is a continuation of Hatfield Road until the corner where the footpath commences, THEN it becomes Coleman Road.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0535476" lat="51.470641">
+  <id>139921</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139921</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139921/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139921/close</close_url>
+  <date_created>2014-03-25 19:46:44 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:46:44 UTC</date>
+      <action>opened</action>
+      <text>Panbro House</text>
+      <html>&lt;p&gt;Panbro House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.051949" lat="51.470915">
+  <id>139920</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139920</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139920/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139920/close</close_url>
+  <date_created>2014-03-25 19:46:36 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:46:36 UTC</date>
+      <action>opened</action>
+      <text>Sidney House</text>
+      <html>&lt;p&gt;Sidney House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0523299" lat="51.4708381">
+  <id>139919</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139919</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139919/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139919/close</close_url>
+  <date_created>2014-03-25 19:46:10 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:46:10 UTC</date>
+      <action>opened</action>
+      <text>Robertson House</text>
+      <html>&lt;p&gt;Robertson House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0527537" lat="51.470788">
+  <id>139918</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139918</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139918/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139918/close</close_url>
+  <date_created>2014-03-25 19:45:56 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:45:56 UTC</date>
+      <action>opened</action>
+      <text>Mennie House</text>
+      <html>&lt;p&gt;Mennie House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0531453" lat="51.4707145">
+  <id>139917</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139917</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139917/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139917/close</close_url>
+  <date_created>2014-03-25 19:45:40 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:45:40 UTC</date>
+      <action>opened</action>
+      <text>Godwin House</text>
+      <html>&lt;p&gt;Godwin House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0515574" lat="51.4710119">
+  <id>139916</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139916</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139916/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139916/close</close_url>
+  <date_created>2014-03-25 19:45:16 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:45:16 UTC</date>
+      <action>opened</action>
+      <text>Florence House</text>
+      <html>&lt;p&gt;Florence House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0539607" lat="51.4705742">
+  <id>139915</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139915</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139915/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139915/close</close_url>
+  <date_created>2014-03-25 19:44:38 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 19:44:38 UTC</date>
+      <action>opened</action>
+      <text>Sutherland House</text>
+      <html>&lt;p&gt;Sutherland House&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.123752" lat="51.47378">
+  <id>110035</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/110035</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/110035/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/110035/close</close_url>
+  <date_created>2014-01-30 14:34:15 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-01-30 14:34:15 UTC</date>
+      <action>opened</action>
+      <text>Moved from OSB ID513005:
+ As mapped, there is a way into this building but no way out! [Ed%20Avis, 2009-10-13 10:33:48 CEST]</text>
+      <html>&lt;p&gt;Moved from OSB ID513005:
+&lt;br /&gt; As mapped, there is a way into this building but no way out! [Ed%20Avis, 2009-10-13 10:33:48 CEST]&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-25 18:53:20 UTC</date>
+      <uid>972068</uid>
+      <user>admacedo</user>
+      <user_url>http://www.openstreetmap.org/user/admacedo</user_url>
+      <action>closed</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-25 18:53:38 UTC</date>
+      <uid>972068</uid>
+      <user>admacedo</user>
+      <user_url>http://www.openstreetmap.org/user/admacedo</user_url>
+      <action>reopened</action>
+      <text></text>
+      <html>&lt;p&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.3661403" lat="51.433016">
+  <id>139723</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139723</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139723/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139723/close</close_url>
+  <date_created>2014-03-25 10:40:13 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 10:40:13 UTC</date>
+      <action>opened</action>
+      <text>Me</text>
+      <html>&lt;p&gt;Me&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2416134" lat="51.489841">
+  <id>139666</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139666</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139666/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139666/close</close_url>
+  <date_created>2014-03-25 08:06:24 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 08:06:24 UTC</date>
+      <action>opened</action>
+      <text>Camera 22</text>
+      <html>&lt;p&gt;Camera 22&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2397895" lat="51.4899145">
+  <id>139665</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139665</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139665/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139665/close</close_url>
+  <date_created>2014-03-25 08:05:13 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-25 08:05:13 UTC</date>
+      <action>opened</action>
+      <text>Camera 22</text>
+      <html>&lt;p&gt;Camera 22&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.31811" lat="51.5782563">
+  <id>139216</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139216</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139216/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139216/close</close_url>
+  <date_created>2014-03-24 12:46:26 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-24 12:46:26 UTC</date>
+      <uid>113518</uid>
+      <user>hadw</user>
+      <user_url>http://www.openstreetmap.org/user/hadw</user_url>
+      <action>opened</action>
+      <text>Both OS and Bing currently agree on the location of Northwick Park Station, to about 1m, which puts these lines too far South.
+
+I'll try and get a long average GPS position to do fine calibration on Bing, but at the moment, I'm expecting to have to move these tracks about 6m North.
+
+At the moment, they are already overlapping the Northwick Park boundaries, even before I improved them.</text>
+      <html>&lt;p&gt;Both OS and Bing currently agree on the location of Northwick Park Station, to about 1m, which puts these lines too far South.&lt;/p&gt;
+
+&lt;p&gt;I'll try and get a long average GPS position to do fine calibration on Bing, but at the moment, I'm expecting to have to move these tracks about 6m North.&lt;/p&gt;
+
+&lt;p&gt;At the moment, they are already overlapping the Northwick Park boundaries, even before I improved them.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1365942" lat="51.5249611">
+  <id>139195</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/139195</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/139195/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/139195/close</close_url>
+  <date_created>2014-03-24 11:59:31 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-24 11:59:31 UTC</date>
+      <uid>1999914</uid>
+      <user>Leolee</user>
+      <user_url>http://www.openstreetmap.org/user/Leolee</user_url>
+      <action>opened</action>
+      <text>South Camden Centre for Health
+146-162 Drummond Street
+Camden
+London, NW1 2PL
+TEL: 020 7685 6000</text>
+      <html>&lt;p&gt;South Camden Centre for Health
+&lt;br /&gt;146-162 Drummond Street
+&lt;br /&gt;Camden
+&lt;br /&gt;London, NW1 2PL
+&lt;br /&gt;TEL: 020 7685 6000&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.06212" lat="51.5246924">
+  <id>138907</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/138907</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/138907/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/138907/close</close_url>
+  <date_created>2014-03-23 18:08:53 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-23 18:08:53 UTC</date>
+      <uid>12992</uid>
+      <user>trigpoint</user>
+      <user_url>http://www.openstreetmap.org/user/trigpoint</user_url>
+      <action>opened</action>
+      <text>Should this be Maple Street?</text>
+      <html>&lt;p&gt;Should this be Maple Street?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1391798" lat="51.5232539">
+  <id>138233</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/138233</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/138233/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/138233/close</close_url>
+  <date_created>2014-03-22 11:36:48 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-22 11:36:49 UTC</date>
+      <action>opened</action>
+      <text>Warren Mews</text>
+      <html>&lt;p&gt;Warren Mews&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0886524" lat="51.5209875">
+  <id>137064</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/137064</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/137064/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/137064/close</close_url>
+  <date_created>2014-03-19 14:41:32 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-19 14:41:32 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>This area is I think part of HAC. Also HAC is currently mapped as two military areas (one covering the cricket pitch etc ?leisure=recreation_ground, the other the mess and other buildings) when it is one. The S entrance (to HAC) from FInsbury Street would be better marked as a service road. There is a gate quite close to Chiswell St. Sorry in hurry last night so didnt survey.</text>
+      <html>&lt;p&gt;This area is I think part of HAC. Also HAC is currently mapped as two military areas (one covering the cricket pitch etc ?leisure=recreation_ground, the other the mess and other buildings) when it is one. The S entrance (to HAC) from FInsbury Street would be better marked as a service road. There is a gate quite close to Chiswell St. Sorry in hurry last night so didnt survey.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0865844" lat="51.5220122">
+  <id>137061</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/137061</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/137061/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/137061/close</close_url>
+  <date_created>2014-03-19 14:35:47 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-19 14:35:47 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>Scaffolding outside, didn't seem to be a pub anymore. Needs a closer look.</text>
+      <html>&lt;p&gt;Scaffolding outside, didn't seem to be a pub anymore. Needs a closer look.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0316072" lat="51.5531534">
+  <id>136757</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/136757</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/136757/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/136757/close</close_url>
+  <date_created>2014-03-18 22:50:27 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-18 22:50:27 UTC</date>
+      <action>opened</action>
+      <text>Godwin Road</text>
+      <html>&lt;p&gt;Godwin Road&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="0.0711536" lat="51.4351764">
+  <id>136671</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/136671</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/136671/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/136671/close</close_url>
+  <date_created>2014-03-18 18:25:39 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-18 18:25:39 UTC</date>
+      <uid>1991455</uid>
+      <user>bizzbyhq</user>
+      <user_url>http://www.openstreetmap.org/user/bizzbyhq</user_url>
+      <action>opened</action>
+      <text>Maryana the cleaner</text>
+      <html>&lt;p&gt;Maryana the cleaner&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.5374825" lat="51.3267116">
+  <id>113951</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/113951</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/113951/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/113951/close</close_url>
+  <date_created>2014-02-06 12:05:43 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-02-06 12:05:43 UTC</date>
+      <action>opened</action>
+      <text>Bus stop in wrong places</text>
+      <html>&lt;p&gt;Bus stop in wrong places&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-02-06 12:17:09 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>commented</action>
+      <text>Any more info to help correct this?</text>
+      <html>&lt;p&gt;Any more info to help correct this?&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-16 14:34:01 UTC</date>
+      <uid>1900803</uid>
+      <user>SlevinKalevra</user>
+      <user_url>http://www.openstreetmap.org/user/SlevinKalevra</user_url>
+      <action>commented</action>
+      <text>Albert Drive has been changed in this area.</text>
+      <html>&lt;p&gt;Albert Drive has been changed in this area.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0867856" lat="51.5045755">
+  <id>134270</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/134270</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/134270/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/134270/close</close_url>
+  <date_created>2014-03-13 16:24:39 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-13 16:24:39 UTC</date>
+      <action>opened</action>
+      <text>Mathys &amp; Squire LLP</text>
+      <html>&lt;p&gt;Mathys &amp;amp; Squire LLP&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0497282" lat="51.5284971">
+  <id>133896</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/133896</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/133896/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/133896/close</close_url>
+  <date_created>2014-03-12 21:03:07 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-12 21:03:07 UTC</date>
+      <action>opened</action>
+      <text>this is a church!!</text>
+      <html>&lt;p&gt;this is a church!!&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-13 11:34:33 UTC</date>
+      <uid>527535</uid>
+      <user>Constable</user>
+      <user_url>http://www.openstreetmap.org/user/Constable</user_url>
+      <action>commented</action>
+      <text>Are you sure? It's already tagged as a mosque.</text>
+      <html>&lt;p&gt;Are you sure? It's already tagged as a mosque.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2082092" lat="51.6047815">
+  <id>133612</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/133612</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/133612/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/133612/close</close_url>
+  <date_created>2014-03-12 10:51:18 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-12 10:51:18 UTC</date>
+      <action>opened</action>
+      <text>This building is no longer here</text>
+      <html>&lt;p&gt;This building is no longer here&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2682772" lat="51.439853">
+  <id>133203</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/133203</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/133203/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/133203/close</close_url>
+  <date_created>2014-03-11 12:12:48 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-11 12:12:48 UTC</date>
+      <action>opened</action>
+      <text>I think the OneWay designation of this road is stopping bike routing through the north gate (adjacent to the car park). You can route north -&gt; south but south -&gt; north it gives a long diversion around the park.</text>
+      <html>&lt;p&gt;I think the OneWay designation of this road is stopping bike routing through the north gate (adjacent to the car park). You can route north -&amp;gt; south but south -&amp;gt; north it gives a long diversion around the park.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2014-03-11 12:16:23 UTC</date>
+      <action>commented</action>
+      <text>Forgot to add: this route forms part of NCN4 and the path in particular is one way for cars but 2 way for cyclists (see http://goo.gl/LB4raO)</text>
+      <html>&lt;p&gt;Forgot to add: this route forms part of NCN4 and the path in particular is one way for cars but 2 way for cyclists (see &lt;a href="http://goo.gl/LB4raO" rel="nofollow"&gt;http://goo.gl/LB4raO&lt;/a&gt;)&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.445472" lat="51.5059478">
+  <id>132061</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/132061</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/132061/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/132061/close</close_url>
+  <date_created>2014-03-09 12:21:20 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-09 12:21:20 UTC</date>
+      <uid>84681</uid>
+      <user>SK53</user>
+      <user_url>http://www.openstreetmap.org/user/SK53</user_url>
+      <action>opened</action>
+      <text>Construction work (new over bridge?)</text>
+      <html>&lt;p&gt;Construction work (new over bridge?)&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2419943" lat="51.3816349">
+  <id>130618</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130618</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130618/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130618/close</close_url>
+  <date_created>2014-03-07 08:43:09 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-07 08:43:09 UTC</date>
+      <action>opened</action>
+      <text>Worcester Park Stn is in the Royal Borough of Kingston</text>
+      <html>&lt;p&gt;Worcester Park Stn is in the Royal Borough of Kingston&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.2552605" lat="51.513283">
+  <id>130406</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130406</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130406/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130406/close</close_url>
+  <date_created>2014-03-06 19:41:00 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 19:41:00 UTC</date>
+      <action>opened</action>
+      <text>WASTE BOX</text>
+      <html>&lt;p&gt;WASTE BOX&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0954491" lat="51.5215082">
+  <id>130179</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130179</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130179/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130179/close</close_url>
+  <date_created>2014-03-06 11:20:03 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:20:03 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.1126555" lat="51.5176912">
+  <id>130177</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130177</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130177/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130177/close</close_url>
+  <date_created>2014-03-06 11:19:30 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:19:30 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0936279" lat="51.5112014">
+  <id>130176</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130176</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130176/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130176/close</close_url>
+  <date_created>2014-03-06 11:19:10 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:19:10 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0779128" lat="51.513495">
+  <id>130173</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130173</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130173/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130173/close</close_url>
+  <date_created>2014-03-06 11:18:06 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:18:06 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.081448" lat="51.510966">
+  <id>130171</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130171</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130171/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130171/close</close_url>
+  <date_created>2014-03-06 11:17:28 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:17:28 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0947222" lat="51.5116438">
+  <id>130169</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130169</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130169/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130169/close</close_url>
+  <date_created>2014-03-06 11:17:03 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:17:03 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0941536" lat="51.5119593">
+  <id>130168</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130168</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130168/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130168/close</close_url>
+  <date_created>2014-03-06 11:16:56 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:16:56 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.09377" lat="51.5121612">
+  <id>130167</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130167</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130167/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130167/close</close_url>
+  <date_created>2014-03-06 11:16:37 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:16:37 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0766173" lat="51.513056">
+  <id>130166</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130166</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130166/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130166/close</close_url>
+  <date_created>2014-03-06 11:16:18 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:16:18 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0790125" lat="51.5152259">
+  <id>130165</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130165</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130165/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130165/close</close_url>
+  <date_created>2014-03-06 11:15:55 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:15:55 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0784278" lat="51.5159954">
+  <id>130164</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130164</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130164/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130164/close</close_url>
+  <date_created>2014-03-06 11:15:26 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:15:26 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0788006" lat="51.5111063">
+  <id>130162</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130162</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130162/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130162/close</close_url>
+  <date_created>2014-03-06 11:14:50 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:14:50 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-0.0770009" lat="51.5108792">
+  <id>130161</id>
+  <url>http://api.openstreetmap.org/api/0.6/notes/130161</url>
+  <comment_url>http://api.openstreetmap.org/api/0.6/notes/130161/comment</comment_url>
+  <close_url>http://api.openstreetmap.org/api/0.6/notes/130161/close</close_url>
+  <date_created>2014-03-06 11:14:23 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2014-03-06 11:14:23 UTC</date>
+      <uid>165</uid>
+      <user>Richard</user>
+      <user_url>http://www.openstreetmap.org/user/Richard</user_url>
+      <action>opened</action>
+      <text>Now two-way for cyclists: http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx</text>
+      <html>&lt;p&gt;Now two-way for cyclists: &lt;a href="http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx" rel="nofollow"&gt;http://www.cityoflondon.gov.uk/services/transport-and-streets/traffic-management/Pages/contra-flow-cycling.aspx&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>

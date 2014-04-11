@@ -1,0 +1,47 @@
+PODS:
+  - FMDB/common (2.2)
+  - geos (3.4.2)
+  - proj4 (4.8.0)
+  - ShapeKit (0.9.4):
+    - geos
+    - proj4
+  - SpatialDBKit (0.1.1):
+    - FMDB/common
+    - ShapeKit
+    - spatialite
+  - spatialite (4.1.1):
+    - spatialite/standard
+  - spatialite/core (4.1.1):
+    - sqlite3
+  - spatialite/geos (4.1.1):
+    - geos
+    - spatialite/core
+  - spatialite/proj4 (4.1.1):
+    - proj4
+    - spatialite/core
+  - spatialite/standard (4.1.1):
+    - spatialite/geos
+    - spatialite/proj4
+  - sqlite3 (3.8.4.3):
+    - sqlite3/common
+  - sqlite3/common (3.8.4.3)
+  - TBXML (1.5)
+  - TRVSMonitor (0.0.3)
+
+DEPENDENCIES:
+  - SpatialDBKit (~> 0.1)
+  - TBXML (~> 1.5)
+  - TRVSMonitor (~> 0.0)
+
+SPEC CHECKSUMS:
+  FMDB: e0dd09464b4e1a1cd7fa51ea835ae821b5656865
+  geos: cabc25a715cb4bc98035e8c0bcdd393f613367f9
+  proj4: 99295df4a04fcc463c96605c709327550ef2511b
+  ShapeKit: efa22b59c3e9d28671861a36e78f778dfbe5ce93
+  SpatialDBKit: b1dd17340514707044a3188ed6b468e9caeef30e
+  spatialite: ed76adac670dd656bc678974bf06e15cf5a23ae2
+  sqlite3: 04f92b2dcd748b522bf96cc9b16ccb2b0acd9cc8
+  TBXML: 0511ac325d83e59d3aefa4bc8cd6cbeff07a8d9e
+  TRVSMonitor: cc2b3d6f4cf18639464f6b8295f1b4722f4d4f14
+
+COCOAPODS: 0.32.1
