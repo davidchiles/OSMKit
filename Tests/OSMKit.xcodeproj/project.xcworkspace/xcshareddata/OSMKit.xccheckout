@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9342246B-432E-41D9-AAFA-73F489061B59</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OSMKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>26D23247-369A-4DEA-B83B-96CA1A03D1AE</key>
+		<string>ssh://github.com/davidchiles/OSMKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tests/OSMKit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>26D23247-369A-4DEA-B83B-96CA1A03D1AE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/davidchiles/OSMKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>26D23247-369A-4DEA-B83B-96CA1A03D1AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>26D23247-369A-4DEA-B83B-96CA1A03D1AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OSMKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

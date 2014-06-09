@@ -1,8 +1,8 @@
 PODS:
-  - FMDB/common (2.2)
+  - FMDB/common (2.3)
   - geos (3.4.2)
   - proj4 (4.8.0)
-  - ShapeKit (0.9.4):
+  - ShapeKit (0.9.5):
     - geos
     - proj4
   - SpatialDBKit (0.1.1):
@@ -34,14 +34,14 @@ DEPENDENCIES:
   - TRVSMonitor (~> 0.0)
 
 SPEC CHECKSUMS:
-  FMDB: e0dd09464b4e1a1cd7fa51ea835ae821b5656865
-  geos: cabc25a715cb4bc98035e8c0bcdd393f613367f9
-  proj4: 99295df4a04fcc463c96605c709327550ef2511b
-  ShapeKit: efa22b59c3e9d28671861a36e78f778dfbe5ce93
-  SpatialDBKit: b1dd17340514707044a3188ed6b468e9caeef30e
-  spatialite: ed76adac670dd656bc678974bf06e15cf5a23ae2
-  sqlite3: 04f92b2dcd748b522bf96cc9b16ccb2b0acd9cc8
-  TBXML: 0511ac325d83e59d3aefa4bc8cd6cbeff07a8d9e
-  TRVSMonitor: cc2b3d6f4cf18639464f6b8295f1b4722f4d4f14
+  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
+  geos: 20db9ad19fae60249357572b5a2e46882005451f
+  proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
+  ShapeKit: 503cfe514685579f3e68a54df9ca8f460ae7d008
+  SpatialDBKit: ac48f8259029447e88d445caa377c33ee2d2fd8d
+  spatialite: 701bc40513aed25ee4c85801d91f8c13222689aa
+  sqlite3: c532f3365dec0925d3f6408c39b27e3c17960b3c
+  TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
+  TRVSMonitor: 61f54e833d4ad9efbc6e6fc8a060c42bcb01d0c3
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1
