@@ -1,6 +1,9 @@
 language: objective-c
 xcode_workspace: OSMKit.xcworkspace
-xcode_scheme: OSMKitTests
+xcode_scheme: OSMKit
 before_install:
     - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
     - cd Tests && pod install
+
+before_script:
+  - export LANG=en_US.UTF-8

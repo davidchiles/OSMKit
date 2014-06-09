@@ -25,7 +25,7 @@ static int bufferMaxLength = 1000;
 
 @interface OSMKSpatiaLiteStorage ()
 
-@property (nonatomic, strong) NSArray *elementBuffer;
+@property (nonatomic, strong) NSMutableArray *elementBuffer;
 
 
 @property (nonatomic) BOOL hasImportedFirstObject;
@@ -40,7 +40,7 @@ static int bufferMaxLength = 1000;
 - (id)init
 {
     if (self = [super init]) {
-        self.elementBuffer = [NSArray array];
+        self.elementBuffer = [NSMutableArray array];
     }
     return self;
 }
@@ -148,10 +148,10 @@ static int bufferMaxLength = 1000;
 {
     dispatch_async(self.storageQueue, ^{
         if (object) {
-            self.elementBuffer = [self.elementBuffer arrayByAddingObject:object];
+            [self.elementBuffer addObject:object];
             if ([self.elementBuffer count] > bufferMaxLength) {
                 [self saveElements:self.elementBuffer];
-                self.elementBuffer = [NSArray array];
+                [self.elementBuffer removeAllObjects];
             }
         }
     });
@@ -161,7 +161,7 @@ static int bufferMaxLength = 1000;
 {
     dispatch_async(self.storageQueue, ^{
         [self saveElements:self.elementBuffer];
-        self.elementBuffer = [NSArray array];
+        [self.elementBuffer removeAllObjects];
         [self didFinishImporting];
     });
 }
@@ -301,6 +301,9 @@ static int bufferMaxLength = 1000;
 {
     BOOL result = NO;
     if (node) {
+        if (![node isKindOfClass:[OSMKNode class]]) {
+            NSLog(@"hello");
+        }
         NSString *geomString = [NSString stringWithFormat:@"GeomFromText('POINT(%f %f)', 4326)",node.latitude,node.longitude];
         NSString *updateString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO nodes (node_id,version,changeset,user_id,visible,user,action,time_stamp,geom) VALUES (?,?,?,?,?,?,?,?,%@)",geomString];
         BOOL nodeResult = [database executeUpdate:updateString,@(node.osmId),@(node.version),@(node.changeset),@(node.userId),@(node.visible),node.user,node.action,node.timeStamp];
