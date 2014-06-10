@@ -49,7 +49,6 @@
 {
     dispatch_async(self.parseQueue, ^{
         self.xmlParser = [[NSXMLParser alloc] initWithData:xmlData];
-        self.xmlParser.delegate = self;
         [self.xmlParser parse];
     });
 }
@@ -58,7 +57,6 @@
 {
     dispatch_async(self.parseQueue, ^{
         self.xmlParser = [[NSXMLParser alloc] initWithStream:inputStream];
-        self.xmlParser.delegate = self;
         [self.xmlParser parse];
     });
 }
@@ -67,9 +65,22 @@
 {
     dispatch_async(self.parseQueue, ^{
         self.xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-        self.xmlParser.delegate = self;
         [self.xmlParser parse];
     });
+}
+
+- (void)parseWithXmlParser:(NSXMLParser *)parser
+{
+    dispatch_async(self.parseQueue, ^{
+        self.xmlParser = parser;
+        [self.xmlParser parse];
+    });
+}
+
+- (void)setXmlParser:(NSXMLParser *)xmlParser
+{
+    _xmlParser = xmlParser;
+    _xmlParser.delegate = self;
 }
 
 - (OSMKObject *)currentObject

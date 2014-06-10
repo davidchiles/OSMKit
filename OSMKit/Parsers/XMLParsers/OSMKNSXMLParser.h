@@ -12,5 +12,6 @@
 
 - (void)parseOSMStream:(NSInputStream *)inputStream;
 - (void)parseOSMUrl:(NSURL *)url;
+- (void)parseWithXmlParser:(NSXMLParser *)parser;
 
 @end

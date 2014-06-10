@@ -1,6 +1,29 @@
 PODS:
+  - AFNetworking (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.4):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - FMDB/common (2.3)
   - geos (3.4.2)
+  - gtm-oauth (0.0.1):
+    - gtm-oauth/nibs
+  - gtm-oauth/nibs (0.0.1)
+  - KissXML (5.0)
   - proj4 (4.8.0)
   - ShapeKit (0.9.5):
     - geos
@@ -29,13 +52,19 @@ PODS:
   - TRVSMonitor (0.0.3)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.2)
+  - gtm-oauth (~> 0.0)
+  - KissXML (~> 5.0)
   - SpatialDBKit (~> 0.1)
   - TBXML (~> 1.5)
   - TRVSMonitor (~> 0.0)
 
 SPEC CHECKSUMS:
+  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
   geos: 20db9ad19fae60249357572b5a2e46882005451f
+  gtm-oauth: 189be93a754085d61b09094dd24473a40a486978
+  KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
   proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
   ShapeKit: 503cfe514685579f3e68a54df9ca8f460ae7d008
   SpatialDBKit: ac48f8259029447e88d445caa377c33ee2d2fd8d

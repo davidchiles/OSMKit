@@ -7,9 +7,33 @@
 //
 
 #import "OSMKWay.h"
+#import "DDXMLElement.h"
+#import "DDXMLElementAdditions.h"
 
 @implementation OSMKWay
 
+
+- (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *element = [super DELETEEelentForChangeset:changeset];
+    return [self addNodes:element];
+}
+
+- (DDXMLElement *)PUTElementForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *element = [super PUTElementForChangeset:changeset];
+    return [self addNodes:element];
+}
+
+- (DDXMLElement *)addNodes:(DDXMLElement *)element;
+{
+    for (NSNumber *nodeID in self.nodes) {
+        DDXMLElement *nd = [DDXMLElement elementWithName:@"nd"];
+        [nd addAttributeWithName:@"ref" stringValue:[nodeID stringValue]];
+        [element addChild:nd];
+    }
+    return element;
+}
 
 - (id)copyWithZone:(NSZone *)zone
 {

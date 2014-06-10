@@ -8,6 +8,7 @@
 
 #import "OSMKObject.h"
 
+
 @interface OSMKRelation : OSMKObject
 
 @property (nonatomic,strong)NSArray* members;

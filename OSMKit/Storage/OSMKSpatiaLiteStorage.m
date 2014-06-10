@@ -103,7 +103,7 @@ static int bufferMaxLength = 1000;
         }
         
         ////// Ways //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)"];
+        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)"];
         if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways_tags (way_id INTEGER REFERENCES ways ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))"];
         if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways_nodes (way_id INTEGER REFERENCES ways ( way_id ), node_id INTEGER REFERENCES nodes ( id ), local_order INTEGER, UNIQUE ( way_id, local_order, node_id ))"];
         
@@ -113,7 +113,7 @@ static int bufferMaxLength = 1000;
         }
         
         ////// Relations //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)"];
+        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)"];
         if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations_tags (relation_id INTEGER REFERENCES relations ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))"];
         if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations_members (relation_id INTEGER REFERENCES relations ( relation_id ), type TEXT CHECK ( type IN (\"node\", \"way\", \"relation\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )"];
         
@@ -382,7 +382,7 @@ static int bufferMaxLength = 1000;
     if (relation) {
         
         
-        BOOL insertRelationResult = [database executeUpdateWithFormat:@"INSERT OR REPLACE INTO relations (relation_id,version,changeset,user_id,visible,user,action,time_stamp) VALUES (%lld,%d,%lld,%lld,%d,%@,%@,%@)",relation.osmId,relation.version,relation.changeset,relation.userId,relation.visible,relation.user,relation.action,relation.timeStamp];
+        BOOL insertRelationResult = [database executeUpdateWithFormat:@"INSERT OR REPLACE INTO relations (relation_id,version,changeset,user_id,visible,user,action,time_stamp) VALUES (%lld,%d,%lld,%lld,%d,%@,%d,%@)",relation.osmId,relation.version,relation.changeset,relation.userId,relation.visible,relation.user,relation.action,relation.timeStamp];
         if (!insertRelationResult) {
             return NO;
         }
@@ -554,7 +554,7 @@ static int bufferMaxLength = 1000;
     if (resultSet.next) {
         object = (OSMKObject *)[OSMKObject objectForType:elementType elementId:elementId];
  
-        object.action = [resultSet stringForColumn:@"action"];
+        object.action = [resultSet intForColumn:@"action"];
         object.changeset = [resultSet longForColumn:@"changeset"];
         object.timeStamp = [resultSet dateForColumn:@"time_stamp"];
         object.user = [resultSet stringForColumn:@"user"];

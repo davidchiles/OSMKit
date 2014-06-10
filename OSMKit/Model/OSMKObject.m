@@ -12,6 +12,9 @@
 #import "OSMKWay.h"
 #import "OSMKRelation.h"
 
+#import "DDXMLElement.h"
+#import "DDXMLElementAdditions.h"
+
 @interface OSMKObject ()
 
 @property (nonatomic) int64_t osmId;
@@ -39,7 +42,6 @@
         self.visible = [attributes[@"visible"] isEqualToString:@"true"];
         
         self.user = attributes[@"user"];
-        self.action = attributes[@"action"];
         
         NSString *timeString = attributes[@"timestamp"];
         if ([timeString length]) {
@@ -49,6 +51,54 @@
     }
     return self;
 }
+
+#pragma - mark XML
+
+- (NSString *)xmlName
+{
+    if ([self isKindOfClass:[OSMKNode class]]) {
+        return @"node";
+    }
+    else if ([self isKindOfClass:[OSMKWay class]]) {
+        return @"way";
+    }
+    else if ([self isKindOfClass:[OSMKRelation class]]) {
+        return @"relation";
+    }
+    return nil;
+}
+
+- (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *objectXML = [[DDXMLElement alloc] initWithName:[self xmlName]];
+    if (self.osmId > 0) {
+        [objectXML addAttributeWithName:@"id" stringValue:[@(self.osmId) stringValue]];
+        [objectXML addAttributeWithName:@"version" stringValue:[@(self.version) stringValue]];
+    }
+    [objectXML addAttributeWithName:@"changeset" stringValue:[changeset stringValue]];
+    return objectXML;
+}
+
+- (DDXMLElement *)PUTElementForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *objectXML = [self DELETEEelentForChangeset:changeset];
+    [objectXML setAttributes:[OSMKObject tagXML:self.tags]];
+    return objectXML;
+}
+
++ (NSArray *)tagXML:(NSDictionary *)tags
+{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[tags.allKeys count]];
+    [tags enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
+        DDXMLElement *tagElement = [DDXMLElement elementWithName:@"tag"];
+        DDXMLNode *keyNode = [DDXMLNode attributeWithName:@"k" stringValue:key];
+        DDXMLNode *valueNode = [DDXMLNode attributeWithName:@"v" stringValue:value];
+        [tagElement setAttributes:@[keyNode,valueNode]];
+        [array addObject:tagElement];
+    }];
+    return [array copy];
+}
+
 
 #pragma NSCopying Methods
 
@@ -61,7 +111,7 @@
     object.visible = self.visible;
     object.tags = [self.tags copyWithZone:zone];
     object.user = [self.user copyWithZone:zone];
-    object.action = [self.action copyWithZone:zone];
+    object.action = self.action;
     object.timeStamp = [self.timeStamp copyWithZone:zone];
     
     return object;

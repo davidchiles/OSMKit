@@ -8,6 +8,9 @@
 
 #import "OSMKNode.h"
 
+#import "DDXMLElement.h"
+#import "DDXMLElementAdditions.h"
+
 @implementation OSMKNode
 
 - (instancetype)initWithAttributesDictionary:(NSDictionary *)attributes
@@ -33,6 +36,25 @@
 - (double)longitude
 {
     return self.coordinate.longitude;
+}
+
+- (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *nodeXML = [super DELETEEelentForChangeset:changeset];
+    return [self addLatLon:nodeXML];
+}
+
+- (DDXMLElement *)PUTElementForChangeset:(NSNumber *)changeset
+{
+    DDXMLElement *nodeXML = [super PUTElementForChangeset:changeset];
+    return [self addLatLon:nodeXML];
+}
+
+- (DDXMLElement *)addLatLon:(DDXMLElement *)nodeXML
+{
+    [nodeXML addAttributeWithName:@"lat" stringValue:[@(self.latitude) stringValue]];
+    [nodeXML addAttributeWithName:@"lon" stringValue:[@(self.longitude) stringValue]];
+    return nodeXML;
 }
 
 #pragma NSCopying Methods
