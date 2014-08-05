@@ -33,7 +33,7 @@ static NSString *const OSMKContentType = @"application/osm3s+xml";
 
 - (instancetype)init
 {
-    return [self initWithBaseURL:[NSURL URLWithString:OSMKTestBaseURLString]];
+    return [self initWithBaseURL:[NSURL URLWithString:OSMKBaseURLString]];
 }
 
 - (instancetype)initWithBaseURL:(NSURL *)url
@@ -60,9 +60,10 @@ static NSString *const OSMKContentType = @"application/osm3s+xml";
 //////  Download //////
 
 -(void)downloadDataWithSW:(CLLocationCoordinate2D)southWest NE:(CLLocationCoordinate2D)northEast
-                  success:(void (^)(id responseObject))success
+                  success:(void (^)(NSData * response))success
                   failure:(void (^)(NSError *error))failure
 {
+    
     OSMKBoundingBox * bbox = [OSMKBoundingBox boundingBoxWithCornersSW:southWest NE:northEast];
     NSString * bboxString = [NSString stringWithFormat:@"%f,%f,%f,%f",bbox.left,bbox.bottom,bbox.right,bbox.top];
     NSDictionary * parametersDictionary = @{@"bbox": bboxString};

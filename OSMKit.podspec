@@ -10,6 +10,11 @@ Pod::Spec.new do |spec|
 
   s.platform = :ios, "5.0"
   s.dependency = "SpatialDBKit"
+  s.dependency = "AFNetworking"
+  s.dependency = "TBXML"
+  s.dependency = "gtm-oauth"
+  s.dependency = "KissXML"
+
 
   spec.source_files = 'OSMKit.{h,m}'
   s.public_header_files = "OSMKit.{h}"

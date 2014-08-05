@@ -31,7 +31,7 @@ extern NSString *const OSMKTestBaseURLString;
 ////// Download //////
 
 -(void)downloadDataWithSW:(CLLocationCoordinate2D)southWest NE:(CLLocationCoordinate2D)northEast
-                  success:(void (^)(id responseObject))success
+                  success:(void (^)(NSXMLParser* xmlParser))success
                   failure:(void (^)(NSError *error))failure;
 
 -(void)downloadNotesWithSW:(CLLocationCoordinate2D)southWest NE:(CLLocationCoordinate2D)northEast
