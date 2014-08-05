@@ -18,7 +18,7 @@
         self.ref = [dictionary[@"ref"] longLongValue];
         NSString *typeString = dictionary[@"type"];
         
-        self.type = [OSMKObject tyepForString:typeString];
+        self.type = [OSMKObject typeForString:typeString];
         
         self.role= dictionary[@"role"];
     }

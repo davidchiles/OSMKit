@@ -19,13 +19,14 @@ typedef NS_ENUM(int, OSMKElementType) {
 
 typedef NS_ENUM(NSInteger, OSMKElementAction) {
     OSMKElementActionNone = 0,
-    OSMKElementActionModified = 0,
-    OSMKElementActionDelete = 1
+    OSMKElementActionNew = 1,
+    OSMKElementActionModified = 2,
+    OSMKElementActionDelete = 3
 };
 
 @interface OSMKObject : NSObject <NSCopying>
 
-@property (nonatomic, readonly) int64_t osmId;
+@property (nonatomic) int64_t osmId;
 @property (nonatomic) int version;
 @property (nonatomic) int64_t changeset;
 @property (nonatomic) int64_t userId;
@@ -49,6 +50,6 @@ typedef NS_ENUM(NSInteger, OSMKElementAction) {
 + (id)objectForType:(OSMKElementType)type elementId:(int64_t)elementId;
 
 + (NSString *)stringForType:(OSMKElementType)type;
-+ (OSMKElementType)tyepForString:(NSString *)string;
++ (OSMKElementType)typeForString:(NSString *)string;
 
 @end

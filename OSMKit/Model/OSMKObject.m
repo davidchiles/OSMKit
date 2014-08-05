@@ -17,7 +17,6 @@
 
 @interface OSMKObject ()
 
-@property (nonatomic) int64_t osmId;
 
 @end
 
@@ -148,7 +147,7 @@
     return string;
 }
 
-+ (OSMKElementType)tyepForString:(NSString *)string
++ (OSMKElementType)typeForString:(NSString *)string
 {
     OSMKElementType type = OSMKElementTypeNone;
     if ([string isEqualToString:@"node"]) {

@@ -15,18 +15,23 @@
 @class OSMKNote;
 @class OSMKComment;
 @class DDXMLElement;
+@class OSMKUser;
 
 extern NSString *const OSMKBaseURLString;
 extern NSString *const OSMKTestBaseURLString;
 
 @interface OSMKAPIClient : AFHTTPRequestOperationManager
 
+/**
+ * 
+ *
+ */
 - (instancetype)initWithConsumerKey:(NSString *)consumerKey privateKey:(NSString *)privateKey token:(NSString *)token tokenSecret:(NSString *)tokenSecret;
 
 ////// Download //////
 
 -(void)downloadDataWithSW:(CLLocationCoordinate2D)southWest NE:(CLLocationCoordinate2D)northEast
-                  success:(void (^)(NSXMLParser* xmlParser))success
+                  success:(void (^)(id responseObject))success
                   failure:(void (^)(NSError *error))failure;
 
 -(void)downloadNotesWithSW:(CLLocationCoordinate2D)southWest NE:(CLLocationCoordinate2D)northEast
@@ -40,9 +45,9 @@ extern NSString *const OSMKTestBaseURLString;
               success:(void (^)(int64_t changesetID))success
               failure: (void (^)(NSError * error))failure;
 
--(void)uploadElements:(OSMKChangeset *)changeset
-              success:(void (^)(NSArray * elements))success
-              failure:(void (^)(OSMKObject * element, NSError * error))failure;
+- (void)uploadChangeset:(OSMKChangeset *)changeset
+                success:(void (^)(NSArray *completedNodes, NSArray *completedWays, NSArray *completedRelations))success
+                failure:(void (^)(OSMKObject * element, NSError * error))failure;
 
 -(void)closeChangeset:(int64_t) changesetNumber
               success:(void (^)(id response))success
@@ -60,19 +65,17 @@ extern NSString *const OSMKTestBaseURLString;
                 failure:(void (^)(NSError *error))failure;
 
 -(void)closeNote:(OSMKNote *)note
-     withComment:(NSString *)comment
+     withComment:(OSMKComment *)comment
          success:(void (^)(id JSON))success
          failure:(void (^)(NSError *error))failure;
 
 -(void)reopenNote:(OSMKNote *)note
+      withComment:(OSMKComment *)comment
           success:(void (^)(NSData * response))success
           failure:(void (^)(NSError *error))failure;
 
 
 ////////// User //////////////
-- (void)fetchCurrentUserWithComletion:(void (^)(BOOL success,NSError *error))completionBlock;
-
-////// XML //////
-- (DDXMLElement *)PUTchangesetXML:(OSMKChangeset *)changeset;
+- (void)fetchCurrentUserWithComletion:(void (^)(id response,NSError *error))completionBlock;
 
 @end

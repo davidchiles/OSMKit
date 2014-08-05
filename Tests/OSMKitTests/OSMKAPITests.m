@@ -85,11 +85,11 @@
 
 - (void)testChangesetXML
 {
-    OSMKChangeset *changeset = [[OSMKChangeset alloc] initWithTags:@{@"created_by":@"me",@"comment":@"hello bob"} message:@"This was a great test ē?!é"];
+    OSMKChangeset *changeset = [[OSMKChangeset alloc] initWithTags:@{@"created_by":@"me",@"comment":@"hello bob ēį"}];
     DDXMLElement *element = [changeset PUTXML];
     NSString *string = [element XMLStringWithOptions:DDXMLNodeCompactEmptyElement];
     
-    XCTAssert([string length] > 0, @"no element Created");
+    XCTAssert([string length] > 0, @"No element created");
 }
 
 @end

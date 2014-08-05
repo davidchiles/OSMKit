@@ -14,6 +14,14 @@
 #import "OSMKRelation.h"
 #import "DDXML.h"
 
+@interface OSMKChangeset ()
+
+@property (nonatomic, strong) NSArray *nodes;
+@property (nonatomic, strong) NSArray *ways;
+@property (nonatomic, strong) NSArray *relations;
+
+@end
+
 @implementation OSMKChangeset
 
 - (instancetype)initWithTags:(NSDictionary *)tags
@@ -63,6 +71,13 @@
     else if ([element isKindOfClass:[OSMKRelation class]]) {
         self.relations = [self.relations arrayByAddingObject:element];
     }
+}
+
+- (void)addElements:(NSArray *)elements
+{
+    [elements enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self addElement:obj];
+    }];
 }
 
 - (DDXMLElement *)PUTXML {
