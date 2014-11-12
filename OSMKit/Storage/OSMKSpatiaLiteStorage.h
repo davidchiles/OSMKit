@@ -8,7 +8,7 @@
 
 #import "OSMKStorage.h"
 
-@class OSMKNode, OSMKWay, OSMKRelation, OSMKUser, OSMKNote;
+@class OSMKNode, OSMKWay, OSMKRelation, OSMKUser, OSMKNote, OSMKObject;
 
 @interface OSMKSpatiaLiteStorage : OSMKStorage
 
@@ -23,5 +23,8 @@
 - (void)relationWithOsmId:(int64_t)osmId completion:(void (^)(OSMKRelation *relation, NSError *error))completionBlock;
 - (void)userWithOsmId:(int64_t)osmId completion:(void (^)(OSMKUser *user, NSError *error))completionBlock;
 - (void)noteWithOsmId:(int64_t)osmId completion:(void (^)(OSMKNote *note, NSError *error))completionBlock;
+
+
++ (NSString *)tableNameForObject:(id)object;
 
 @end

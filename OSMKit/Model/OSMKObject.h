@@ -41,13 +41,13 @@ typedef NS_ENUM(NSInteger, OSMKElementAction) {
 - (instancetype)initWithAttributesDictionary:(NSDictionary *)attributes;
 
 - (DDXMLElement *)PUTElementForChangeset:(NSNumber *)changeset;
-- (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset;
+- (DDXMLElement *)DELETEEelementForChangeset:(NSNumber *)changeset;
 
 + (NSArray *)tagXML:(NSDictionary *)tags;
 
 + (NSDateFormatter *)defaultDateFormatter;
 
-+ (id)objectForType:(OSMKElementType)type elementId:(int64_t)elementId;
++ (instancetype)objectForType:(OSMKElementType)type elementId:(int64_t)elementId;
 
 + (NSString *)stringForType:(OSMKElementType)type;
 + (OSMKElementType)typeForString:(NSString *)string;

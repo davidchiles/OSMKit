@@ -186,7 +186,7 @@
     else if ([elementName isEqualToString:@"img"]) {
         self.currentUser.imageUrl = [NSURL URLWithString:attributeDict[@"href"]];
     }
-    else if ([elementName isEqualToString:@"roles"]) {
+    else if ([elementName isEqualToString:OSMKUserRolesElementName]) {
         self.roles = [NSMutableSet set];
     }
     else if (self.roles){
@@ -264,7 +264,7 @@
         
         self.currentUser = nil;
     }
-    else if ([elementName isEqualToString:@"roles"]) {
+    else if ([elementName isEqualToString:OSMKUserRolesElementName]) {
         self.currentUser.roles = [self.roles copy];
         self.roles = nil;
     }

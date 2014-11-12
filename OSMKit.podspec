@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.dependency "KissXML"
 
 
-  spec.source_files = 'OSMKit.{h,m}'
-  spec.public_header_files = "OSMKit.{h}"
+  spec.source_files = 'OSMKit/**/*.{h,m}','OSMKit/**/**/*.{h,m}'
+  spec.public_header_files = "OSMKit/**/*.{h}", "OSMKit/**/**/*.{h}"
 
 end

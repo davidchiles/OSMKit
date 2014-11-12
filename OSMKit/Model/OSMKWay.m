@@ -15,7 +15,7 @@
 
 - (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
 {
-    DDXMLElement *element = [super DELETEEelentForChangeset:changeset];
+    DDXMLElement *element = [super DELETEEelementForChangeset:changeset];
     return [self addNodes:element];
 }
 

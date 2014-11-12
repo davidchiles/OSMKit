@@ -78,61 +78,61 @@ static int bufferMaxLength = 1000;
         ////// Remove Tables //////
         BOOL sucess = YES;
         if (overwrite) {
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS nodes"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS nodes_tags"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS ways"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS ways_tags"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS ways_nodes"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS relations"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS relations_tags"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS relations_members"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS notes"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS nontes_comments"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS users"];
-            if (sucess) sucess = [db executeUpdate:@"DROP TABLE IF EXISTS users_roles"];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@",OSMKNodeElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKNodeElementName,OSMKTagElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@",OSMKWayElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKWayElementName,OSMKTagElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKWayElementName,OSMKNodeElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@",OSMKRelationElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKRelationElementName,OSMKTagElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKRelationElementName,OSMKRelationMemberElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@",OSMKNoteElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKNoteElementName,OSMKNoteCommentsElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@",OSMKUserElementName];
+            if (sucess) sucess = [db executeUpdateWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKUserElementName,OSMKUserRolesElementName];
         }
         
         
         ////// Nodes //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS nodes (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)"];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS nodes_tags (node_id INTEGER REFERENCES nodes ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName];
         
-        resultSet = [db executeQuery:@"SELECT AddGeometryColumn('nodes', 'geom', 4326, 'POINT', 'XY')"];
+        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNodeElementName];
         while (resultSet.next) {
             NSLog(@"%@",[resultSet resultDictionary]);
         }
         
         ////// Ways //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)"];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways_tags (way_id INTEGER REFERENCES ways ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))"];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS ways_nodes (way_id INTEGER REFERENCES ways ( way_id ), node_id INTEGER REFERENCES nodes ( id ), local_order INTEGER, UNIQUE ( way_id, local_order, node_id ))"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKWayElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order, node_id ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName];
         
-        resultSet = [db executeQuery:@"SELECT AddGeometryColumn('ways', 'geom', 4326, 'LINESTRING', 2)"];
+        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName];
         while (resultSet.next) {
             NSLog(@"%@",[resultSet resultDictionary]);
         }
         
         ////// Relations //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)"];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations_tags (relation_id INTEGER REFERENCES relations ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))"];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS relations_members (relation_id INTEGER REFERENCES relations ( relation_id ), type TEXT CHECK ( type IN (\"node\", \"way\", \"relation\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName];
+        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), type TEXT CHECK ( type IN (\"%@\", \"%@\", \"%@\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )",OSMKRelationElementName,OSMKRelationMemberElementName,OSMKRelationElementName,OSMKNodeElementName,OSMKWayElementName,OSMKRelationElementName];
         
         ////// Notes //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS notes (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteCommentsElementName];
         
-        resultSet = [db executeQuery:@"SELECT AddGeometryColumn('notes', 'geom', 4326, 'POINT', 'XY')"];
+        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteCommentsElementName];
         while (resultSet.next) {
             NSLog(@"%@",[resultSet resultDictionary]);
         }
         
         ////// Comments //////
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS notes_comments (note_id INTEGER REFERENCES notes ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName];
         
         ////// Users //////
         
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS users (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName];
         
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS users_roles (user_id INTEGER REFERENCES users (user_id), role TEXT)"];
+        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName];
         
         
         //////  Indexes //////
@@ -301,9 +301,6 @@ static int bufferMaxLength = 1000;
 {
     BOOL result = NO;
     if (node) {
-        if (![node isKindOfClass:[OSMKNode class]]) {
-            NSLog(@"hello");
-        }
         NSString *geomString = [NSString stringWithFormat:@"GeomFromText('POINT(%f %f)', 4326)",node.latitude,node.longitude];
         NSString *updateString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO nodes (node_id,version,changeset,user_id,visible,user,action,time_stamp,geom) VALUES (?,?,?,?,?,?,?,?,%@)",geomString];
         BOOL nodeResult = [database executeUpdate:updateString,@(node.osmId),@(node.version),@(node.changeset),@(node.userId),@(node.visible),node.user,node.action,node.timeStamp];
@@ -795,6 +792,29 @@ static int bufferMaxLength = 1000;
 - (void)parserDidFinish:(OSMKParser *)parser
 {
     [self finalFlushElementBuffer];
+}
+
+#pragma - mark Class Methods
+
++ (NSString *)tableNameForObject:(id)object
+{
+    if ([object isKindOfClass:[OSMKNode class]]) {
+        return OSMKNodeElementName;
+    }
+    else if ([object isKindOfClass:[OSMKWay class]]) {
+        return OSMKWayElementName;
+    }
+    else if ([object isKindOfClass:[OSMKWay class]]) {
+        return OSMKRelationElementName;
+    }
+    else if ([object isKindOfClass:[OSMKUser class]]) {
+        return OSMKUserElementName;
+    }
+    else if ([object isKindOfClass:[OSMKNote class]]) {
+        return OSMKNoteElementName;
+    }
+    
+    return nil;
 }
 
 @end

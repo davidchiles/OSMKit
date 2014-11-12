@@ -16,6 +16,8 @@ extern NSString *const OSMKWayNodeElementName;
 extern NSString *const OSMKRelationMemberElementName;
 extern NSString *const OSMKUserElementName;
 extern NSString *const OSMKNoteElementName;
+extern NSString *const OSMKUserRolesElementName;
+extern NSString *const OSMKNoteCommentsElementName;
 
 @interface OSMKXMLParser : OSMKParser
 

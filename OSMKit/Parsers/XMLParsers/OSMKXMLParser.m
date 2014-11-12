@@ -15,7 +15,10 @@ NSString *const OSMKTagElementName = @"tag";
 NSString *const OSMKWayNodeElementName = @"nd";
 NSString *const OSMKRelationMemberElementName = @"member";
 NSString *const OSMKUserElementName = @"user";
+NSString *const OSMKUserRolesElementName = @"roles";
 NSString *const OSMKNoteElementName = @"note";
+NSString *const OSMKNoteCommentsElementName = @"comments";
+
 
 @implementation OSMKXMLParser
 
