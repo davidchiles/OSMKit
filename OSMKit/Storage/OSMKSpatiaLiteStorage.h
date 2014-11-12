@@ -32,4 +32,7 @@
 - (void)saveUser:(OSMKUser *)user completion:(void (^)(void))completion;
 - (void)saveNote:(OSMKNote *)note completion:(void (^)(void))completion;
 
+
++ (NSString *)tableNameForObject:(id)object;
+
 @end

@@ -177,7 +177,7 @@ static NSString *const OSMKContentType = @"application/osm3s+xml";
         case OSMKElementActionDelete:
         {
             DDXMLElement *element = [self osmElement];
-            [element addChild:[object DELETEEelentForChangeset:changesetID]];
+            [element addChild:[object DELETEEelementForChangeset:changesetID]];
             request = [self DELETE:path XML:[[element compactXMLString] dataUsingEncoding:NSUTF8StringEncoding] success:successBlock failure:failureBlock];
             break;
         }

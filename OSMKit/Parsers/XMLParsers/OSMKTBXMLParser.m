@@ -204,7 +204,7 @@
             user.imageUrl = [NSURL URLWithString:urlString];
         }
         
-        TBXMLElement *rolesXML = [TBXML childElementNamed:@"roles" parentElement:userXML];
+        TBXMLElement *rolesXML = [TBXML childElementNamed:OSMKUserRolesElementName parentElement:userXML];
         TBXMLElement *role = rolesXML->firstChild;
         NSMutableSet *roleSet = [NSMutableSet set];
         
@@ -260,7 +260,7 @@
         note.isOpen = [[TBXML textForElement:[TBXML childElementNamed:@"status" parentElement:noteXML]] isEqualToString:@"open"];
         
         NSMutableArray *comments = [NSMutableArray array];
-        TBXMLElement *commentXML = [TBXML childElementNamed:@"comments" parentElement:noteXML]->firstChild;
+        TBXMLElement *commentXML = [TBXML childElementNamed:OSMKNoteCommentsElementName parentElement:noteXML]->firstChild;
         while (commentXML) {
             OSMKComment *comment = [[OSMKComment alloc] init];
             comment.date = [[OSMKNote defaultDateFormatter] dateFromString:[TBXML textForElement:[TBXML childElementNamed:@"date" parentElement:commentXML]]];

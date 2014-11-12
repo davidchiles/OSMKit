@@ -67,7 +67,7 @@
     return nil;
 }
 
-- (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
+- (DDXMLElement *)DELETEEelementForChangeset:(NSNumber *)changeset
 {
     DDXMLElement *objectXML = [[DDXMLElement alloc] initWithName:[self xmlName]];
     if (self.osmId > 0) {
@@ -80,7 +80,7 @@
 
 - (DDXMLElement *)PUTElementForChangeset:(NSNumber *)changeset
 {
-    DDXMLElement *objectXML = [self DELETEEelentForChangeset:changeset];
+    DDXMLElement *objectXML = [self PUTElementForChangeset:changeset];
     [objectXML setAttributes:[OSMKObject tagXML:self.tags]];
     return objectXML;
 }
@@ -163,7 +163,7 @@
     return type;
 }
 
-+ (id)objectForType:(OSMKElementType)type elementId:(int64_t)elementId
++ (instancetype)objectForType:(OSMKElementType)type elementId:(int64_t)elementId
 {
     id element = nil;
     switch (type) {

@@ -8,15 +8,15 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => 'https://github.com/davidchiles/OSMKit', :tag => 'v0.1' }
   spec.requires_arc = true
 
-  s.platform = :ios, "7.0"
-  s.dependency = "SpatialDBKit"
-  s.dependency = "AFNetworking"
-  s.dependency = "TBXML"
-  s.dependency = "gtm-oauth"
-  s.dependency = "KissXML"
+  spec.platform = :ios, "7.0"
+  spec.dependency "SpatialDBKit"
+  spec.dependency "AFNetworking"
+  spec.dependency "TBXML"
+  spec.dependency "gtm-oauth"
+  spec.dependency "KissXML"
 
 
-  spec.source_files = 'OSMKit.{h,m}'
-  s.public_header_files = "OSMKit.{h}"
+  spec.source_files = 'OSMKit/**/*.{h,m}','OSMKit/**/**/*.{h,m}'
+  spec.public_header_files = "OSMKit/**/*.{h}", "OSMKit/**/**/*.{h}"
 
 end

@@ -40,7 +40,7 @@
 
 - (DDXMLElement *)DELETEEelentForChangeset:(NSNumber *)changeset
 {
-    DDXMLElement *nodeXML = [super DELETEEelentForChangeset:changeset];
+    DDXMLElement *nodeXML = [super DELETEEelementForChangeset:changeset];
     return [self addLatLon:nodeXML];
 }
 
