@@ -764,6 +764,49 @@ static int bufferMaxLength = 1000;
     });
 }
 
+#pragma - mark Public Saving Methods
+
+- (void)saveOsmObject:(OSMKObject *)object
+{
+    [self saveElements:@[object]];
+}
+- (void)saveUser:(OSMKUser *)user
+{
+    [self saveElements:@[user]];
+}
+- (void)saveNote:(OSMKNote *)note
+{
+    [self saveElements:@[note]];
+}
+
+- (void)saveOsmObject:(OSMKObject *)object completion:(void (^)(void))completion
+{
+    dispatch_async(self.storageQueue, ^{
+        [self saveOsmObject:object];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    });
+}
+- (void)saveUser:(OSMKUser *)user completion:(void (^)(void))completion
+{
+    dispatch_async(self.storageQueue, ^{
+        [self saveUser:user];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    });
+}
+- (void)saveNote:(OSMKNote *)note completion:(void (^)(void))completion
+{
+    dispatch_async(self.storageQueue, ^{
+        [self saveNote:note];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    });
+}
+
 
 #pragma - mark OSMKStorageDelegateProtocol
 
