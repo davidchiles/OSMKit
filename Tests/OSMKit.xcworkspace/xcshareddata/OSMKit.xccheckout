@@ -10,29 +10,29 @@
 	<string>OSMKit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E12F52E6-87C5-4F3C-BA5B-3EB5E2A03322</key>
+		<key>A0D85EFD5F6D959650F1A7F38845945241955B3C</key>
 		<string>ssh://github.com/davidchiles/OSMKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Tests/OSMKit.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E12F52E6-87C5-4F3C-BA5B-3EB5E2A03322</key>
+		<key>A0D85EFD5F6D959650F1A7F38845945241955B3C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/davidchiles/OSMKit.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E12F52E6-87C5-4F3C-BA5B-3EB5E2A03322</string>
+	<string>A0D85EFD5F6D959650F1A7F38845945241955B3C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E12F52E6-87C5-4F3C-BA5B-3EB5E2A03322</string>
+			<string>A0D85EFD5F6D959650F1A7F38845945241955B3C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OSMKit</string>
 		</dict>

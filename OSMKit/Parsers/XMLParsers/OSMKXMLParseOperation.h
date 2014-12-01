@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKParser.h"
+#import "OSMKParseOperation.h"
 
 extern NSString *const OSMKNodeElementName;
 extern NSString *const OSMKWayElementName;
@@ -19,8 +19,6 @@ extern NSString *const OSMKNoteElementName;
 extern NSString *const OSMKUserRolesElementName;
 extern NSString *const OSMKNoteCommentsElementName;
 
-@interface OSMKXMLParser : OSMKParser
-
-- (void)parseXMLData:(NSData *)xmlData;
+@interface OSMKXMLParseOperation : OSMKParseOperation
 
 @end

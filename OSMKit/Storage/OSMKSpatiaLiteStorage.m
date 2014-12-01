@@ -17,7 +17,7 @@
 #import "OSMKNote.h"
 #import "OSMKComment.h"
 #import "OSMKUser.h"
-#import "OSMKXMLParser.h"
+#import "OSMKXMLParseOperation.h"
 
 #import "ShapeKitGeometry.h"
 
@@ -806,6 +806,8 @@ static int bufferMaxLength = 1000;
 
 
 #pragma - mark OSMKStorageDelegateProtocol
+/*
+ FIXME
 
 - (void)parserDidStart:(OSMKParser *)parser
 {
@@ -837,6 +839,7 @@ static int bufferMaxLength = 1000;
     [self finalFlushElementBuffer];
 }
 
+ */
 #pragma - mark Class Methods
 
 + (NSString *)tableNameForObject:(id)object

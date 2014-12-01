@@ -8,33 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
-@class OSMKNode;
-@class OSMKWay;
-@class OSMKRelation;
-@class OSMKNote;
-@class OSMKUser;
-@class OSMKParser;
+typedef void (^OSMKElementsCompletionBlock)(NSArray *nodes, NSArray *ways, NSArray *relations, NSError *error);
+typedef void (^OSMKNotesCompletionBlock)(NSArray *notes, NSError *error);
+typedef void (^OSMKUsersCompletionBlock)(NSArray *users, NSError *error);
 
-@protocol OSMKParserDelegateProtocol <NSObject>
+@interface OSMKParser : NSObject
 
-- (void)parserDidStart:(OSMKParser *)parser;
-- (void)parser:(OSMKParser *)parser didFindNode:(OSMKNode *)node;
-- (void)parser:(OSMKParser *)parser didFindWay:(OSMKWay *)way;
-- (void)parser:(OSMKParser *)parser didFindRelation:(OSMKRelation *)relation;
-- (void)parser:(OSMKParser *)parser didFindNote:(OSMKNote *)note;
-- (void)parser:(OSMKParser *)parser didFindUser:(OSMKUser *)user;
-- (void)parserDidFinish:(OSMKParser *)parser;
-- (void)parser:(OSMKParser *)parser parseErrorOccurred:(NSError *)parseError;
++ (void)parseElementsData:(NSData *)data
+           withCompletion:(OSMKElementsCompletionBlock *)completion;
 
++ (void)parseElementsData:(NSData *)data
+           withCompletion:(OSMKElementsCompletionBlock *)completion
+          completionQueue:(dispatch_queue_t)competionQueue;
 
++ (void)parseNotesData:(NSData *)data
+        withCompletion:(OSMKNotesCompletionBlock *)completion;
 
-@end
++ (void)parseNotesData:(NSData *)data
+        withCompletion:(OSMKNotesCompletionBlock *)completion
+       completionQueue:(dispatch_queue_t)completionQueue;
 
-@interface OSMKParser : NSObject <NSCopying>
++ (void)parseUsersData:(NSData *)data
+        withCompletion:(OSMKUsersCompletionBlock *)completion;
 
-@property (nonatomic, weak, readonly) id<OSMKParserDelegateProtocol> delegate;
-@property (nonatomic, readonly) dispatch_queue_t delegateQueue;
++ (void)parseUsersData:(NSData *)data
+        withCompletion:(OSMKUsersCompletionBlock *)completion
+       completionQueue:(dispatch_queue_t)competionQueue;
 
-- (instancetype)initWithDelegate:(id<OSMKParserDelegateProtocol>)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
 
 @end

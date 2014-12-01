@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OSMKXMLParser.h"
+#import "OSMKXMLParseOperation.h"
 
 @class OSMKStorage;
 @class OSMKNSJSONSerializationParser;
@@ -24,13 +24,12 @@
 
 @end
 
-@interface OSMKStorage : NSObject <OSMKParserDelegateProtocol>
+@interface OSMKStorage : NSObject
 
 @property (nonatomic, weak) id <OSMKStorageDelegateProtocol> delegate;
 @property (nonatomic, strong, readonly) dispatch_queue_t delegateQueue;
 @property (nonatomic, strong, readonly) dispatch_queue_t storageQueue;
 @property (nonatomic, strong, readonly) dispatch_queue_t parserDelegateQueue;
-@property (nonatomic, strong, readonly) OSMKXMLParser *xmlParser;
 @property (nonatomic, strong, readonly) OSMKNSJSONSerializationParser *jsonParser;
 @property (nonatomic, strong, readonly) NSString *filePath;
 

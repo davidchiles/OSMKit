@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKNSXMLParser.h"
+#import "OSMKNSXMLParseOperation.h"
 #import "OSMKNode.h"
 #import "OSMKWay.h"
 #import "OSMKRelation.h"
@@ -15,7 +15,76 @@
 #import "OSMKNote.h"
 #import "OSMKComment.h"
 
-@interface OSMKNSXMLParser () <NSXMLParserDelegate>
+
+
+typedef NS_ENUM(NSInteger, OSMKOperationState) {
+    OSMKOperationPausedState      = -1,
+    OSMKOperationReadyState       = 1,
+    OSMKOperationExecutingState   = 2,
+    OSMKOperationFinishedState    = 3,
+};
+
+static inline BOOL OSMKStateTransitionIsValid(OSMKOperationState fromState, OSMKOperationState toState, BOOL isCancelled) {
+    switch (fromState) {
+        case OSMKOperationReadyState:
+            switch (toState) {
+                case OSMKOperationPausedState:
+                case OSMKOperationExecutingState:
+                    return YES;
+                case OSMKOperationFinishedState:
+                    return isCancelled;
+                default:
+                    return NO;
+            }
+        case OSMKOperationExecutingState:
+            switch (toState) {
+                case OSMKOperationPausedState:
+                case OSMKOperationFinishedState:
+                    return YES;
+                default:
+                    return NO;
+            }
+        case OSMKOperationFinishedState:
+            return NO;
+        case OSMKOperationPausedState:
+            return toState == OSMKOperationReadyState;
+        default: {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunreachable-code"
+            switch (toState) {
+                case OSMKOperationPausedState:
+                case OSMKOperationReadyState:
+                case OSMKOperationExecutingState:
+                case OSMKOperationFinishedState:
+                    return YES;
+                default:
+                    return NO;
+            }
+        }
+#pragma clang diagnostic pop
+    }
+}
+
+static inline NSString * OSMKKeyPathFromOperationState(OSMKOperationState state) {
+    switch (state) {
+        case OSMKOperationReadyState:
+            return @"isReady";
+        case OSMKOperationExecutingState:
+            return @"isExecuting";
+        case OSMKOperationFinishedState:
+            return @"isFinished";
+        case OSMKOperationPausedState:
+            return @"isPaused";
+        default: {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunreachable-code"
+            return @"state";
+#pragma clang diagnostic pop
+        }
+    }
+}
+
+@interface OSMKNSXMLParseOperation () <NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSXMLParser *xmlParser;
 
@@ -32,50 +101,95 @@
 
 @property (nonatomic) dispatch_queue_t parseQueue;
 
+@property (nonatomic) OSMKOperationState state;
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, strong) NSMutableArray *nodes;
+@property (nonatomic, strong) NSMutableArray *ways;
+@property (nonatomic, strong) NSMutableArray *relations;
+@property (nonatomic, strong) NSMutableArray *notes;
+@property (nonatomic, strong) NSMutableArray *users;
+
 @end
 
-@implementation OSMKNSXMLParser
+@implementation OSMKNSXMLParseOperation
 
 - (id)init {
     if (self = [super init]) {
         NSString *queueString = [NSString stringWithFormat:@"%@-parse",NSStringFromClass([self class])];
         self.parseQueue = dispatch_queue_create([queueString UTF8String], 0);
+        self.state = OSMKOperationReadyState;
     }
     return self;
 }
 
 
-- (void)parseXMLData:(NSData *)xmlData
+- (instancetype)initWithStream:(NSInputStream *)inputStream
 {
-    dispatch_async(self.parseQueue, ^{
-        self.xmlParser = [[NSXMLParser alloc] initWithData:xmlData];
-        [self.xmlParser parse];
-    });
-}
-
-- (void)parseOSMStream:(NSInputStream *)inputStream
-{
-    dispatch_async(self.parseQueue, ^{
+    if (self = [self init]) {
         self.xmlParser = [[NSXMLParser alloc] initWithStream:inputStream];
-        [self.xmlParser parse];
-    });
+    }
+    return self;
 }
-
-- (void)parseOSMUrl:(NSURL *)url
+- (instancetype)initWithURL:(NSURL *)url
 {
-    dispatch_async(self.parseQueue, ^{
+    if (self = [self init]) {
         self.xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-        [self.xmlParser parse];
-    });
+    }
+    return self;
+}
+- (instancetype)initWithXMLParser:(NSXMLParser *)parser
+{
+    if (self = [self init]) {
+        self.xmlParser = parser;
+    }
+    return self;
 }
 
-- (void)parseWithXmlParser:(NSXMLParser *)parser
-{
-    dispatch_async(self.parseQueue, ^{
-        self.xmlParser = parser;
-        [self.xmlParser parse];
-    });
+- (BOOL)isExecuting {
+    return self.state == OSMKOperationExecutingState;
 }
+
+- (BOOL)isFinished {
+    return self.state == OSMKOperationFinishedState;
+}
+
+- (BOOL)isReady {
+    return self.state == OSMKOperationReadyState;
+}
+
+- (BOOL)isAsynchronous
+{
+    return YES;
+}
+
+- (void)start {
+    self.state = OSMKOperationExecutingState;
+    [self main];
+    
+}
+
+- (void)main {
+    if (!self.xmlParser) {
+        self.xmlParser = [[NSXMLParser alloc] initWithData:self.data];
+    }
+    
+    [self.xmlParser parse];
+}
+
+- (void)setState:(OSMKOperationState)state
+{
+    if (!OSMKStateTransitionIsValid(self.state, state, [self isCancelled])) {
+        return;
+    }
+    
+    NSString *oldStateKey = OSMKKeyPathFromOperationState(self.state);
+    NSString *newStateKey = OSMKKeyPathFromOperationState(state);
+    
+    [self willChangeValueForKey:newStateKey];
+    [self willChangeValueForKey:oldStateKey];
+    _state = state;
+    [self didChangeValueForKey:oldStateKey];
+    [self didChangeValueForKey:newStateKey];}
 
 - (void)setXmlParser:(NSXMLParser *)xmlParser
 {
@@ -112,16 +226,64 @@
     return [self.currentElementName isEqualToString:string];
 }
 
+#pragma - mark Found Objects
+
+- (void)foundNode:(OSMKNode *)node
+{
+    if (node) {
+        if (!self.nodes) {
+            self.nodes = [NSMutableArray new];
+        }
+        [self.nodes addObject:node];
+    }
+}
+
+- (void)foundWay:(OSMKWay *)way
+{
+    if (way) {
+        if (!self.ways) {
+            self.ways = [NSMutableArray new];
+        }
+        [self.ways addObject:way];
+    }
+}
+
+- (void)foundRelation:(OSMKRelation *)relation
+{
+    if (relation) {
+        if (!self.relations) {
+            self.relations = [NSMutableArray new];
+        }
+        [self.relations addObject:relation];
+    }
+}
+
+- (void)foundNote:(OSMKNote *)note
+{
+    if (note) {
+        if (!self.notes) {
+            self.notes = [NSMutableArray new];
+        }
+        [self.notes addObject:note];
+    }
+}
+
+- (void)foundUser:(OSMKUser *)user
+{
+    if (user) {
+        if (!self.users) {
+            self.users = [NSMutableArray new];
+        }
+        [self.users addObject:user];
+    }
+}
+
 #pragma - mark NSXMLParserDelegate Methods
 
 ////// Start //////
 - (void)parserDidStartDocument:(NSXMLParser *)parser
 {
-    if ([self.delegate respondsToSelector:@selector(parserDidStart:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parserDidStart:self];
-        });
-    }
+
 }
 
 
@@ -222,45 +384,25 @@
 {
     if ([elementName isEqualToString:OSMKNodeElementName] && self.currentNode) {
         
-        
-        if ([self.delegate respondsToSelector:@selector(parser:didFindNode:)]) {
-            __block OSMKNode *node = [self.currentNode copy];
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindNode:node];
-            });
-        }
+        [self foundNode:self.currentNode];
         
         self.currentNode = nil;
     }
     else if ([elementName isEqualToString:OSMKWayElementName] && self.currentWay) {
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindWay:)]) {
-            __block OSMKWay *way = [self.currentWay copy];
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindWay:way];
-            });
-        }
+        [self foundWay:self.currentWay];
         
         self.currentWay = nil;
     }
     else if ([elementName isEqualToString:OSMKRelationElementName] && self.currentRelation) {
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindRelation:)]) {
-            __block OSMKRelation *relation = [self.currentRelation copy];
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindRelation:relation];
-            });
-        }
+        [self foundRelation:self.currentRelation];
         
         self.currentRelation = nil;
     }
     else if ([elementName isEqualToString:OSMKUserElementName] && self.currentUser) {
-        if ([self.delegate respondsToSelector:@selector(parser:didFindUser:)]) {
-            __block OSMKUser *user = [self.currentUser copy];
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindUser:user];
-            });
-        }
+        
+        [self foundUser:self.currentUser];
         
         self.currentUser = nil;
     }
@@ -270,12 +412,7 @@
     }
     else if ([elementName isEqualToString:OSMKNoteElementName] && self.currentNote)
     {
-        if ([self.delegate respondsToSelector:@selector(parser:didFindNote:)]) {
-            __block OSMKNote *note = [self.currentNote copy];
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindNote:note];
-            });
-        }
+        [self foundNote:self.currentNote];
         
         self.currentNote = nil;
     }
@@ -342,31 +479,39 @@
 ////// Errors //////
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
-    if([self.delegate respondsToSelector:@selector(parser:parseErrorOccurred:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parser:self parseErrorOccurred:parseError];
-        });
-    }
+    self.error = parseError;
 }
 
 - (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError
 {
-    if([self.delegate respondsToSelector:@selector(parser:parseErrorOccurred:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parser:self parseErrorOccurred:validationError];
-        });
-    }
+    self.error = validationError;
 }
 
 
 ////// Finish //////
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    if ([self.delegate respondsToSelector:@selector(parserDidFinish:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parserDidFinish:self];
+    dispatch_queue_t queue = self.completionQueue ?: dispatch_get_main_queue();
+    if (self.elementsCompletionBlock) {
+        dispatch_async(queue, ^{
+            self.elementsCompletionBlock(self.nodes,self.ways,self.relations,self.error);
         });
     }
+    
+    if (self.notesCompletionBlock) {
+        dispatch_async(queue, ^{
+            self.notesCompletionBlock(self.notes,self.error);
+        });
+    }
+    
+    if (self.usersCompletionBlock) {
+        dispatch_async(queue, ^{
+            self.usersCompletionBlock(self.users,self.error);
+        });
+    }
+    
+    
+    self.state = OSMKOperationFinishedState;
 }
 
 @end

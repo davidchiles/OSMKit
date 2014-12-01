@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKXMLParser.h"
+#import "OSMKXMLParseOperation.h"
 
 NSString *const OSMKNodeElementName = @"node";
 NSString *const OSMKWayElementName = @"way";
@@ -20,11 +20,7 @@ NSString *const OSMKNoteElementName = @"note";
 NSString *const OSMKNoteCommentsElementName = @"comments";
 
 
-@implementation OSMKXMLParser
+@implementation OSMKXMLParseOperation
 
-- (void)parseXMLData:(NSData *)xmlData
-{
-    
-}
 
 @end

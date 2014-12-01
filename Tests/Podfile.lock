@@ -1,31 +1,33 @@
 PODS:
-  - AFNetworking (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
+  - AFNetworking/NSURLConnection (2.4.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.4):
+  - AFNetworking/NSURLSession (2.4.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FMDB/common (2.3)
+  - FMDB/common (2.4)
   - geos (3.4.2)
   - gtm-oauth (0.0.1):
-    - gtm-oauth/nibs
+    - gtm-oauth/nibs (= 0.0.1)
   - gtm-oauth/nibs (0.0.1)
   - KissXML (5.0)
   - proj4 (4.8.0)
-  - ShapeKit (0.9.5):
+  - ShapeKit (0.9.6):
     - geos
     - proj4
   - SpatialDBKit (0.1.1):
@@ -33,7 +35,7 @@ PODS:
     - ShapeKit
     - spatialite
   - spatialite (4.1.1):
-    - spatialite/standard
+    - spatialite/standard (= 4.1.1)
   - spatialite/core (4.1.1):
     - sqlite3
   - spatialite/geos (4.1.1):
@@ -45,9 +47,9 @@ PODS:
   - spatialite/standard (4.1.1):
     - spatialite/geos
     - spatialite/proj4
-  - sqlite3 (3.8.4.3):
-    - sqlite3/common
-  - sqlite3/common (3.8.4.3)
+  - sqlite3 (3.8.7.1):
+    - sqlite3/common (= 3.8.7.1)
+  - sqlite3/common (3.8.7.1)
   - TBXML (1.5)
   - TRVSMonitor (0.0.3)
 
@@ -60,17 +62,17 @@ DEPENDENCIES:
   - TRVSMonitor (~> 0.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
-  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
   geos: 20db9ad19fae60249357572b5a2e46882005451f
-  gtm-oauth: 189be93a754085d61b09094dd24473a40a486978
+  gtm-oauth: 3c779195cf6c9ef3d79b791b742da6679d0e0b89
   KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
   proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
-  ShapeKit: 503cfe514685579f3e68a54df9ca8f460ae7d008
+  ShapeKit: 02665237746d95b4df7eda049608980602ec5372
   SpatialDBKit: ac48f8259029447e88d445caa377c33ee2d2fd8d
   spatialite: 701bc40513aed25ee4c85801d91f8c13222689aa
-  sqlite3: c532f3365dec0925d3f6408c39b27e3c17960b3c
+  sqlite3: 4a85449609b1ef34b91741febc2ca4b4d40426ad
   TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
   TRVSMonitor: 61f54e833d4ad9efbc6e6fc8a060c42bcb01d0c3
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.35.0.rc2

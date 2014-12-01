@@ -7,14 +7,13 @@
 //
 
 #import "OSMKStorage.h"
-#import "OSMKTBXMLParser.h"
+#import "OSMKTBXMLParseOperation.h"
 
 #import "OSMKStorage.h"
-#import "OSMKNSJSONSerializationParser.h"
+#import "OSMKNSJSONSerializationParseOperation.h"
 
 @interface OSMKStorage ()
 
-@property (nonatomic, strong) OSMKXMLParser *xmlParser;
 @property (nonatomic, strong) OSMKNSJSONSerializationParser *jsonParser;
 @property (nonatomic, strong) NSString *filePath;
 
@@ -49,7 +48,8 @@
     }
     return self;
 }
-
+/*
+ FIXME
 - (void)importXMLData:(NSData *)data
 {
     if (!self.xmlParser) {
@@ -103,12 +103,12 @@
     
 }
 
-
+*/
 #pragma - mark Class Methods
 
 + (Class)defaultXMLParserClass
 {
-    return [OSMKTBXMLParser class];
+    return [OSMKTBXMLParseOperation class];
     
 }
 

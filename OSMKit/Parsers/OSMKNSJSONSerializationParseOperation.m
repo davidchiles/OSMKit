@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKNSJSONSerializationParser.h"
+#import "OSMKNSJSONSerializationParseOperation.h"
 #import "OSMKNote.h"
 
 @interface OSMKNSJSONSerializationParser ()
@@ -97,39 +97,22 @@
 
 - (void)didStart
 {
-    if ([self.delegate respondsToSelector:@selector(parserDidStart:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parserDidStart:self];
-        });
-    }
+
 }
 
 - (void)didFinish
 {
-    if ([self.delegate respondsToSelector:@selector(parserDidFinish:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parserDidFinish:self];
-        });
-    }
+
 }
 
 - (void)didFindError:(NSError *)error
 {
-    if([self.delegate respondsToSelector:@selector(parser:parseErrorOccurred:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parser:self parseErrorOccurred:error];
-        });
-    }
+
 }
 
 - (void)foundNote:(OSMKNote *)note
 {
-    if (note && [self.delegate respondsToSelector:@selector(parser:didFindNote:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate parser:self didFindNote:[note copy]];
-        });
-    
-    }
+
 }
 
 

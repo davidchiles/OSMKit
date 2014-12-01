@@ -9,12 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../OSMKit/Parsers/XMLParsers/OSMKNSXMLParser.m"
-            timestampString = "424058310.105812"
+            filePath = "../OSMKit/Parsers/XMLParsers/OSMKNSXMLParseOperation.m"
+            timestampString = "439153369.669163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "-parser:foundCharacters:"
             landmarkType = "5">
          </BreakpointContent>

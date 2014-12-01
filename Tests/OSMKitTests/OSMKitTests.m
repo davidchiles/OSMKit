@@ -7,12 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "OSMKNSXMLParser.h"
-#import "OSMKTBXMLParser.h"
+#import "OSMKNSXMLParseOperation.h"
+#import "OSMKTBXMLParseOperation.h"
 #import "OSMKSpatiaLiteStorage.h"
-#import "OSMKParserDelegateTest.h"
 #import "OSMKStorageDelegateTest.h"
-#import "OSMKNSJSONSerializationParser.h"
+#import "OSMKNSJSONSerializationParseOperation.h"
 #import "TRVSMonitor.h"
 #import "FMDatabase.h"
 #import "FMDatabaseQueue.h"
@@ -23,8 +22,6 @@ static const int relationsCount = 70; //231
 
 static const double timeOut = 1000.0;
 
-static const int tagsCount = 375;
-
 @interface OSMKitTests : XCTestCase
 
 @property (nonatomic, strong) NSData *osmFileData;
@@ -32,6 +29,8 @@ static const int tagsCount = 375;
 @property (nonatomic, strong) NSData *notesJSONFileData;
 @property (nonatomic, strong) NSData *noteJSONFileData;
 @property (nonatomic, strong) NSData *notesXMLFileData;
+
+@property (nonatomic, strong) NSOperationQueue *parseOperationQueue;
 
 @end
 
@@ -55,77 +54,113 @@ static const int tagsCount = 375;
     NSString *notesXMLPath = [[NSBundle mainBundle] pathForResource:@"notes" ofType:@"xml"];
     self.notesXMLFileData = [NSData dataWithContentsOfFile:notesXMLPath];
     
-    
+    self.parseOperationQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)testNSXMLParser
 {
-    TRVSMonitor *monitor = [[TRVSMonitor alloc] initWithExpectedSignalCount:3];
-    
-    OSMKParserDelegateTest *parserDelegate = [[OSMKParserDelegateTest alloc] init];
-    OSMKParseCompletionBlock completionBlock = ^void(void) {
-        [monitor signal];
-    };
-    parserDelegate.completionBlock = completionBlock;
-    
-    
-    OSMKNSXMLParser *parser = [[OSMKNSXMLParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
-    [parser parseXMLData:self.osmFileData];
-    [parser parseXMLData:self.userFileData];
-    [parser parseXMLData:self.notesXMLFileData];
-    
-    
-    [monitor waitWithTimeout:1000.0];
-    
-    XCTAssert(parserDelegate.nodesCount == nodesCount);
-    XCTAssert(parserDelegate.waysCount == waysCount);
-    XCTAssert(parserDelegate.relationsCount == relationsCount);
-    XCTAssert(parserDelegate.usersCount == 1);
-    XCTAssert(parserDelegate.notesCount == 100);
+    [self testNSXMLWithData:self.osmFileData nodes:nodesCount ways:waysCount relations:relationsCount notes:0 users:0];
+    [self testNSXMLWithData:self.userFileData nodes:0 ways:0 relations:0 notes:0 users:1];
+    [self testNSXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:100 users:0];
 }
+
+- (void)testNSXMLWithData:(NSData *)data nodes:(NSUInteger)nodeCount ways:(NSUInteger)wayCount relations:(NSUInteger)relationCount notes:(NSUInteger)noteCount users:(NSUInteger)userCount
+{
+    XCTestExpectation *elementExpectation = [self expectationWithDescription:@"Parsed Elements"];
+    XCTestExpectation *notesExpectation = [self expectationWithDescription:@"Parsed Notes"];
+    XCTestExpectation *usersExpectation = [self expectationWithDescription:@"Parsed Users"];
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Completed"];
+    
+    OSMKNSXMLParseOperation *elementOperation = [[OSMKNSXMLParseOperation alloc] initWithData:data];
+    [elementOperation setElementsCompletionBlock:^void ((NSArray *nodes, NSArray *ways, NSArray *relations, NSError *error)) {
+        XCTAssertTrue([nodes count] == nodeCount);
+        XCTAssertTrue([ways count] == wayCount);
+        XCTAssertTrue([relations count] == relationCount);
+        XCTAssertNil(error);
+        [elementExpectation fulfill];
+    }];
+    [elementOperation setNotesCompletionBlock:^void ((NSArray *notes, NSError *error)) {
+        XCTAssertTrue([notes count] == noteCount);
+        XCTAssertNil(error);
+        [notesExpectation fulfill];
+    }];
+    
+    [elementOperation setUsersCompletionBlock:^void ((NSArray *users, NSError *error)) {
+        XCTAssertTrue([users count] == userCount);
+        XCTAssertNil(error);
+        [usersExpectation fulfill];
+    }];
+    
+    [elementOperation setCompletionBlock:^{
+        [completionExpectation fulfill];
+    }];
+    
+    [self.parseOperationQueue addOperation:elementOperation];
+    [self waitForExpectationsWithTimeout:30 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
 
 - (void)testTBXMLParser
 {
-    TRVSMonitor *monitor = [[TRVSMonitor alloc] initWithExpectedSignalCount:3];
-    
-    OSMKParserDelegateTest *parserDelegate = [[OSMKParserDelegateTest alloc] init];
-    OSMKParseCompletionBlock completionBlock = ^void(void) {
-        [monitor signal];
-    };
-    parserDelegate.completionBlock = completionBlock;
-    
-    
-    OSMKTBXMLParser *parser = [[OSMKTBXMLParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
-    [parser parseXMLData:self.osmFileData];
-    [parser parseXMLData:self.userFileData];
-    [parser parseXMLData:self.notesXMLFileData];
-    
-    [monitor waitWithTimeout:timeOut];
-    
-    XCTAssert(parserDelegate.nodesCount == nodesCount);
-    XCTAssert(parserDelegate.waysCount == waysCount);
-    XCTAssert(parserDelegate.relationsCount == relationsCount);
-    XCTAssert(parserDelegate.usersCount == 1);
-    XCTAssert(parserDelegate.notesCount == 100);
+    [self testTBXMLWithData:self.osmFileData nodes:nodesCount ways:waysCount relations:relationsCount notes:0 users:0];
+    [self testTBXMLWithData:self.userFileData nodes:0 ways:0 relations:0 notes:0 users:1];
+    [self testTBXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:100 users:0];
 }
+
+- (void)testTBXMLWithData:(NSData *)data nodes:(NSUInteger)nodeCount ways:(NSUInteger)wayCount relations:(NSUInteger)relationCount notes:(NSUInteger)noteCount users:(NSUInteger)userCount
+{
+    XCTestExpectation *elementExpectation = [self expectationWithDescription:@"Parsed Elements"];
+    XCTestExpectation *notesExpectation = [self expectationWithDescription:@"Parsed Notes"];
+    XCTestExpectation *usersExpectation = [self expectationWithDescription:@"Parsed Users"];
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Completed"];
+    
+    OSMKTBXMLParseOperation *elementOperation = [[OSMKTBXMLParseOperation alloc] initWithData:data];
+    [elementOperation setElementsCompletionBlock:^void ((NSArray *nodes, NSArray *ways, NSArray *relations, NSError *error)) {
+        XCTAssertTrue([nodes count] == nodeCount);
+        XCTAssertTrue([ways count] == wayCount);
+        XCTAssertTrue([relations count] == relationCount);
+        XCTAssertNil(error);
+        [elementExpectation fulfill];
+    }];
+    [elementOperation setNotesCompletionBlock:^void ((NSArray *notes, NSError *error)) {
+        XCTAssertTrue([notes count] == noteCount);
+        XCTAssertNil(error);
+        [notesExpectation fulfill];
+    }];
+    
+    [elementOperation setUsersCompletionBlock:^void ((NSArray *users, NSError *error)) {
+        XCTAssertTrue([users count] == userCount);
+        XCTAssertNil(error);
+        [usersExpectation fulfill];
+    }];
+    
+    [elementOperation setCompletionBlock:^{
+        [completionExpectation fulfill];
+    }];
+    
+    [self.parseOperationQueue addOperation:elementOperation];
+    [self waitForExpectationsWithTimeout:30 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
+}
+
+
 
 - (void)testNSJSONSerializationParser
 {
     TRVSMonitor *monitor = [[TRVSMonitor alloc] initWithExpectedSignalCount:2];
-    OSMKParserDelegateTest *parserDelegate = [[OSMKParserDelegateTest alloc] init];
-    OSMKParseCompletionBlock completionBlock = ^void(void) {
-        [monitor signal];
-    };
-    parserDelegate.completionBlock = completionBlock;
-    
-    OSMKNSJSONSerializationParser * jsonParser = [[OSMKNSJSONSerializationParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
-    [jsonParser parseJSONData:self.notesJSONFileData];
-    [jsonParser parseJSONData:self.noteJSONFileData];
     
     
-    [monitor waitWithTimeout:timeOut];
+//    OSMKNSJSONSerializationParser * jsonParser = [[OSMKNSJSONSerializationParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
+//    [jsonParser parseJSONData:self.notesJSONFileData];
+//    [jsonParser parseJSONData:self.noteJSONFileData];
+//    
+//    
+//    [monitor waitWithTimeout:timeOut];
     
-    XCTAssert(parserDelegate.notesCount == 101);
+    //XCTAssert(parserDelegate.notesCount == 101);
 }
 
 - (void)testSpatiaLiteStorageDelegateMethods

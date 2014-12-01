@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKXMLParser.h"
+#import "OSMKXMLParseOperation.h"
 
-@interface OSMKTBXMLParser : OSMKXMLParser
+@interface OSMKTBXMLParseOperation : OSMKXMLParseOperation
 
 @end
+

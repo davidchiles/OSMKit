@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 davidchiles. All rights reserved.
 //
 
-#import "OSMKTBXMLParser.h"
+#import "OSMKTBXMLParseOperation.h"
 #import "TBXML.h"
 
 #import "OSMKNode.h"
@@ -17,13 +17,13 @@
 #import "OSMKNote.h"
 #import "OSMKComment.h"
 
-@interface OSMKTBXMLParser ()
+@interface OSMKTBXMLParseOperation ()
 
 @property (nonatomic) dispatch_queue_t parseQueue;
 
 @end
 
-@implementation OSMKTBXMLParser
+@implementation OSMKTBXMLParseOperation
 
 - (id)init {
     if (self = [super init]) {
@@ -33,41 +33,69 @@
     return self;
 }
 
-- (void)parseXMLData:(NSData *)xmlData
+- (void)main
+{
+    dispatch_queue_t queue = self.completionQueue ?: dispatch_get_main_queue();
+    [self parseXMLData:self.data completionQueue:queue];
+}
+
+- (void)parseXMLData:(NSData *)xmlData completionQueue:(dispatch_queue_t)completionQueue
 {
     NSError *error = nil;
     TBXML *parser = [[TBXML alloc] initWithXMLData:xmlData error:&error];
     if (error) {
         NSLog(@"ERROR - %@",error);
     }
-    dispatch_async(self.parseQueue, ^{
-        [self parse:parser];
-    });
-    
+    [self parse:parser completionQueue:completionQueue];
 }
 
-- (void)parse:(TBXML *)xmlParser{
+- (void)parse:(TBXML *)xmlParser completionQueue:(dispatch_queue_t)completionQueue{
     TBXMLElement *rootElement = xmlParser.rootXMLElement;
+    NSArray *nodes = nil;
+    NSArray *ways = nil;
+    NSArray *relations = nil;
+    NSArray *notes = nil;
+    NSArray *users = nil;
+    NSError *error = nil;
     if (rootElement) {
         
-        if ([self.delegate respondsToSelector:@selector(parserDidStart:)]) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parserDidStart:self];
-            });
-        }
+        nodes = [self findNodesWithRootElement:rootElement];
+        ways = [self findWaysWithRootElement:rootElement];
+        relations = [self findRelationsWithRootElement:rootElement];
+        [self completedParsingNodes:nodes ways:ways relations:relations error:error completionQueue:completionQueue];
         
-        [self findNodesWithRootElement:rootElement];
-        [self findWaysWithRootElement:rootElement];
-        [self findRelationsWithRootElement:rootElement];
-        [self findUsersWithRootElement:rootElement];
-        [self findNotesWithRootElement:rootElement];
+        users = [self findUsersWithRootElement:rootElement];
+        [self completedParsingUsers:users error:error completionQueue:completionQueue];
         
-        if ([self.delegate respondsToSelector:@selector(parserDidFinish:)]) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parserDidFinish:self];
-            });
-        }
-        
+        notes = [self findNotesWithRootElement:rootElement];
+        [self completedParsingNotes:notes error:error completionQueue:completionQueue];
+    }
+}
+
+- (void)completedParsingUsers:(NSArray *)users error:(NSError *)error completionQueue:(dispatch_queue_t)completionQueue
+{
+    if (self.usersCompletionBlock) {
+        dispatch_async(completionQueue, ^{
+            self.usersCompletionBlock(users,error);
+        });
+    }
+}
+
+- (void)completedParsingNotes:(NSArray *)notes error:(NSError *)error completionQueue:(dispatch_queue_t)completionQueue
+{
+    if (self.notesCompletionBlock) {
+        dispatch_async(completionQueue, ^{
+            self.notesCompletionBlock(notes,error);
+        });
+    }
+}
+
+- (void)completedParsingNodes:(NSArray *)nodes ways:(NSArray *)ways relations:(NSArray *)relations error:(NSError *)error completionQueue:(dispatch_queue_t)completionQueue
+{
+    if (self.elementsCompletionBlock) {
+        dispatch_async(completionQueue, ^{
+            self.elementsCompletionBlock(nodes,ways,relations,nil);
+        });
     }
 }
 
@@ -80,7 +108,7 @@
         [elementDict setObject:[TBXML attributeValue:attribute] forKey:[TBXML attributeName:attribute]];
         attribute = attribute->next;
     }
-    return [elementDict copy];
+    return elementDict;
 }
 
 - (NSDictionary *)tagsDictioanryWithElement:(TBXMLElement *)element
@@ -97,7 +125,7 @@
         tagElement = [TBXML nextSiblingNamed:@"tag" searchFromElement:tagElement];
     }
     
-    return [dictionary copy];
+    return dictionary;
 }
 
 - (NSArray *)wayNodesWithElement:(TBXMLElement *)element
@@ -113,7 +141,7 @@
         
         ndElement = [TBXML nextSiblingNamed:@"nd" searchFromElement:ndElement];
     }
-    return [mutableArray copy];
+    return mutableArray;
 }
 
 - (NSArray *)relationMembersWithElement:(TBXMLElement *)element
@@ -129,63 +157,75 @@
         
         memberElement = [TBXML nextSiblingNamed:OSMKRelationMemberElementName searchFromElement:memberElement];
     }
-    return [mutableArray copy];
+    return mutableArray;
 }
 
-- (void)findNodesWithRootElement:(TBXMLElement *)rootElement
+- (NSArray *)findNodesWithRootElement:(TBXMLElement *)rootElement
 {
+    NSMutableArray *nodes = [NSMutableArray new];
     TBXMLElement * nodeXML = [TBXML childElementNamed:OSMKNodeElementName parentElement:rootElement];
     while (nodeXML) {
         OSMKNode *node = [[OSMKNode alloc] initWithAttributesDictionary:[self attributesDictionaryWithElement:nodeXML]];
         node.tags = [self tagsDictioanryWithElement:nodeXML];
-        
-        if ([self.delegate respondsToSelector:@selector(parser:didFindNode:)] && node) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindNode:node];
-            });
+        if (node) {
+            [nodes addObject:node];
         }
         nodeXML = [TBXML nextSiblingNamed:OSMKNodeElementName searchFromElement:nodeXML];
     }
+    
+    if (![nodes count]) {
+        nodes = nil;
+    }
+    
+    return nodes;
 }
 
-- (void)findWaysWithRootElement:(TBXMLElement *)rootElement
+- (NSArray *)findWaysWithRootElement:(TBXMLElement *)rootElement
 {
+    NSMutableArray *ways = [NSMutableArray new];
     TBXMLElement *wayXML = [TBXML childElementNamed:OSMKWayElementName parentElement:rootElement];
     while (wayXML) {
         OSMKWay *way = [[OSMKWay alloc] initWithAttributesDictionary:[self attributesDictionaryWithElement:wayXML]];
         way.tags = [self tagsDictioanryWithElement:wayXML];
         way.nodes = [self wayNodesWithElement:wayXML];
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindWay:)] && way) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindWay:way];
-            });
+        if (way) {
+            [ways addObject:way];
         }
         
         wayXML = [TBXML nextSiblingNamed:OSMKWayElementName searchFromElement:wayXML];
     }
+    if (![ways count]) {
+        ways = nil;
+    }
+    return ways;
 }
 
-- (void)findRelationsWithRootElement:(TBXMLElement *)rootElement
+- (NSArray *)findRelationsWithRootElement:(TBXMLElement *)rootElement
 {
+    NSMutableArray *relations = [NSMutableArray new];
     TBXMLElement *relationXML = [TBXML childElementNamed:OSMKRelationElementName parentElement:rootElement];
     while (relationXML) {
         OSMKRelation *relation = [[OSMKRelation alloc] initWithAttributesDictionary:[self attributesDictionaryWithElement:relationXML]];
         relation.tags = [self tagsDictioanryWithElement:relationXML];
         relation.members = [self relationMembersWithElement:relationXML];
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindRelation:)] && relation) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindRelation:relation];
-            });
+        if (relation) {
+            [relations addObject:relation];
         }
         
         relationXML = [TBXML nextSiblingNamed:OSMKRelationElementName searchFromElement:relationXML];
     }
+    
+    if (![relations count]) {
+        relations = nil;
+    }
+    return relations;
 }
 
-- (void)findUsersWithRootElement:(TBXMLElement *)rootElement
+- (NSArray *)findUsersWithRootElement:(TBXMLElement *)rootElement
 {
+    NSMutableArray *users = [NSMutableArray new];
     TBXMLElement *userXML = [TBXML childElementNamed:OSMKUserElementName parentElement:rootElement];
     while (userXML) {
         OSMKUser *user = [[OSMKUser alloc] initWithAttributesDictionary:[self attributesDictionaryWithElement:userXML]];
@@ -228,21 +268,25 @@
         user.issuedBlocks = [[TBXML valueOfAttributeNamed:@"count" forElement:[TBXML childElementNamed:@"issued" parentElement:[TBXML childElementNamed:@"blocks" parentElement:userXML]]] integerValue];
         user.activeIssuedBlocks = [[TBXML valueOfAttributeNamed:@"active" forElement:[TBXML childElementNamed:@"issued" parentElement:[TBXML childElementNamed:@"blocks" parentElement:userXML]]] integerValue];
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindUser:)] && user) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindUser:user];
-            });
+        if (user) {
+            [users addObject:user];
         }
-        
         
         
         userXML = [TBXML nextSiblingNamed:OSMKUserElementName searchFromElement:userXML];
     }
     
+    if (![users count]) {
+        users = nil;
+    }
+    
+    return users;
+    
 }
 
-- (void)findNotesWithRootElement:(TBXMLElement *)rootElement
+- (NSArray *)findNotesWithRootElement:(TBXMLElement *)rootElement
 {
+    NSMutableArray *notes = [NSMutableArray new];
     TBXMLElement *noteXML = [TBXML childElementNamed:OSMKNoteElementName parentElement:rootElement];
     while (noteXML) {
         OSMKNote *note = [[OSMKNote alloc] init];
@@ -288,15 +332,18 @@
         
         note.commentsArray = [comments copy];
         
-        if ([self.delegate respondsToSelector:@selector(parser:didFindNote:)] && note) {
-            dispatch_async(self.delegateQueue, ^{
-                [self.delegate parser:self didFindNote:note];
-            });
+        if (note) {
+            [notes addObject:note];
         }
         
         noteXML = [TBXML nextSiblingNamed:OSMKNoteElementName searchFromElement:noteXML];
     }
     
+    if (![notes count]) {
+        notes = nil;
+    }
+    
+    return notes;
    
 }
 

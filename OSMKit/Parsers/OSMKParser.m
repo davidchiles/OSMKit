@@ -8,36 +8,47 @@
 
 #import "OSMKParser.h"
 
-@interface OSMKParser ()
-
-@property (nonatomic) dispatch_queue_t delegateQueue;
-@property (nonatomic, weak) id<OSMKParserDelegateProtocol> delegate;
-
-@end
-
 
 @implementation OSMKParser
 
-- (instancetype)initWithDelegate:(id<OSMKParserDelegateProtocol>)delegate delegateQueue:(dispatch_queue_t)delegateQueue
+
++ (void)parseElementsData:(NSData *)data
+           withCompletion:(OSMKElementsCompletionBlock *)completion
 {
-    if (self = [self init]) {
-        self.delegate = delegate;
-        if (delegateQueue) {
-            self.delegateQueue = delegateQueue;
-        }
-        else {
-            NSString *name = [NSString stringWithFormat:@"%@-delegate",NSStringFromClass([self class])];
-            self.delegateQueue = dispatch_queue_create([name UTF8String], 0);
-        }
-    }
-    return self;
+    [self parseElementsData:data withCompletion:completion completionQueue:nil];
 }
 
-#pragma - mark NSCopying
-
-- (id)copyWithZone:(NSZone *)zone
++ (void)parseElementsData:(NSData *)data
+           withCompletion:(OSMKElementsCompletionBlock *)completion
+          completionQueue:(dispatch_queue_t)competionQueue
 {
-    return [[OSMKParser alloc] initWithDelegate:self.delegate delegateQueue:self.delegateQueue];
+    
+}
+
++ (void)parseNotesData:(NSData *)data
+        withCompletion:(OSMKNotesCompletionBlock *)completion
+{
+    [self parseNotesData:data withCompletion:completion completionQueue:nil];
+}
+
++ (void)parseNotesData:(NSData *)data
+        withCompletion:(OSMKNotesCompletionBlock *)completion
+       completionQueue:(dispatch_queue_t)completionQueue
+{
+    
+}
+
++ (void)parseUsersData:(NSData *)data
+        withCompletion:(OSMKUsersCompletionBlock *)completion
+{
+    [self parseUsersData:data withCompletion:completion completionQueue:nil];
+}
+
++ (void)parseUsersData:(NSData *)data
+        withCompletion:(OSMKUsersCompletionBlock *)completion
+       completionQueue:(dispatch_queue_t)competionQueue
+{
+    
 }
 
 
