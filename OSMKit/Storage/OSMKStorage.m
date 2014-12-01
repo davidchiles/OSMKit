@@ -10,11 +10,9 @@
 #import "OSMKTBXMLParseOperation.h"
 
 #import "OSMKStorage.h"
-#import "OSMKNSJSONSerializationParseOperation.h"
 
 @interface OSMKStorage ()
 
-@property (nonatomic, strong) OSMKNSJSONSerializationParser *jsonParser;
 @property (nonatomic, strong) NSString *filePath;
 
 @property (nonatomic, strong) dispatch_queue_t storageQueue;

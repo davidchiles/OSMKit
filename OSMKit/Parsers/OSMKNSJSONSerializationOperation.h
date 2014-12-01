@@ -8,6 +8,8 @@
 
 #import "OSMKParseOperation.h"
 
-@interface OSMKNSJSONSerializationParser : OSMKParseOperation
+@interface OSMKNSJSONSerializationOperation : OSMKParseOperation
+
+- (id)initWithStream:(NSInputStream *)inputStream;
 
 @end

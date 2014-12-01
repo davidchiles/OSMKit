@@ -11,14 +11,15 @@
 #import "OSMKTBXMLParseOperation.h"
 #import "OSMKSpatiaLiteStorage.h"
 #import "OSMKStorageDelegateTest.h"
-#import "OSMKNSJSONSerializationParseOperation.h"
+#import "OSMKNSJSONSerializationOperation.h"
 #import "TRVSMonitor.h"
 #import "FMDatabase.h"
 #import "FMDatabaseQueue.h"
 
-static const int nodesCount = 1625; //51654
-static const int waysCount = 254; //6594
-static const int relationsCount = 70; //231
+static const int nodesCount = 51654; // 1625
+static const int waysCount = 6594; // 254
+static const int relationsCount = 231; // 70
+static const int notesCount = 100;
 
 static const double timeOut = 1000.0;
 
@@ -39,7 +40,7 @@ static const double timeOut = 1000.0;
 - (void)setUp
 {
     [super setUp];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"small_berkeley" ofType:@"osm"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"berkeley" ofType:@"osm"];
     self.osmFileData = [NSData dataWithContentsOfFile:path];
     
     NSString *userPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"osm"];
@@ -55,13 +56,22 @@ static const double timeOut = 1000.0;
     self.notesXMLFileData = [NSData dataWithContentsOfFile:notesXMLPath];
     
     self.parseOperationQueue = [[NSOperationQueue alloc] init];
+    self.parseOperationQueue.maxConcurrentOperationCount = 1;
 }
 
 - (void)testNSXMLParser
 {
     [self testNSXMLWithData:self.osmFileData nodes:nodesCount ways:waysCount relations:relationsCount notes:0 users:0];
     [self testNSXMLWithData:self.userFileData nodes:0 ways:0 relations:0 notes:0 users:1];
-    [self testNSXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:100 users:0];
+    [self testNSXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:notesCount users:0];
+}
+
+- (void)testNSXMLPerformance {
+    [self measureBlock:^{
+        [self testNSXMLParser];
+        
+    }];
+    
 }
 
 - (void)testNSXMLWithData:(NSData *)data nodes:(NSUInteger)nodeCount ways:(NSUInteger)wayCount relations:(NSUInteger)relationCount notes:(NSUInteger)noteCount users:(NSUInteger)userCount
@@ -106,7 +116,15 @@ static const double timeOut = 1000.0;
 {
     [self testTBXMLWithData:self.osmFileData nodes:nodesCount ways:waysCount relations:relationsCount notes:0 users:0];
     [self testTBXMLWithData:self.userFileData nodes:0 ways:0 relations:0 notes:0 users:1];
-    [self testTBXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:100 users:0];
+    [self testTBXMLWithData:self.notesXMLFileData nodes:0 ways:0 relations:0 notes:notesCount users:0];
+}
+
+- (void)testTBXMLPerformance {
+    [self measureBlock:^{
+        [self testTBXMLParser];
+        
+    }];
+    
 }
 
 - (void)testTBXMLWithData:(NSData *)data nodes:(NSUInteger)nodeCount ways:(NSUInteger)wayCount relations:(NSUInteger)relationCount notes:(NSUInteger)noteCount users:(NSUInteger)userCount
@@ -150,17 +168,38 @@ static const double timeOut = 1000.0;
 
 - (void)testNSJSONSerializationParser
 {
-    TRVSMonitor *monitor = [[TRVSMonitor alloc] initWithExpectedSignalCount:2];
     
+    [self testNSJSONSerializationWithData:self.notesJSONFileData notes:notesCount];
+    [self testNSJSONSerializationWithData:self.noteJSONFileData notes:1];
+}
+
+- (void)testNSJSONPerformance {
+    [self measureBlock:^{
+        [self testNSJSONSerializationParser];
+    }];
     
-//    OSMKNSJSONSerializationParser * jsonParser = [[OSMKNSJSONSerializationParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
-//    [jsonParser parseJSONData:self.notesJSONFileData];
-//    [jsonParser parseJSONData:self.noteJSONFileData];
-//    
-//    
-//    [monitor waitWithTimeout:timeOut];
+}
+
+- (void)testNSJSONSerializationWithData:(NSData *)data notes:(NSUInteger)noteCount
+{
+    XCTestExpectation *notesExpectation = [self expectationWithDescription:@"Parsed Notes"];
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Completed"];
     
-    //XCTAssert(parserDelegate.notesCount == 101);
+    OSMKNSJSONSerializationOperation *elementOperation = [[OSMKNSJSONSerializationOperation alloc] initWithData:data];
+    [elementOperation setNotesCompletionBlock:^void ((NSArray *notes, NSError *error)) {
+        XCTAssertTrue([notes count] == noteCount);
+        XCTAssertNil(error);
+        [notesExpectation fulfill];
+    }];
+    
+    [elementOperation setCompletionBlock:^{
+        [completionExpectation fulfill];
+    }];
+    
+    [self.parseOperationQueue addOperation:elementOperation];
+    [self waitForExpectationsWithTimeout:30 handler:^(NSError *error) {
+        XCTAssertNil(error);
+    }];
 }
 
 - (void)testSpatiaLiteStorageDelegateMethods
