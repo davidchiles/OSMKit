@@ -51,24 +51,45 @@
 
 - (void)parse:(TBXML *)xmlParser completionQueue:(dispatch_queue_t)completionQueue{
     TBXMLElement *rootElement = xmlParser.rootXMLElement;
-    NSArray *nodes = nil;
-    NSArray *ways = nil;
-    NSArray *relations = nil;
-    NSArray *notes = nil;
-    NSArray *users = nil;
-    NSError *error = nil;
+    __block NSArray *nodes = nil;
+    __block NSArray *ways = nil;
+    __block NSArray *relations = nil;
+    __block NSArray *notes = nil;
+    __block NSArray *users = nil;
+    __block NSError *error = nil;
     if (rootElement) {
         
-        nodes = [self findNodesWithRootElement:rootElement];
-        ways = [self findWaysWithRootElement:rootElement];
-        relations = [self findRelationsWithRootElement:rootElement];
+        dispatch_group_t parseDispatchGroup = dispatch_group_create();
+        
+        dispatch_queue_t nodeQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(parseDispatchGroup, nodeQueue, ^{
+            nodes = [self findNodesWithRootElement:rootElement];
+        });
+        
+        dispatch_queue_t wayQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(parseDispatchGroup, wayQueue, ^{
+            ways = [self findWaysWithRootElement:rootElement];
+        });
+        
+        dispatch_queue_t relationQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(parseDispatchGroup, relationQueue, ^{
+            relations = [self findRelationsWithRootElement:rootElement];
+        });
+        
+        dispatch_queue_t userQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(parseDispatchGroup, userQueue, ^{
+            users = [self findUsersWithRootElement:rootElement];
+        });
+        
+        dispatch_queue_t noteQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(parseDispatchGroup, noteQueue, ^{
+            notes = [self findNotesWithRootElement:rootElement];
+        });
+        
+        dispatch_group_wait(parseDispatchGroup, DISPATCH_TIME_FOREVER);
         [self completedParsingNodes:nodes ways:ways relations:relations error:error completionQueue:completionQueue];
-        
-        users = [self findUsersWithRootElement:rootElement];
-        [self completedParsingUsers:users error:error completionQueue:completionQueue];
-        
-        notes = [self findNotesWithRootElement:rootElement];
         [self completedParsingNotes:notes error:error completionQueue:completionQueue];
+        [self completedParsingUsers:users error:error completionQueue:completionQueue];
     }
 }
 

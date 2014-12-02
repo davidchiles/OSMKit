@@ -17,6 +17,7 @@
 
 @interface OSMKObject ()
 
+@property (nonatomic, strong) NSDate *timeStamp;
 
 @end
 
@@ -42,13 +43,31 @@
         
         self.user = attributes[@"user"];
         
-        NSString *timeString = attributes[@"timestamp"];
-        if ([timeString length]) {
-            self.timeStamp = [[OSMKObject defaultDateFormatter] dateFromString:timeString];
-        }
-        
+        self.timeStampString = attributes[@"timestamp"];
     }
     return self;
+}
+
+- (void)setTimeStampString:(NSString *)timeStampString
+{
+    _timeStampString = timeStampString;
+    _timeStamp = nil;
+}
+
+- (NSDate *)timeStamp
+{
+    if (_timeStamp) {
+        return _timeStamp;
+    }
+    
+    if ([self.timeStampString length]) {
+        _timeStamp = [[OSMKObject defaultDateFormatter] dateFromString:self.timeStampString];
+    }
+    else {
+        _timeStamp = nil;
+    }
+    
+    return _timeStamp;
 }
 
 #pragma - mark XML
@@ -111,7 +130,7 @@
     object.tags = [self.tags copyWithZone:zone];
     object.user = [self.user copyWithZone:zone];
     object.action = self.action;
-    object.timeStamp = [self.timeStamp copyWithZone:zone];
+    object.timeStampString = [self.timeStampString copyWithZone:zone];
     
     return object;
 }

@@ -35,7 +35,11 @@ typedef NS_ENUM(NSInteger, OSMKElementAction) {
 
 @property (nonatomic, strong) NSDictionary *tags;
 @property (nonatomic, strong) NSString *user;
-@property (nonatomic, strong) NSDate *timeStamp;
+
+//Use NSString to set and will be parsed upon getting from the timeStamp and stored
+//Improves parsing time significantly because the cost of NSDateFormatter
+@property (nonatomic, strong) NSString *timeStampString;
+@property (nonatomic, strong, readonly) NSDate *timeStamp;
 
 - (instancetype)initWithId:(int64_t)osmId;
 - (instancetype)initWithAttributesDictionary:(NSDictionary *)attributes;
