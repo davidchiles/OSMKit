@@ -1,11 +1,6 @@
-platform :ios, '6.0'
+platform :ios, '7.0'
 inhibit_all_warnings!
 
 link_with 'OSMKit', 'OSMKitTests'
 
-pod 'SpatialDBKit', '~> 0.1'
-pod 'TBXML', '~> 1.5'
-pod 'TRVSMonitor', '~> 0.0'
-pod 'AFNetworking', '~> 2.2'
-pod 'gtm-oauth', '~> 0.0'
-pod 'KissXML', '~> 5.0'
+pod "OSMKit", :path => "../"

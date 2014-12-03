@@ -97,7 +97,7 @@
 {
     if (self.usersCompletionBlock) {
         dispatch_async(completionQueue, ^{
-            self.usersCompletionBlock(users,error);
+            self.usersCompletionBlock(users);
         });
     }
 }
@@ -106,7 +106,7 @@
 {
     if (self.notesCompletionBlock) {
         dispatch_async(completionQueue, ^{
-            self.notesCompletionBlock(notes,error);
+            self.notesCompletionBlock(notes);
         });
     }
 }
@@ -115,7 +115,7 @@
 {
     if (self.elementsCompletionBlock) {
         dispatch_async(completionQueue, ^{
-            self.elementsCompletionBlock(nodes,ways,relations,nil);
+            self.elementsCompletionBlock(nodes,ways,relations);
         });
     }
 }
@@ -278,7 +278,7 @@
             role = role->nextSibling;
         }
         
-        user.roles = [roleSet copy];
+        user.roles = roleSet;
         
         user.changesetCount = [[TBXML valueOfAttributeNamed:@"count" forElement:[TBXML childElementNamed:@"changesets" parentElement:userXML]]integerValue];
         user.traceCount = [[TBXML valueOfAttributeNamed:@"count" forElement:[TBXML childElementNamed:@"traces" parentElement:userXML]] integerValue];

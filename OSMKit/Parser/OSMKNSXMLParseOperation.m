@@ -494,19 +494,19 @@ static inline NSString * OSMKKeyPathFromOperationState(OSMKOperationState state)
     dispatch_queue_t queue = self.completionQueue ?: dispatch_get_main_queue();
     if (self.elementsCompletionBlock) {
         dispatch_async(queue, ^{
-            self.elementsCompletionBlock(self.nodes,self.ways,self.relations,self.error);
+            self.elementsCompletionBlock(self.nodes,self.ways,self.relations);
         });
     }
     
     if (self.notesCompletionBlock) {
         dispatch_async(queue, ^{
-            self.notesCompletionBlock(self.notes,self.error);
+            self.notesCompletionBlock(self.notes);
         });
     }
     
     if (self.usersCompletionBlock) {
         dispatch_async(queue, ^{
-            self.usersCompletionBlock(self.users,self.error);
+            self.usersCompletionBlock(self.users);
         });
     }
     

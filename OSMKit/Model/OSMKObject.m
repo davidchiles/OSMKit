@@ -40,9 +40,7 @@
         self.changeset = [attributes[@"changeset"] longLongValue];
         self.userId = [attributes[@"uid"] longLongValue];
         self.visible = [attributes[@"visible"] isEqualToString:@"true"];
-        
         self.user = attributes[@"user"];
-        
         self.timeStampString = attributes[@"timestamp"];
     }
     return self;

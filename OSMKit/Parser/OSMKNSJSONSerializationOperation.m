@@ -47,19 +47,19 @@
     
     if (self.notesCompletionBlock) {
         dispatch_async(queue, ^{
-            self.notesCompletionBlock(notes,error);
+            self.notesCompletionBlock(notes);
         });
     }
     
     if (self.elementsCompletionBlock) {
         dispatch_async(queue, ^{
-            self.elementsCompletionBlock(nil,nil,nil,nil);
+            self.elementsCompletionBlock(nil,nil,nil);
         });
     }
     
     if (self.usersCompletionBlock) {
         dispatch_async(queue, ^{
-            self.usersCompletionBlock(nil,nil);
+            self.usersCompletionBlock(nil);
         });
     }
 

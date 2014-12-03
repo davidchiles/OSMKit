@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>79818FAA-A1EC-41B1-8BA6-0E319A062EBC</string>
+	<string>D2F202E4-AA3D-4987-A384-B0B2792F9502</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OSMKit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A0D85EFD5F6D959650F1A7F38845945241955B3C</key>
-		<string>ssh://github.com/davidchiles/OSMKit.git</string>
+		<string>github.com:davidchiles/OSMKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Tests/OSMKit.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/davidchiles/OSMKit.git</string>
+	<string>github.com:davidchiles/OSMKit.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

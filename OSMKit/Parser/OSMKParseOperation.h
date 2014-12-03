@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef void (^OSMKElementsCompletionBlock)(NSArray *nodes, NSArray *ways, NSArray *relations, NSError *error);
-typedef void (^OSMKNotesCompletionBlock)(NSArray *notes, NSError *error);
-typedef void (^OSMKUsersCompletionBlock)(NSArray *users, NSError *error);
+#import "OSMKit.h"
 
 @interface OSMKParseOperation : NSOperation
 

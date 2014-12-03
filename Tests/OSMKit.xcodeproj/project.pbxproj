@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		251B397885CD48EA8EA69B3D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BF532DF8444F97FEB157 /* libPods.a */; };
 		4FE261B1DAD3428DADC84093 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C587BF532DF8444F97FEB157 /* libPods.a */; };
-		630FBABF1905D0B200C82D34 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 630FBABE1905D0B200C82D34 /* user.osm */; };
-		630FBAC01905D0B200C82D34 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 630FBABE1905D0B200C82D34 /* user.osm */; };
-		630FBAC61905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m */; };
-		630FBAC71905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m */; };
-		630FBAC91905E92800C82D34 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBAC81905E92800C82D34 /* notes.json */; };
-		630FBACA1905E92800C82D34 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBAC81905E92800C82D34 /* notes.json */; };
-		630FBACC1905EB4200C82D34 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBACB1905EB4200C82D34 /* note.json */; };
-		630FBACD1905EB4200C82D34 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 630FBACB1905EB4200C82D34 /* note.json */; };
+		6322F4E81A2EBEA800FA8F71 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DE1A2EBEA800FA8F71 /* note.json */; };
+		6322F4E91A2EBEA800FA8F71 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DF1A2EBEA800FA8F71 /* notes.json */; };
+		6322F4EA1A2EBEA800FA8F71 /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E01A2EBEA800FA8F71 /* notes.xml */; };
+		6322F4EB1A2EBEA800FA8F71 /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E11A2EBEA800FA8F71 /* small_berkeley.osm */; };
+		6322F4EC1A2EBEA800FA8F71 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E21A2EBEA800FA8F71 /* user.osm */; };
+		6322F4ED1A2EBEA800FA8F71 /* OSMKParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6322F4E31A2EBEA800FA8F71 /* OSMKParserTests.m */; };
+		6322F4EE1A2EBEA800FA8F71 /* OSMKStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6322F4E41A2EBEA800FA8F71 /* OSMKStorageTests.m */; };
+		6322F4EF1A2EBEA800FA8F71 /* OSMKTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6322F4E61A2EBEA800FA8F71 /* OSMKTestData.m */; };
 		632C3CA318FDE815001E8C69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA218FDE815001E8C69 /* Foundation.framework */; };
 		632C3CA518FDE815001E8C69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA418FDE815001E8C69 /* CoreGraphics.framework */; };
 		632C3CA718FDE815001E8C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA618FDE815001E8C69 /* UIKit.framework */; };
@@ -28,35 +28,14 @@
 		632C3CBD18FDE815001E8C69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA218FDE815001E8C69 /* Foundation.framework */; };
 		632C3CBE18FDE815001E8C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA618FDE815001E8C69 /* UIKit.framework */; };
 		632C3CC618FDE815001E8C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CC418FDE815001E8C69 /* InfoPlist.strings */; };
-		632C3CD818FDE8A1001E8C69 /* OSMKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */; };
-		632C3CDA18FDE8A1001E8C69 /* OSMKStorageDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */; };
-		632C3D0C18FDE9A0001E8C69 /* OSMKComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */; };
-		632C3D0D18FDE9A0001E8C69 /* OSMKNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF018FDE9A0001E8C69 /* OSMKNode.m */; };
-		632C3D0E18FDE9A0001E8C69 /* OSMKNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF218FDE9A0001E8C69 /* OSMKNote.m */; };
-		632C3D0F18FDE9A0001E8C69 /* OSMKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF418FDE9A0001E8C69 /* OSMKObject.m */; };
-		632C3D1018FDE9A0001E8C69 /* OSMKRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */; };
-		632C3D1118FDE9A0001E8C69 /* OSMKRelationMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */; };
-		632C3D1218FDE9A0001E8C69 /* OSMKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */; };
-		632C3D1318FDE9A0001E8C69 /* OSMKWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */; };
-		632C3D1418FDE9A0001E8C69 /* OSMKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */; };
-		632C3D1518FDE9A0001E8C69 /* OSMKNSXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParseOperation.m */; };
-		632C3D1618FDE9A0001E8C69 /* OSMKTBXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParseOperation.m */; };
-		632C3D1718FDE9A0001E8C69 /* OSMKXMLParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0618FDE9A0001E8C69 /* OSMKXMLParseOperation.m */; };
-		632C3D1818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */; };
-		632C3D1918FDE9A0001E8C69 /* OSMKStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */; };
-		633AAA351A2BC7EA0070C087 /* OSMKParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 633AAA341A2BC7EA0070C087 /* OSMKParseOperation.m */; };
-		635F4FC91946734F006D2EF8 /* OSMKAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FC81946734F006D2EF8 /* OSMKAPIClient.m */; };
-		635F4FCC19467615006D2EF8 /* OSMKChangeset.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FCB19467615006D2EF8 /* OSMKChangeset.m */; };
-		635F4FCF19467D2D006D2EF8 /* OSMKRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FCE19467D2D006D2EF8 /* OSMKRequestSerializer.m */; };
-		635F4FD2194683A9006D2EF8 /* OSMKBoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FD1194683A9006D2EF8 /* OSMKBoundingBox.m */; };
 		635F4FD619469589006D2EF8 /* OSMKAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FD519469589006D2EF8 /* OSMKAPITests.m */; };
-		63773D371A2CF8FB009759C1 /* berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63773D361A2CF8FB009759C1 /* berkeley.osm */; };
-		63773D381A2CF8FB009759C1 /* berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63773D361A2CF8FB009759C1 /* berkeley.osm */; };
-		637A91AC1905F343000541BE /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 637A91AB1905F343000541BE /* notes.xml */; };
-		637A91AD1905F436000541BE /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 637A91AB1905F343000541BE /* notes.xml */; };
-		63E0F54018FF5776002AE79F /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E0F53F18FF5776002AE79F /* small_berkeley.osm */; };
-		63E0F54118FF5881002AE79F /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E0F53F18FF5776002AE79F /* small_berkeley.osm */; };
-		FB808869BBA31344A69921C1 /* libPods-OSMKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BB6CBA6BAF3C622D98E372 /* libPods-OSMKitTests.a */; };
+		63C6D5381A2EC66D009FB1B0 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DE1A2EBEA800FA8F71 /* note.json */; };
+		63C6D5391A2EC672009FB1B0 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DF1A2EBEA800FA8F71 /* notes.json */; };
+		63C6D53A1A2EC674009FB1B0 /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E01A2EBEA800FA8F71 /* notes.xml */; };
+		63C6D53B1A2EC679009FB1B0 /* small_berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E11A2EBEA800FA8F71 /* small_berkeley.osm */; };
+		63C6D53C1A2EC67C009FB1B0 /* user.osm in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E21A2EBEA800FA8F71 /* user.osm */; };
+		63E409871A2EC6F700C7B5E1 /* berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E409861A2EC6F700C7B5E1 /* berkeley.osm */; };
+		63E409881A2EC6F700C7B5E1 /* berkeley.osm in Resources */ = {isa = PBXBuildFile; fileRef = 63E409861A2EC6F700C7B5E1 /* berkeley.osm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		630FBABE1905D0B200C82D34 /* user.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = user.osm; sourceTree = "<group>"; };
-		630FBAC41905DD5400C82D34 /* OSMKNSJSONSerializationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNSJSONSerializationOperation.h; sourceTree = "<group>"; };
-		630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNSJSONSerializationOperation.m; sourceTree = "<group>"; };
-		630FBAC81905E92800C82D34 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
-		630FBACB1905EB4200C82D34 /* note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; };
+		6322F4DE1A2EBEA800FA8F71 /* note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; };
+		6322F4DF1A2EBEA800FA8F71 /* notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notes.json; sourceTree = "<group>"; };
+		6322F4E01A2EBEA800FA8F71 /* notes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = notes.xml; sourceTree = "<group>"; };
+		6322F4E11A2EBEA800FA8F71 /* small_berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = small_berkeley.osm; sourceTree = "<group>"; };
+		6322F4E21A2EBEA800FA8F71 /* user.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = user.osm; sourceTree = "<group>"; };
+		6322F4E31A2EBEA800FA8F71 /* OSMKParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKParserTests.m; sourceTree = "<group>"; };
+		6322F4E41A2EBEA800FA8F71 /* OSMKStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKStorageTests.m; sourceTree = "<group>"; };
+		6322F4E51A2EBEA800FA8F71 /* OSMKTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKTestData.h; sourceTree = "<group>"; };
+		6322F4E61A2EBEA800FA8F71 /* OSMKTestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKTestData.m; sourceTree = "<group>"; };
 		632C3C9F18FDE815001E8C69 /* OSMKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSMKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		632C3CA218FDE815001E8C69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		632C3CA418FDE815001E8C69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,51 +73,8 @@
 		632C3CBB18FDE815001E8C69 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		632C3CC318FDE815001E8C69 /* OSMKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OSMKitTests-Info.plist"; sourceTree = "<group>"; };
 		632C3CC518FDE815001E8C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKitTests.m; sourceTree = "<group>"; };
-		632C3CD618FDE8A1001E8C69 /* OSMKStorageDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKStorageDelegateTest.h; sourceTree = "<group>"; };
-		632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKStorageDelegateTest.m; sourceTree = "<group>"; };
-		632C3CED18FDE9A0001E8C69 /* OSMKComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKComment.h; sourceTree = "<group>"; };
-		632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKComment.m; sourceTree = "<group>"; };
-		632C3CEF18FDE9A0001E8C69 /* OSMKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNode.h; sourceTree = "<group>"; };
-		632C3CF018FDE9A0001E8C69 /* OSMKNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNode.m; sourceTree = "<group>"; };
-		632C3CF118FDE9A0001E8C69 /* OSMKNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNote.h; sourceTree = "<group>"; };
-		632C3CF218FDE9A0001E8C69 /* OSMKNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNote.m; sourceTree = "<group>"; };
-		632C3CF318FDE9A0001E8C69 /* OSMKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKObject.h; sourceTree = "<group>"; };
-		632C3CF418FDE9A0001E8C69 /* OSMKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKObject.m; sourceTree = "<group>"; };
-		632C3CF518FDE9A0001E8C69 /* OSMKRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKRelation.h; sourceTree = "<group>"; };
-		632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKRelation.m; sourceTree = "<group>"; };
-		632C3CF718FDE9A0001E8C69 /* OSMKRelationMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKRelationMember.h; sourceTree = "<group>"; };
-		632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKRelationMember.m; sourceTree = "<group>"; };
-		632C3CF918FDE9A0001E8C69 /* OSMKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKUser.h; sourceTree = "<group>"; };
-		632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKUser.m; sourceTree = "<group>"; };
-		632C3CFB18FDE9A0001E8C69 /* OSMKWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKWay.h; sourceTree = "<group>"; };
-		632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKWay.m; sourceTree = "<group>"; };
-		632C3CFE18FDE9A0001E8C69 /* OSMKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKParser.h; sourceTree = "<group>"; };
-		632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKParser.m; sourceTree = "<group>"; };
-		632C3D0118FDE9A0001E8C69 /* OSMKNSXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKNSXMLParseOperation.h; sourceTree = "<group>"; };
-		632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKNSXMLParseOperation.m; sourceTree = "<group>"; };
-		632C3D0318FDE9A0001E8C69 /* OSMKTBXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKTBXMLParseOperation.h; sourceTree = "<group>"; };
-		632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKTBXMLParseOperation.m; sourceTree = "<group>"; };
-		632C3D0518FDE9A0001E8C69 /* OSMKXMLParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKXMLParseOperation.h; sourceTree = "<group>"; };
-		632C3D0618FDE9A0001E8C69 /* OSMKXMLParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKXMLParseOperation.m; sourceTree = "<group>"; };
-		632C3D0818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKSpatiaLiteStorage.h; sourceTree = "<group>"; };
-		632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKSpatiaLiteStorage.m; sourceTree = "<group>"; };
-		632C3D0A18FDE9A0001E8C69 /* OSMKStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKStorage.h; sourceTree = "<group>"; };
-		632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKStorage.m; sourceTree = "<group>"; };
-		633AAA331A2BC7EA0070C087 /* OSMKParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKParseOperation.h; sourceTree = "<group>"; };
-		633AAA341A2BC7EA0070C087 /* OSMKParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKParseOperation.m; sourceTree = "<group>"; };
-		635F4FC71946734F006D2EF8 /* OSMKAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSMKAPIClient.h; path = ../API/OSMKAPIClient.h; sourceTree = "<group>"; };
-		635F4FC81946734F006D2EF8 /* OSMKAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSMKAPIClient.m; path = ../API/OSMKAPIClient.m; sourceTree = "<group>"; };
-		635F4FCA19467615006D2EF8 /* OSMKChangeset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKChangeset.h; sourceTree = "<group>"; };
-		635F4FCB19467615006D2EF8 /* OSMKChangeset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKChangeset.m; sourceTree = "<group>"; };
-		635F4FCD19467D2D006D2EF8 /* OSMKRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSMKRequestSerializer.h; path = ../API/OSMKRequestSerializer.h; sourceTree = "<group>"; };
-		635F4FCE19467D2D006D2EF8 /* OSMKRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSMKRequestSerializer.m; path = ../API/OSMKRequestSerializer.m; sourceTree = "<group>"; };
-		635F4FD0194683A9006D2EF8 /* OSMKBoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSMKBoundingBox.h; path = ../API/OSMKBoundingBox.h; sourceTree = "<group>"; };
-		635F4FD1194683A9006D2EF8 /* OSMKBoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSMKBoundingBox.m; path = ../API/OSMKBoundingBox.m; sourceTree = "<group>"; };
 		635F4FD519469589006D2EF8 /* OSMKAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKAPITests.m; sourceTree = "<group>"; };
-		63773D361A2CF8FB009759C1 /* berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = berkeley.osm; sourceTree = "<group>"; };
-		637A91AB1905F343000541BE /* notes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = notes.xml; sourceTree = "<group>"; };
-		63E0F53F18FF5776002AE79F /* small_berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = small_berkeley.osm; sourceTree = "<group>"; };
+		63E409861A2EC6F700C7B5E1 /* berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = berkeley.osm; sourceTree = "<group>"; };
 		6D3E5B0C9150F393546435EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		86E8BF54C163D8B1BD08CA15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C587BF532DF8444F97FEB157 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,13 +101,25 @@
 				632C3CBE18FDE815001E8C69 /* UIKit.framework in Frameworks */,
 				632C3CBD18FDE815001E8C69 /* Foundation.framework in Frameworks */,
 				251B397885CD48EA8EA69B3D /* libPods.a in Frameworks */,
-				FB808869BBA31344A69921C1 /* libPods-OSMKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6322F4DC1A2EBEA800FA8F71 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				63E409861A2EC6F700C7B5E1 /* berkeley.osm */,
+				6322F4DE1A2EBEA800FA8F71 /* note.json */,
+				6322F4DF1A2EBEA800FA8F71 /* notes.json */,
+				6322F4E01A2EBEA800FA8F71 /* notes.xml */,
+				6322F4E11A2EBEA800FA8F71 /* small_berkeley.osm */,
+				6322F4E21A2EBEA800FA8F71 /* user.osm */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		632C3C9618FDE814001E8C69 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +159,6 @@
 				632C3CB118FDE815001E8C69 /* OSMKAppDelegate.h */,
 				632C3CB218FDE815001E8C69 /* OSMKAppDelegate.m */,
 				632C3CB418FDE815001E8C69 /* Images.xcassets */,
-				632C3CEB18FDE9A0001E8C69 /* OSMKit */,
 				632C3CA918FDE815001E8C69 /* Supporting Files */,
 			);
 			path = OSMKit;
@@ -227,16 +178,12 @@
 		632C3CC118FDE815001E8C69 /* OSMKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				632C3CD318FDE8A1001E8C69 /* OSMKitTests.m */,
+				6322F4E31A2EBEA800FA8F71 /* OSMKParserTests.m */,
+				6322F4E41A2EBEA800FA8F71 /* OSMKStorageTests.m */,
 				635F4FD519469589006D2EF8 /* OSMKAPITests.m */,
-				632C3CD618FDE8A1001E8C69 /* OSMKStorageDelegateTest.h */,
-				632C3CD718FDE8A1001E8C69 /* OSMKStorageDelegateTest.m */,
-				63E0F53F18FF5776002AE79F /* small_berkeley.osm */,
-				63773D361A2CF8FB009759C1 /* berkeley.osm */,
-				630FBABE1905D0B200C82D34 /* user.osm */,
-				630FBACB1905EB4200C82D34 /* note.json */,
-				630FBAC81905E92800C82D34 /* notes.json */,
-				637A91AB1905F343000541BE /* notes.xml */,
+				6322F4E51A2EBEA800FA8F71 /* OSMKTestData.h */,
+				6322F4E61A2EBEA800FA8F71 /* OSMKTestData.m */,
+				6322F4DC1A2EBEA800FA8F71 /* Data */,
 				632C3CC218FDE815001E8C69 /* Supporting Files */,
 			);
 			path = OSMKitTests;
@@ -249,95 +196,6 @@
 				632C3CC418FDE815001E8C69 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		632C3CEB18FDE9A0001E8C69 /* OSMKit */ = {
-			isa = PBXGroup;
-			children = (
-				632C3CEC18FDE9A0001E8C69 /* Model */,
-				632C3CFD18FDE9A0001E8C69 /* Parsers */,
-				632C3D0718FDE9A0001E8C69 /* Storage */,
-				635F4FC6194672B9006D2EF8 /* API */,
-			);
-			name = OSMKit;
-			path = ../../OSMKit;
-			sourceTree = "<group>";
-		};
-		632C3CEC18FDE9A0001E8C69 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				632C3CF318FDE9A0001E8C69 /* OSMKObject.h */,
-				632C3CF418FDE9A0001E8C69 /* OSMKObject.m */,
-				632C3CEF18FDE9A0001E8C69 /* OSMKNode.h */,
-				632C3CF018FDE9A0001E8C69 /* OSMKNode.m */,
-				632C3CFB18FDE9A0001E8C69 /* OSMKWay.h */,
-				632C3CFC18FDE9A0001E8C69 /* OSMKWay.m */,
-				632C3CF518FDE9A0001E8C69 /* OSMKRelation.h */,
-				632C3CF618FDE9A0001E8C69 /* OSMKRelation.m */,
-				632C3CF718FDE9A0001E8C69 /* OSMKRelationMember.h */,
-				632C3CF818FDE9A0001E8C69 /* OSMKRelationMember.m */,
-				632C3CF918FDE9A0001E8C69 /* OSMKUser.h */,
-				632C3CFA18FDE9A0001E8C69 /* OSMKUser.m */,
-				632C3CF118FDE9A0001E8C69 /* OSMKNote.h */,
-				632C3CF218FDE9A0001E8C69 /* OSMKNote.m */,
-				632C3CED18FDE9A0001E8C69 /* OSMKComment.h */,
-				632C3CEE18FDE9A0001E8C69 /* OSMKComment.m */,
-				635F4FCA19467615006D2EF8 /* OSMKChangeset.h */,
-				635F4FCB19467615006D2EF8 /* OSMKChangeset.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		632C3CFD18FDE9A0001E8C69 /* Parsers */ = {
-			isa = PBXGroup;
-			children = (
-				632C3CFE18FDE9A0001E8C69 /* OSMKParser.h */,
-				632C3CFF18FDE9A0001E8C69 /* OSMKParser.m */,
-				633AAA331A2BC7EA0070C087 /* OSMKParseOperation.h */,
-				633AAA341A2BC7EA0070C087 /* OSMKParseOperation.m */,
-				632C3D0018FDE9A0001E8C69 /* XMLParsers */,
-				630FBAC41905DD5400C82D34 /* OSMKNSJSONSerializationOperation.h */,
-				630FBAC51905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m */,
-			);
-			path = Parsers;
-			sourceTree = "<group>";
-		};
-		632C3D0018FDE9A0001E8C69 /* XMLParsers */ = {
-			isa = PBXGroup;
-			children = (
-				632C3D0518FDE9A0001E8C69 /* OSMKXMLParseOperation.h */,
-				632C3D0618FDE9A0001E8C69 /* OSMKXMLParseOperation.m */,
-				632C3D0118FDE9A0001E8C69 /* OSMKNSXMLParseOperation.h */,
-				632C3D0218FDE9A0001E8C69 /* OSMKNSXMLParseOperation.m */,
-				632C3D0318FDE9A0001E8C69 /* OSMKTBXMLParseOperation.h */,
-				632C3D0418FDE9A0001E8C69 /* OSMKTBXMLParseOperation.m */,
-			);
-			path = XMLParsers;
-			sourceTree = "<group>";
-		};
-		632C3D0718FDE9A0001E8C69 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				632C3D0A18FDE9A0001E8C69 /* OSMKStorage.h */,
-				632C3D0B18FDE9A0001E8C69 /* OSMKStorage.m */,
-				632C3D0818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.h */,
-				632C3D0918FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		635F4FC6194672B9006D2EF8 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				635F4FC71946734F006D2EF8 /* OSMKAPIClient.h */,
-				635F4FC81946734F006D2EF8 /* OSMKAPIClient.m */,
-				635F4FCD19467D2D006D2EF8 /* OSMKRequestSerializer.h */,
-				635F4FCE19467D2D006D2EF8 /* OSMKRequestSerializer.m */,
-				635F4FD0194683A9006D2EF8 /* OSMKBoundingBox.h */,
-				635F4FD1194683A9006D2EF8 /* OSMKBoundingBox.m */,
-			);
-			name = API;
-			path = Storage;
 			sourceTree = "<group>";
 		};
 		7940AB360BBB652887495829 /* Pods */ = {
@@ -429,14 +287,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630FBABF1905D0B200C82D34 /* user.osm in Resources */,
-				630FBAC91905E92800C82D34 /* notes.json in Resources */,
+				63C6D53A1A2EC674009FB1B0 /* notes.xml in Resources */,
+				63C6D5381A2EC66D009FB1B0 /* note.json in Resources */,
 				632C3CAD18FDE815001E8C69 /* InfoPlist.strings in Resources */,
-				630FBACC1905EB4200C82D34 /* note.json in Resources */,
-				63773D371A2CF8FB009759C1 /* berkeley.osm in Resources */,
-				63E0F54118FF5881002AE79F /* small_berkeley.osm in Resources */,
-				637A91AD1905F436000541BE /* notes.xml in Resources */,
 				632C3CB518FDE815001E8C69 /* Images.xcassets in Resources */,
+				63E409871A2EC6F700C7B5E1 /* berkeley.osm in Resources */,
+				63C6D53B1A2EC679009FB1B0 /* small_berkeley.osm in Resources */,
+				63C6D5391A2EC672009FB1B0 /* notes.json in Resources */,
+				63C6D53C1A2EC67C009FB1B0 /* user.osm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,13 +302,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630FBAC01905D0B200C82D34 /* user.osm in Resources */,
-				630FBACA1905E92800C82D34 /* notes.json in Resources */,
-				630FBACD1905EB4200C82D34 /* note.json in Resources */,
-				63E0F54018FF5776002AE79F /* small_berkeley.osm in Resources */,
-				637A91AC1905F343000541BE /* notes.xml in Resources */,
-				63773D381A2CF8FB009759C1 /* berkeley.osm in Resources */,
+				6322F4EA1A2EBEA800FA8F71 /* notes.xml in Resources */,
+				6322F4E81A2EBEA800FA8F71 /* note.json in Resources */,
 				632C3CC618FDE815001E8C69 /* InfoPlist.strings in Resources */,
+				6322F4EB1A2EBEA800FA8F71 /* small_berkeley.osm in Resources */,
+				6322F4E91A2EBEA800FA8F71 /* notes.json in Resources */,
+				63E409881A2EC6F700C7B5E1 /* berkeley.osm in Resources */,
+				6322F4EC1A2EBEA800FA8F71 /* user.osm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,28 +382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630FBAC61905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m in Sources */,
-				635F4FC91946734F006D2EF8 /* OSMKAPIClient.m in Sources */,
-				632C3D1718FDE9A0001E8C69 /* OSMKXMLParseOperation.m in Sources */,
-				632C3D1818FDE9A0001E8C69 /* OSMKSpatiaLiteStorage.m in Sources */,
-				632C3D1218FDE9A0001E8C69 /* OSMKUser.m in Sources */,
-				635F4FCC19467615006D2EF8 /* OSMKChangeset.m in Sources */,
-				632C3D0E18FDE9A0001E8C69 /* OSMKNote.m in Sources */,
-				632C3D0C18FDE9A0001E8C69 /* OSMKComment.m in Sources */,
-				632C3D0F18FDE9A0001E8C69 /* OSMKObject.m in Sources */,
-				632C3D0D18FDE9A0001E8C69 /* OSMKNode.m in Sources */,
-				632C3D1918FDE9A0001E8C69 /* OSMKStorage.m in Sources */,
 				632C3CB318FDE815001E8C69 /* OSMKAppDelegate.m in Sources */,
-				632C3D1418FDE9A0001E8C69 /* OSMKParser.m in Sources */,
-				633AAA351A2BC7EA0070C087 /* OSMKParseOperation.m in Sources */,
 				632C3CAF18FDE815001E8C69 /* main.mm in Sources */,
-				632C3D1318FDE9A0001E8C69 /* OSMKWay.m in Sources */,
-				635F4FCF19467D2D006D2EF8 /* OSMKRequestSerializer.m in Sources */,
-				635F4FD2194683A9006D2EF8 /* OSMKBoundingBox.m in Sources */,
-				632C3D1518FDE9A0001E8C69 /* OSMKNSXMLParseOperation.m in Sources */,
-				632C3D1018FDE9A0001E8C69 /* OSMKRelation.m in Sources */,
-				632C3D1618FDE9A0001E8C69 /* OSMKTBXMLParseOperation.m in Sources */,
-				632C3D1118FDE9A0001E8C69 /* OSMKRelationMember.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,9 +391,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630FBAC71905DD5400C82D34 /* OSMKNSJSONSerializationOperation.m in Sources */,
-				632C3CD818FDE8A1001E8C69 /* OSMKitTests.m in Sources */,
-				632C3CDA18FDE8A1001E8C69 /* OSMKStorageDelegateTest.m in Sources */,
+				6322F4EE1A2EBEA800FA8F71 /* OSMKStorageTests.m in Sources */,
+				6322F4EF1A2EBEA800FA8F71 /* OSMKTestData.m in Sources */,
+				6322F4ED1A2EBEA800FA8F71 /* OSMKParserTests.m in Sources */,
 				635F4FD619469589006D2EF8 /* OSMKAPITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

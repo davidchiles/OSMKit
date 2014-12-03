@@ -8,7 +8,7 @@
 
 #import "OSMKSpatiaLiteStorage.h"
 #import "FMDatabaseQueue.h"
-#import "SpatialDatabase.h"
+#import <SpatialDBKit/SpatialDatabase.h>
 
 #import "OSMKNode.h"
 #import "OSMKWay.h"
@@ -21,50 +21,27 @@
 
 #import "ShapeKitGeometry.h"
 
-static int bufferMaxLength = 1000;
-
 @interface OSMKSpatiaLiteStorage ()
-
-@property (nonatomic, strong) NSMutableArray *elementBuffer;
-
-
-@property (nonatomic) BOOL hasImportedFirstObject;
 
 @property (nonatomic, strong) FMDatabase *database;
 @property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
+
+@property (nonatomic) dispatch_queue_t storageQueue;
 
 @end
 
 @implementation OSMKSpatiaLiteStorage
 
-- (id)init
+- (instancetype)initWithFilePath:(NSString *)filePath
+                       overwrite:(BOOL)overwrite
 {
-    if (self = [super init]) {
-        self.elementBuffer = [NSMutableArray array];
-    }
-    return self;
-}
-
-- (instancetype)initWithdatabaseFilePath:(NSString *)filePath delegate:(id<OSMKStorageDelegateProtocol>)delegate delegateQueue:(dispatch_queue_t)delegateQueue overwrite:(BOOL)overwrite
-{
-    if (self = [super initWithdatabaseFilePath:filePath delegate:delegate delegateQueue:delegateQueue]) {
+    if (self = [self init]) {
         self.database = [[SpatialDatabase alloc] initWithPath:self.filePath];
         self.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.filePath];
         
         [self setupDatabaseWithOverwrite:overwrite];
-        
     }
     return self;
-}
-
-- (instancetype)initWithdatabaseFilePath:(NSString *)filePath delegate:(id<OSMKStorageDelegateProtocol>)delegate delegateQueue:(dispatch_queue_t)delegateQueue
-{
-    return [self initWithdatabaseFilePath:filePath delegate:delegate delegateQueue:delegateQueue overwrite:YES];
-}
-
-- (void)importXMLData:(NSData *)data
-{
-    [super importXMLData:data];
 }
 
 - (void)setupDatabaseWithOverwrite:(BOOL)overwrite
@@ -143,280 +120,8 @@ static int bufferMaxLength = 1000;
     
 }
 
-
-- (void)addElementToBuffer:(id)object
-{
-    dispatch_async(self.storageQueue, ^{
-        if (object) {
-            [self.elementBuffer addObject:object];
-            if ([self.elementBuffer count] > bufferMaxLength) {
-                [self saveElements:self.elementBuffer];
-                [self.elementBuffer removeAllObjects];
-            }
-        }
-    });
-}
-
-- (void)finalFlushElementBuffer
-{
-    dispatch_async(self.storageQueue, ^{
-        [self saveElements:self.elementBuffer];
-        [self.elementBuffer removeAllObjects];
-        [self didFinishImporting];
-    });
-}
-
-
-
 #pragma - mark Saving Methods
-
-- (void)saveElements:(NSArray *)elements
-{
-    if ([elements count]) {
-        
-        NSMutableArray *savedNodes = [NSMutableArray array];
-        NSMutableArray *savedWays = [NSMutableArray array];
-        NSMutableArray *savedRelations = [NSMutableArray array];
-        NSMutableArray *savedUsers = [NSMutableArray array];
-        NSMutableArray *savedNotes = [NSMutableArray array];
-        
-        
-        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-            [elements enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([obj isKindOfClass:[OSMKNode class]]) {
-                    if ([self saveNode:obj inDatabse:db]) {
-                        [savedNodes addObject:obj];
-                    }
-                }
-                else if ([obj isKindOfClass:[OSMKWay class]]) {
-                    if ([self saveWay:obj inDatabase:db]) {
-                        [savedWays addObject:obj];
-                    }
-                }
-                else if ([obj isKindOfClass:[OSMKRelation class]]) {
-                    if ([self saveRelation:obj inDatabase:db]) {
-                        [savedRelations addObject:obj];
-                    }
-                }
-                else if ([obj isKindOfClass:[OSMKNote class]]) {
-                    if([self saveNote:obj inDatabase:db]) {
-                        [savedNotes addObject:obj];
-                    }
-                }
-                else if ([obj isKindOfClass:[OSMKUser class]]) {
-                    if ([self saveUser:obj inDatabase:db]) {
-                        [savedUsers addObject:obj];
-                    }
-                }
-                
-            }];
-        }];
-        
-        if ([savedNodes count]) {
-            [self didSaveNodes:savedNodes];
-        }
-        
-        if ([savedWays count]) {
-            [self didSaveWays:savedWays];
-        }
-        
-        if ([savedRelations count]) {
-            [self didSaveRelations:savedRelations];
-        }
-        
-        if ([savedUsers count]) {
-            [self didSaveUsers:savedUsers];
-        }
-        
-        if ([savedNotes count]) {
-            [self didSaveNotes:savedNotes];
-        }
-    }
-}
-
-- (void)didStartImporting
-{
-    if ([self.delegate respondsToSelector:@selector(storageDidStartImporting:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storageDidStartImporting:self];
-        });
-    }
-}
-
-- (void)didFinishImporting
-{
-    if ([self.delegate respondsToSelector:@selector(storageDidFinishImporting:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storageDidFinishImporting:self];
-        });
-    }
-}
-
-- (void)didSaveNodes:(NSArray *)array
-{
-    if ([self.delegate respondsToSelector:@selector(storage:didSaveNodes:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storage:self didSaveNodes:array];
-        });
-    }
-}
-
-- (void)didSaveWays:(NSArray *)array
-{
-    if ([self.delegate respondsToSelector:@selector(storage:didSaveWays:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storage:self didSaveWays:array];
-        });
-    }
-}
-
-- (void)didSaveRelations:(NSArray *)array
-{
-    if ([self.delegate respondsToSelector:@selector(storage:didSaveRelations:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storage:self didSaveRelations:array];
-        });
-    }
-}
-
-- (void)didSaveNotes:(NSArray *)array
-{
-    if ([self.delegate respondsToSelector:@selector(storage:didSaveNotes:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storage:self didSaveNotes:array];
-        });
-    }
-}
-
-- (void)didSaveUsers:(NSArray *)array
-{
-    if ([self.delegate respondsToSelector:@selector(storage:didSaveUsers:)]) {
-        dispatch_async(self.delegateQueue, ^{
-            [self.delegate storage:self didSaveUsers:array];
-        });
-    }
-}
-
-- (BOOL)saveNode:(OSMKNode *)node inDatabse:(FMDatabase *)database
-{
-    BOOL result = NO;
-    if (node) {
-        NSString *geomString = [NSString stringWithFormat:@"GeomFromText('POINT(%f %f)', 4326)",node.latitude,node.longitude];
-        NSString *updateString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO nodes (node_id,version,changeset,user_id,visible,user,action,time_stamp,geom) VALUES (?,?,?,?,?,?,?,?,%@)",geomString];
-        BOOL nodeResult = [database executeUpdate:updateString,@(node.osmId),@(node.version),@(node.changeset),@(node.userId),@(node.visible),node.user,node.action,node.timeStamp];
-        
-        BOOL tagDeleteResult = [database executeUpdateWithFormat:@"DELETE FROM nodes_tags WHERE node_id = %lld",node.osmId];
-        
-        __block BOOL tagInsertResult = YES;
-        [node.tags enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            tagInsertResult = [database executeUpdateWithFormat:@"INSERT INTO nodes_tags (node_id, key, value) VALUES (%lld,%@,%@)",node.osmId,key,obj];
-            if (!tagInsertResult) {
-                *stop = YES;
-            }
-        }];
-        
-        result = nodeResult && tagDeleteResult && tagInsertResult;
-    }
-    
-    return result;
-}
-
-- (BOOL)saveWay:(OSMKWay *)way inDatabase:(FMDatabase *)database
-{
-    BOOL result = NO;
-    if (way) {
-        
-        NSMutableArray *pointStringArray = [NSMutableArray array];
-        
-        BOOL deleteNodesResult = [database executeUpdateWithFormat:@"DELETE FROM ways_nodes WHERE way_id == %lld",way.osmId];
-        __block BOOL nodeInsertResult = YES;
-        
-        [way.nodes enumerateObjectsUsingBlock:^(NSNumber *nodeId, NSUInteger idx, BOOL *stop) {
-            CLLocationCoordinate2D nodeCenter = [self centerOfNode:[nodeId longLongValue] inDatabase:database];
-            if (nodeCenter.latitude != DBL_MAX) {
-                [pointStringArray addObject:[NSString stringWithFormat:@"%f %f",nodeCenter.latitude,nodeCenter.longitude]];
-            }
-            
-
-            nodeInsertResult = [database executeUpdateWithFormat:@"INSERT INTO ways_nodes (way_id,node_id,local_order) VALUES (%lld,%lld,%d)",way.osmId,[nodeId longLongValue],idx];
-            if (!nodeInsertResult) {
-                *stop = YES;
-            }
-            
-        }];
-        
-        if (!nodeInsertResult || !deleteNodesResult) {
-            return NO;
-        }
-        
-        NSString *geomString = [NSString stringWithFormat:@"GeomFromText('LINESTRING( %@ )', 4326)",[pointStringArray componentsJoinedByString:@","]];
-        
-        NSString *updateString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO ways (way_id,version,changeset,user_id,visible,user,action,time_stamp,geom) VALUES (?,?,?,?,?,?,?,?,%@)",geomString];
-        
-        
-         BOOL wayResult = [database executeUpdate:updateString,@(way.osmId),@(way.version),@(way.changeset),@(way.userId),@(way.visible),way.user,way.action,way.timeStamp];
-        
-        BOOL tagDeleteResult = [database executeUpdateWithFormat:@"DELETE FROM ways_tags WHERE way_id = %lld",way.osmId];
-        
-        __block BOOL tagInsertResult = YES;
-        [way.tags enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            tagInsertResult = [database executeUpdateWithFormat:@"INSERT INTO ways_tags (way_id, key, value) VALUES (%lld,%@,%@)",way.osmId,key,obj];
-            if (!tagInsertResult) {
-                *stop = YES;
-            }
-        }];
-        
-        
-        result = tagDeleteResult && tagInsertResult && wayResult;
-    }
-    return result;
-}
-
-- (BOOL)saveRelation:(OSMKRelation *)relation inDatabase:(FMDatabase *)database
-{
-    BOOL result = NO;
-    
-    if (relation) {
-        
-        
-        BOOL insertRelationResult = [database executeUpdateWithFormat:@"INSERT OR REPLACE INTO relations (relation_id,version,changeset,user_id,visible,user,action,time_stamp) VALUES (%lld,%d,%lld,%lld,%d,%@,%d,%@)",relation.osmId,relation.version,relation.changeset,relation.userId,relation.visible,relation.user,relation.action,relation.timeStamp];
-        if (!insertRelationResult) {
-            return NO;
-        }
-        
-        BOOL deleteRelationMembersResults = [database executeUpdateWithFormat:@"DELETE FROM relations_members WHERE relation_id = %lld",relation.osmId];
-        __block BOOL insertMembersResult = YES;
-        [relation.members enumerateObjectsUsingBlock:^(OSMKRelationMember *member, NSUInteger idx, BOOL *stop) {
-            
-            insertMembersResult = [database executeUpdateWithFormat:@"INSERT INTO relations_members (relation_id,type,ref,role,local_order) VALUES (%lld,%@,%lld,%@,%d)",relation.osmId,[OSMKObject stringForType:member.type],member.ref,member.role,idx];
-            
-            if (!insertMembersResult) {
-                *stop = YES;
-            }
-        }];
-        
-        if (!deleteRelationMembersResults || !insertMembersResult) {
-            return NO;
-        }
-        
-        
-        BOOL deleteTagsResult = [database executeUpdateWithFormat:@"DELETE FROM relations_tags WHERE relation_id = %lld",relation.osmId];
-        
-        __block BOOL tagInsertResult = YES;
-        [relation.tags enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            tagInsertResult = [database executeUpdateWithFormat:@"INSERT INTO relations_tags (relation_id, key, value) VALUES (%lld,%@,%@)",relation.osmId,key,obj];
-            if (!tagInsertResult) {
-                *stop = YES;
-            }
-        }];
-        
-        result = deleteTagsResult && tagInsertResult;
-    }
-    
-    
-    return result;
-}
-
+/*
 - (BOOL)saveNote:(OSMKNote *)note inDatabase:(FMDatabase *)database
 {
     BOOL result = NO;
@@ -471,6 +176,7 @@ static int bufferMaxLength = 1000;
     
     return result;
 }
+ */
 
 #pragma - mark Fetching Methods
 
@@ -553,7 +259,7 @@ static int bufferMaxLength = 1000;
  
         object.action = [resultSet intForColumn:@"action"];
         object.changeset = [resultSet longForColumn:@"changeset"];
-        object.timeStamp = [resultSet dateForColumn:@"time_stamp"];
+        //FIXME object.timeStamp = [resultSet dateForColumn:@"time_stamp"];
         object.user = [resultSet stringForColumn:@"user"];
         object.version = [resultSet intForColumn:@"version"];
         object.visible = [resultSet boolForColumn:@"visible"];
@@ -763,47 +469,6 @@ static int bufferMaxLength = 1000;
 
 #pragma - mark Public Saving Methods
 
-- (void)saveOsmObject:(OSMKObject *)object
-{
-    [self saveElements:@[object]];
-}
-- (void)saveUser:(OSMKUser *)user
-{
-    [self saveElements:@[user]];
-}
-- (void)saveNote:(OSMKNote *)note
-{
-    [self saveElements:@[note]];
-}
-
-- (void)saveOsmObject:(OSMKObject *)object completion:(void (^)(void))completion
-{
-    dispatch_async(self.storageQueue, ^{
-        [self saveOsmObject:object];
-        if (completion) {
-            dispatch_async(dispatch_get_main_queue(), completion);
-        }
-    });
-}
-- (void)saveUser:(OSMKUser *)user completion:(void (^)(void))completion
-{
-    dispatch_async(self.storageQueue, ^{
-        [self saveUser:user];
-        if (completion) {
-            dispatch_async(dispatch_get_main_queue(), completion);
-        }
-    });
-}
-- (void)saveNote:(OSMKNote *)note completion:(void (^)(void))completion
-{
-    dispatch_async(self.storageQueue, ^{
-        [self saveNote:note];
-        if (completion) {
-            dispatch_async(dispatch_get_main_queue(), completion);
-        }
-    });
-}
-
 
 #pragma - mark OSMKStorageDelegateProtocol
 /*
@@ -841,6 +506,11 @@ static int bufferMaxLength = 1000;
 
  */
 #pragma - mark Class Methods
+
++ (instancetype)spatiaLiteStorageWithFilePath:(NSString *)filePath overwrite:(BOOL)overwrite;
+{
+    return [[self alloc] initWithFilePath:filePath overwrite:overwrite];
+}
 
 + (NSString *)tableNameForObject:(id)object
 {
