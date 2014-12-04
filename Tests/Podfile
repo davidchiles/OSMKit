@@ -4,3 +4,4 @@ inhibit_all_warnings!
 link_with 'OSMKit', 'OSMKitTests'
 
 pod "OSMKit", :path => "../"
+pod "SpatialDBKit", :git => 'https://github.com/davidchiles/SpatialDBKit' , :branch => 'master'

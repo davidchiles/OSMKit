@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   spec.platform = :ios, "7.0"
-  spec.dependency "SpatialDBKit"
+  # spec.dependency "SpatialDBKit"
   spec.dependency "AFNetworking"
   spec.dependency "TBXML"
   spec.dependency "gtm-oauth"

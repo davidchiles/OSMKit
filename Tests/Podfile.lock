@@ -32,7 +32,6 @@ PODS:
     - gtm-oauth
     - KissXML
     - Ono
-    - SpatialDBKit
     - TBXML
   - proj4 (4.8.0)
   - ShapeKit (0.9.6):
@@ -62,10 +61,19 @@ PODS:
 
 DEPENDENCIES:
   - OSMKit (from `../`)
+  - SpatialDBKit (from `https://github.com/davidchiles/SpatialDBKit`, branch `master`)
 
 EXTERNAL SOURCES:
   OSMKit:
     :path: ../
+  SpatialDBKit:
+    :branch: master
+    :git: https://github.com/davidchiles/SpatialDBKit
+
+CHECKOUT OPTIONS:
+  SpatialDBKit:
+    :commit: 87bdecc2666efe5a572fdf78c3378257899c18a4
+    :git: https://github.com/davidchiles/SpatialDBKit
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
@@ -74,10 +82,10 @@ SPEC CHECKSUMS:
   gtm-oauth: 3c779195cf6c9ef3d79b791b742da6679d0e0b89
   KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
   Ono: cf5cb37c76225200d6f063e4189c15b4b6c9d5fe
-  OSMKit: 9df4d7cc9374f60e9b82a1dacf8abae04d310612
+  OSMKit: ba42233a31a7b6d5f08c03c30ca26813ee7a9cdc
   proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
   ShapeKit: 02665237746d95b4df7eda049608980602ec5372
-  SpatialDBKit: ac48f8259029447e88d445caa377c33ee2d2fd8d
+  SpatialDBKit: 110895d14ad388efb24786d90360a587ede1c9e2
   spatialite: 701bc40513aed25ee4c85801d91f8c13222689aa
   sqlite3: c20b49d16950b99b0e5fad03be703b2fdc7ba65a
   TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
