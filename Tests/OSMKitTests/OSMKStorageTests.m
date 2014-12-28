@@ -7,11 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "OSMKTBXMLParseOperation.h"
 #import "OSMKSpatiaLiteStorage.h"
-#import "OSMKSpatiaLiteStorageSaveOperation.h"
 #import "OSMKTestData.h"
 #import "FMDB.h"
+#import "FMDatabase+OSMKitSpatiaLite.h"
+#import "SpatialDatabaseQueue.h"
+#import "OSMKTBXMLParser.h"
 
 @interface OSMKStorageTests : XCTestCase
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) OSMKTestData *testData;
 
 @property (nonatomic, strong) OSMKSpatiaLiteStorage *database;
-@property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
+@property (nonatomic, strong) SpatialDatabaseQueue *databaseQueue;
 
 @end
 
@@ -30,91 +31,115 @@
     [super setUp];
     
     self.filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"db.sqlite"];
-    
-    self.database = [OSMKSpatiaLiteStorage spatiaLiteStorageWithFilePath:self.filePath overwrite:NO];
-    self.databaseQueue = [[FMDatabaseQueue alloc] initWithPath:self.filePath];
-    
-    self.testData = [OSMKTestData new];
-    
-    self.operationQueue = [[NSOperationQueue alloc] init];
-    self.operationQueue.maxConcurrentOperationCount = 1;
-    
-}
-
-- (void)tearDown {
-    
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:self.filePath error:nil];
     }
     
+    NSLog(@"File Path: %@",self.filePath);
+    
+    self.database = [OSMKSpatiaLiteStorage spatiaLiteStorageWithFilePath:self.filePath overwrite:NO];
+    self.databaseQueue = [[SpatialDatabaseQueue alloc] initWithPath:self.filePath];
+    
+    self.testData = [[OSMKTestData alloc] init];
+    
+}
+
+- (void)tearDown {
     [super tearDown];
 }
 
 - (void)testSpatiaLiteStorage {
+    
     [self.testData enumerateXMLDataSources:^(OSMKTestObject *testObject, BOOL *stop) {
-        OSMKTBXMLParseOperation *parseOperation = [[OSMKTBXMLParseOperation alloc] initWithData:testObject.data];
-        [self testSpatiaLiteWithParseOperation:parseOperation withTestObject:testObject];
-    }];
-    
-}
-
-- (void)testSpatiaLiteWithParseOperation:(OSMKParseOperation *)parseOperation withTestObject:(OSMKTestObject *)testObject
-{
-    XCTestExpectation *elementExpectation = [self expectationWithDescription:@"Saved Elements"];
-    XCTestExpectation *notesExpectation = [self expectationWithDescription:@"Saved Notes"];
-    XCTestExpectation *usersExpectation = [self expectationWithDescription:@"Saved Users"];
-    XCTestExpectation *elementsCompletionExpectation = [self expectationWithDescription:@"Completed Elements"];
-    XCTestExpectation *notesCompletionExpectation = [self expectationWithDescription:@"Completed Notes"];
-    XCTestExpectation *usersCompletionExpectation = [self expectationWithDescription:@"Completed Users"];
-    
-    [parseOperation setElementsCompletionBlock:^void ((NSArray *nodes, NSArray *ways, NSArray *relations)) {
+        NSError *error = nil;
+        OSMKTBXMLParser *parser = [[OSMKTBXMLParser alloc] initWithData:testObject.data error:&error];
+        XCTAssertNil(error,@"Error parsing");
         
-        OSMKSpatiaLiteStorageSaveOperation *storageOperation = [[OSMKSpatiaLiteStorageSaveOperation alloc] initWithDatabaseQueue:self.databaseQueue nodes:nodes ways:ways relations:relations];
-        [storageOperation setElementsCompletionBlock:^void ((NSArray *nodes, NSArray *ways, NSArray *relations)) {
-            XCTAssertTrue([nodes count] == testObject.nodeCount);
-            XCTAssertTrue([ways count] == testObject.wayCount);
-            XCTAssertTrue([relations count] == testObject.relationCount);
-            [elementExpectation fulfill];
+        __block NSArray *nodes = [parser parseNodes];
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            [nodes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSError *dbError = nil;
+                BOOL result = [db osmk_saveNode:obj error:&dbError];
+                XCTAssertTrue(result == YES,@"Error Saving Node %@",obj);
+                XCTAssertNil(dbError,@"Error saving Node");
+            }];
         }];
-        [storageOperation setCompletionBlock:^{
-            [elementsCompletionExpectation fulfill];
+        
+        __block NSArray *ways = [parser parseWays];
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            [ways enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSError *dbError = nil;
+                BOOL result = [db osmk_saveWay:obj error:&dbError];
+                XCTAssertTrue(result == YES,@"Error Saving way %@",obj);
+                XCTAssertNil(dbError,@"Error saving way");
+            }];
         }];
-        [self.operationQueue addOperation:storageOperation];
-    }];
-    [parseOperation setNotesCompletionBlock:^void ((NSArray *notes)) {
-        OSMKSpatiaLiteStorageSaveOperation *storageOperation = [[OSMKSpatiaLiteStorageSaveOperation alloc] initWithDatabaseQueue:self.databaseQueue notes:notes];
-        [storageOperation setNotesCompletionBlock:^void ((NSArray *notes)) {
-            XCTAssertTrue([notes count] == testObject.noteCount);
-            [notesExpectation fulfill];
+        
+        __block NSArray *relations = [parser parseRelations];
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            [relations enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSError *dbError = nil;
+                BOOL result = [db osmk_saveRelation:obj error:&dbError];
+                XCTAssertTrue(result == YES,@"Error Saving Relation %@",obj);
+                XCTAssertNil(dbError,@"Error saving Relation");
+            }];
         }];
-        [storageOperation setCompletionBlock:^{
-            [notesCompletionExpectation fulfill];
+        
+        __block NSArray *notes = [parser parseNotes];
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            [notes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSError *dbError = nil;
+                BOOL result = [db osmk_saveNote:obj error:&dbError];
+                XCTAssertTrue(result == YES,@"Error Saving Note %@",obj);
+                XCTAssertNil(dbError,@"Error saving Note");
+            }];
         }];
-        [self.operationQueue addOperation:storageOperation];
-    }];
-    
-    [parseOperation setUsersCompletionBlock:^void ((NSArray *users)) {
-        OSMKSpatiaLiteStorageSaveOperation *storageOperation = [[OSMKSpatiaLiteStorageSaveOperation alloc] initWithDatabaseQueue:self.databaseQueue users:users];
-        [storageOperation setNotesCompletionBlock:^void ((NSArray *users)) {
-            XCTAssertTrue([users count] == testObject.userCount);
-            [usersExpectation fulfill];
+        
+        __block NSArray *users = [parser parseUsers];
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            [users enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSError *dbError = nil;
+                BOOL result = [db osmk_saveUser:obj error:&dbError];
+                XCTAssertTrue(result == YES,@"Error Saving User %@",obj);
+                XCTAssertNil(dbError,@"Error saving User");
+            }];
         }];
-        [storageOperation setCompletionBlock:^{
-            [usersCompletionExpectation fulfill];
-        }];
-        [self.operationQueue addOperation:storageOperation];
-    }];
-    
-    [self.operationQueue addOperation:parseOperation];
-    [self waitForExpectationsWithTimeout:30 handler:^(NSError *error) {
-        XCTAssertNil(error);
     }];
     
 }
 
-- (void)testSpatiaLiteStoragePerformance {
-    [self measureBlock:^{
-        [self testSpatiaLiteStorage];
+//Test that all ways have geometry
+
+- (void)testwayNodeUnique
+{
+    NSString *tagInsertString = [NSString stringWithFormat:@"INSERT INTO way_node (way_id, node_id, local_order) VALUES (?,?,?)"];
+    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        BOOL result = [db executeUpdate:tagInsertString,@(1),@(11),@(0)];
+        result = [db executeUpdate:tagInsertString,@(1),@(11),@(0)];
+        result = [db executeUpdate:tagInsertString,@(1),@(12),@(1)];
+        result = [db executeUpdate:tagInsertString,@(1),@(12),@(1)];
+    }];
+    
+    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        FMResultSet *result = [db executeQuery:@"SELECT * FROM way_node"];
+        
+        int count = 0;
+        
+        while ([result next]){
+            NSDictionary *resultDictionary = [result resultDictionary];
+            XCTAssertTrue([resultDictionary[@"way_id"] intValue] == 1);
+            XCTAssertTrue([resultDictionary[@"node_id"] intValue] == 11+count);
+            XCTAssertTrue([resultDictionary[@"local_order"] intValue] == count);
+            count++;
+        }
+        
+        XCTAssertTrue(count == 2, @"Too many");
     }];
 }
 

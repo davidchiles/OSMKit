@@ -14,12 +14,11 @@ Pod::Spec.new do |spec|
   spec.dependency "TBXML"
   spec.dependency "gtm-oauth"
   spec.dependency "KissXML"
-  spec.dependency "Ono"
 
   spec.xcconfig = { 'HEADER_SEARCH_PATHS' => '/usr/include/libxml2' }
 
 
-  spec.source_files = 'OSMKit/**/*.{h,m}','OSMKit/**/**/*.{h,m}'
-  spec.public_header_files = "OSMKit/**/*.{h}", "OSMKit/**/**/*.{h}"
+  spec.source_files = 'OSMKit/*.{h,m}','OSMKit/**/*.{h,m}','OSMKit/**/**/*.{h,m}'
+  spec.public_header_files = 'OSMKit/*.{h}', "OSMKit/**/*.{h}", "OSMKit/**/**/*.{h}"
 
 end

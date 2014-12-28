@@ -13,10 +13,6 @@
 
 @property (nonatomic, strong, readonly) NSData *data;
 
-@property (nonatomic, copy) OSMKElementsCompletionBlock elementsCompletionBlock;
-@property (nonatomic, copy) OSMKNotesCompletionBlock notesCompletionBlock;
-@property (nonatomic, copy) OSMKUsersCompletionBlock usersCompletionBlock;
-
 /**
  The dispatch queue for `completionBlock`. If `NULL` (default), the main queue is used.
  */

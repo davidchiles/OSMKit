@@ -9,6 +9,7 @@
 #import "OSMKSpatiaLiteStorage.h"
 #import "FMDatabaseQueue.h"
 #import <SpatialDBKit/SpatialDatabase.h>
+#import <SpatialDBKit/SpatialDatabaseQueue.h>
 
 #import "OSMKNode.h"
 #import "OSMKWay.h"
@@ -17,14 +18,13 @@
 #import "OSMKNote.h"
 #import "OSMKComment.h"
 #import "OSMKUser.h"
-#import "OSMKXMLParseOperation.h"
-
+#import "OSMKConstants.h"
+#import "FMDatabase+OSMKitSpatiaLite.h"
 #import "ShapeKitGeometry.h"
 
 @interface OSMKSpatiaLiteStorage ()
 
-@property (nonatomic, strong) FMDatabase *database;
-@property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
+@property (nonatomic, strong) SpatialDatabaseQueue *databaseQueue;
 
 @property (nonatomic) dispatch_queue_t storageQueue;
 
@@ -36,8 +36,8 @@
                        overwrite:(BOOL)overwrite
 {
     if (self = [self init]) {
-        self.database = [[SpatialDatabase alloc] initWithPath:self.filePath];
-        self.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.filePath];
+        _filePath = filePath;
+        self.databaseQueue = [SpatialDatabaseQueue databaseQueueWithPath:self.filePath];
         
         [self setupDatabaseWithOverwrite:overwrite];
     }
@@ -47,11 +47,6 @@
 - (void)setupDatabaseWithOverwrite:(BOOL)overwrite
 {
     [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        FMResultSet *resultSet = [db executeQuery:@"SELECT InitSpatialMetaData()"];
-        while (resultSet.next) {
-            NSLog(@"%@",[resultSet resultDictionary]);
-        }
-        
         ////// Remove Tables //////
         BOOL sucess = YES;
         if (overwrite) {
@@ -70,46 +65,56 @@
         }
         
         
-        ////// Nodes //////
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName];
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName];
+        FMResultSet *resultSet = [db executeQuery:@"SELECT InitSpatialMetaData()"];
+        if ([resultSet next]) {
+            sucess = [[resultSet objectForColumnName:@"InitSpatialMetaData()"] boolValue];
+        }else {
+            sucess = NO;
+        }
         
-        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNodeElementName];
-        while (resultSet.next) {
-            NSLog(@"%@",[resultSet resultDictionary]);
+        ////// Nodes //////
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName]];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName]];
+        
+        resultSet = [db executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNodeElementName]];
+        if ([resultSet next]) {
+            NSArray *values = [[resultSet resultDictionary] allValues];
+            sucess = [[values firstObject] boolValue];
         }
         
         ////// Ways //////
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKWayElementName];
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName];
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order, node_id ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKWayElementName]];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName]];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName]];
         
-        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName];
-        while (resultSet.next) {
-            NSLog(@"%@",[resultSet resultDictionary]);
+        resultSet = [db executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName]];
+        if ([resultSet next]) {
+            NSArray *values = [[resultSet resultDictionary] allValues];
+            sucess = [[values firstObject] boolValue];
         }
         
         ////// Relations //////
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName];
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName];
-        if (sucess) sucess = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), type TEXT CHECK ( type IN (\"%@\", \"%@\", \"%@\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )",OSMKRelationElementName,OSMKRelationMemberElementName,OSMKRelationElementName,OSMKNodeElementName,OSMKWayElementName,OSMKRelationElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName]];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName]];
+        if (sucess) sucess = [db executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), type TEXT CHECK ( type IN (\"%@\", \"%@\", \"%@\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )",OSMKRelationElementName,OSMKRelationMemberElementName,OSMKRelationElementName,OSMKNodeElementName,OSMKWayElementName,OSMKRelationElementName]];
         
         ////// Notes //////
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteCommentsElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteElementName]];
         
-        resultSet = [db executeQueryWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteCommentsElementName];
-        while (resultSet.next) {
-            NSLog(@"%@",[resultSet resultDictionary]);
+        resultSet = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteElementName]];
+        if ([resultSet next]) {
+            NSArray *values = [[resultSet resultDictionary] allValues];
+            sucess = [[values firstObject] boolValue];
         }
         
         ////// Comments //////
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName]];
         
         ////// Users //////
         
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName]];
         
-        if (sucess) sucess = [db executeUpdateWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName];
+        if (sucess) sucess = [db executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName]];
         
         
         //////  Indexes //////
@@ -120,189 +125,13 @@
     
 }
 
-#pragma - mark Saving Methods
-/*
-- (BOOL)saveNote:(OSMKNote *)note inDatabase:(FMDatabase *)database
-{
-    BOOL result = NO;
-    
-    if (note) {
-        NSString *geomString = [NSString stringWithFormat:@"GeomFromText('POINT(%f %f)', 4326)",note.latitude, note.longitude];
-        NSString *updateString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO notes (note_id,open,date_created,date_closed,geom) VALUES (?,?,?,?,%@)",geomString];
-        BOOL noteResult = [database executeUpdate:updateString,@(note.osmId),@(note.isOpen),note.dateCreated,note.dateClosed];
-        
-        BOOL deleteCommentsResult = [database executeUpdateWithFormat:@"DELETE FROM notes_comments WHERE note_id = %lld",note.osmId];
-        
-        __block BOOL insertCommentsReults = YES;
-        [note.commentsArray enumerateObjectsUsingBlock:^(OSMKComment *comment, NSUInteger idx, BOOL *stop) {
-            
-            insertCommentsReults = [database executeUpdateWithFormat:@"INSERT INTO notes_comments (note_id,user_id,user,date,text,action,local_order) VALUES (%lld,%lld,%@,%@,%@,%@,%d)",note.osmId,comment.userId,comment.user,comment.date,comment.text,comment.action,idx];
-            
-            if (!insertCommentsReults) {
-                *stop = YES;
-            }
-            
-        }];
-        
-        result = noteResult && deleteCommentsResult && insertCommentsReults;
-    }
-    
-    
-    return result;
-}
-
-- (BOOL)saveUser:(OSMKUser *)user inDatabase:(FMDatabase *)database
-{
-    BOOL result = NO;
-    if (user) {
-        BOOL insertResult = [database executeUpdateWithFormat:@"INSERT OR REPLACE INTO users (user_id,display_name,date_created,image_url,user_description,terms_agreed,changeset_count,trace_count,received_blocks,active_received_blocks,issued_blocks,active_issued_blocks) VALUES (%lld,%@,%@,%@,%@,%d,%d,%d,%d,%d,%d,%d)",user.osmId,user.displayName,user.dateCreated,user.imageUrl,user.userDescription,user.termsAgreed,user.changesetCount,user.traceCount,user.receivedBlocks,user.activeReceivedBlocks,user.issuedBlocks,user.activeIssuedBlocks];
-        
-        BOOL deleteResult = [database executeUpdateWithFormat:@"DELETE FROM users_roles WHERE user_id = %lld",user.osmId];
-        
-        
-        __block BOOL updateRoles = YES;
-        [user.roles enumerateObjectsUsingBlock:^(NSString *role, BOOL *stop) {
-            updateRoles = [database executeUpdateWithFormat:@"INSERT INTO users_roles (user_id,role) VALUES (%lld,%@)",user.osmId,role];
-            
-            if (!updateRoles) {
-                *stop = YES;
-            }
-            
-            
-        }];
-        
-        result = insertResult && deleteResult && updateRoles;
-    }
-    
-    return result;
-}
- */
-
-#pragma - mark Fetching Methods
-
-- (CLLocationCoordinate2D)centerOfNode:(int64_t)nodeId inDatabase:(FMDatabase *)database
-{
-    FMResultSet *resultSet = [database executeQueryWithFormat:@"SELECT geom FROM nodes WHERE node_id = %lld LIMIT 1",nodeId];
-    
-    while (resultSet.next) {
-        ShapeKitPoint *point = [resultSet objectForColumnName:@"geom"];
-        return point.coordinate;
-    }
-    return CLLocationCoordinate2DMake(DBL_MAX, DBL_MAX);
-}
-
-- (OSMKNode *)nodeWithOsmId:(int64_t)nodeId inDatabase:(FMDatabase *)database
-{
-    OSMKNode *node = [self elementForType:OSMKElementTypeNode elementId:nodeId inDatabase:database];
-    if (node) {
-        node.tags = [self tagsForElementType:OSMKElementTypeNode elementId:node.osmId inDatabase:database];
-    }
-    
-    return node;
-}
-
-- (OSMKWay *)wayWithOsmId:(int64_t)osmId inDatabase:(FMDatabase *)database
-{
-    OSMKWay *way = [self elementForType:OSMKElementTypeWay elementId:osmId inDatabase:database];
-    if (way) {
-        way.tags = [self tagsForElementType:OSMKElementTypeWay elementId:osmId inDatabase:database];
-        
-        FMResultSet *resultSet = [database executeQueryWithFormat:@"SELECT * FROM ways_nodes WHERE way_id = %lld ORDER BY local_order",osmId];
-        
-        NSMutableArray *nodeIds = [NSMutableArray array];
-        while ([resultSet next]) {
-            int64_t nodeId = [resultSet longLongIntForColumn:@"node_id"];
-            if (nodeId) {
-                [nodeIds addObject:@(nodeId)];
-            }
-        }
-        
-        if ([nodeIds count]) {
-            way.nodes = [nodeIds copy];
-        }
-    }
-    return way;
-}
-
-- (OSMKRelation *)relationWithOsmId:(int64_t)osmId inDatabase:(FMDatabase *)database
-{
-    OSMKRelation *relation = [self elementForType:OSMKElementTypeRelation elementId:osmId inDatabase:database];
-    if (relation) {
-        relation.tags = [self tagsForElementType:OSMKElementTypeRelation elementId:osmId inDatabase:database];
-        
-        FMResultSet *resultSet = [database executeQueryWithFormat:@"SELECT * FROM relations_members WHERE relation_id = %lld ORDER BY local_order",osmId];
-        
-        NSMutableArray *membersMutable = [NSMutableArray array];
-        while ([resultSet next]) {
-            OSMKRelationMember *relationMember = [[OSMKRelationMember alloc] initWithAttributesDictionary:[resultSet resultDictionary]];
-            
-            if (relationMember) {
-                [membersMutable addObject:relationMember];
-            }
-        }
-        relation.members = [membersMutable copy];
-    }
-    return relation;
-}
-
-- (id)elementForType:(OSMKElementType)elementType elementId:(int64_t)elementId inDatabase:(FMDatabase *)database
-{
-    NSString *tableName = [NSString stringWithFormat:@"%@s",[OSMKObject stringForType:elementType]];
-    NSString *idColumnName = [NSString stringWithFormat:@"%@_id",[OSMKObject stringForType:elementType]];
-    
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = %lld LIMIT 1",tableName,idColumnName,elementId];
-    
-    FMResultSet *resultSet = [database executeQuery:query];
-    OSMKObject *object = nil;
-    if (resultSet.next) {
-        object = (OSMKObject *)[OSMKObject objectForType:elementType elementId:elementId];
- 
-        object.action = [resultSet intForColumn:@"action"];
-        object.changeset = [resultSet longForColumn:@"changeset"];
-        //FIXME object.timeStamp = [resultSet dateForColumn:@"time_stamp"];
-        object.user = [resultSet stringForColumn:@"user"];
-        object.version = [resultSet intForColumn:@"version"];
-        object.visible = [resultSet boolForColumn:@"visible"];
-        object.userId = [resultSet longLongIntForColumn:@"user_id"];
-        if (elementType == OSMKElementTypeNode) {
-            ShapeKitPoint *point = [resultSet objectForColumnName:@"geom"];
-            ((OSMKNode *)object).coordinate = point.coordinate;
-        }
-        
-    }
-    
-    return object;
-}
-
-- (NSDictionary *)tagsForElementType:(OSMKElementType)elementType elementId:(int64_t)elementId inDatabase:(FMDatabase *)database
-{
-    NSString *tableName = [NSString stringWithFormat:@"%@s_tags",[OSMKObject stringForType:elementType]];
-    NSString *idColumnName = [NSString stringWithFormat:@"%@_id",[OSMKObject stringForType:elementType]];
-    
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = %lld",tableName,idColumnName,elementId];
-    FMResultSet *resultSet = [database executeQuery:query];
-    NSMutableDictionary *mutableTags = [NSMutableDictionary dictionary];
-    while (resultSet.next) {
-        NSString *key = [resultSet stringForColumn:@"key"];
-        NSString *value = [resultSet stringForColumn:@"value"];
-        if (key && value) {
-            mutableTags[key] = value;
-        }
-    }
-    
-    if ([mutableTags count]) {
-        return [mutableTags copy];
-    }
-    return nil;
-}
-
 #pragma - mark Public Fetching Methods
 
 - (OSMKNode *)nodeWithOsmId:(int64_t)osmId
 {
     __block OSMKNode *node = nil;
     [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        node = [self nodeWithOsmId:osmId inDatabase:db];
+        node = [db osmk_nodeWithOsmId:osmId];
     }];
     return node;
 }
@@ -323,7 +152,7 @@
 {
     __block OSMKWay *way = nil;
     [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        way = [self wayWithOsmId:osmId inDatabase:db];
+        way = [db osmk_wayWithOsmId:osmId];
     }];
     return way;
 }
@@ -344,7 +173,7 @@
 {
     __block OSMKRelation *relation = nil;
     [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        relation = [self relationWithOsmId:osmId inDatabase:db];
+        relation = [db osmk_relationWithOsmId:osmId];
     }];
     return relation;
 }
@@ -361,48 +190,13 @@
     });
 }
 
-- (OSMKUser *)userWithOsmId:(int64_t)osmId
-{
-    __block OSMKUser *user = nil;
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        FMResultSet *resultsSet = [db executeQueryWithFormat:@"SELECT * FROM users WHERE user_id = %lld LIMIT 1",osmId];
-        if ([resultsSet next]) {
-            user = [[OSMKUser alloc] initWIthOsmId:[resultsSet longLongIntForColumn:@"user_id"]];
-            user.displayName = [resultsSet stringForColumn:@"display_name"];
-            user.dateCreated = [resultsSet dateForColumn:@"date_created"];
-            user.imageUrl = [NSURL URLWithString:[resultsSet stringForColumn:@"image_url"]];
-            user.userDescription = [resultsSet stringForColumn:@"user_description"];
-            user.termsAgreed = [resultsSet boolForColumn:@"terms_agreed"];
-            user.changesetCount = [resultsSet intForColumn:@"changeset_count"];
-            user.traceCount = [resultsSet intForColumn:@"trace_count"];
-            user.receivedBlocks = [resultsSet intForColumn:@"received_blocks"];
-            user.activeReceivedBlocks = [resultsSet intForColumn:@"active_received_blocks"];
-            user.issuedBlocks = [resultsSet intForColumn:@"issued_blocks"];
-            user.activeReceivedBlocks = [resultsSet intForColumn:@"active_issued_blocks"];
-        }
-        
-        if (user) {
-            FMResultSet *rolesResultSet = [db executeQueryWithFormat:@"SELECT * FROM users_roles WHERE user_id = %lld",osmId];
-            
-            NSMutableSet *roleMutableSet = [NSMutableSet set];
-            while ([rolesResultSet next]) {
-                NSString *role = [rolesResultSet stringForColumn:@"role"];
-                if ([role length]) {
-                    [roleMutableSet addObject:role];
-                }
-            }
-            user.roles = [roleMutableSet copy];
-        }
-        
-        
-    }];
-    return user;
-}
-
 - (void)userWithOsmId:(int64_t)osmId completion:(void (^)(OSMKUser *user, NSError *error))completionBlock
 {
     dispatch_async(self.storageQueue, ^{
-        OSMKUser *user =[self userWithOsmId:osmId];
+        __block OSMKUser *user = nil;
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            user = [db osmk_userWithOsmId:osmId];
+        }];
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(user,nil);
@@ -411,54 +205,13 @@
     });
 }
 
-- (OSMKNote *)noteWithOsmId:(int64_t)osmId
-{
-    __block OSMKNote *note = nil;
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        
-        FMResultSet *resultSet = [db executeQueryWithFormat:@"SELECT * from notes where note_id = %lld LIMIT 1",osmId];
-        
-        if ([resultSet next]) {
-            note = [[OSMKNote alloc] init];
-            note.osmId = osmId;
-            note.isOpen = [resultSet boolForColumn:@"open"];
-            note.dateCreated = [resultSet dateForColumn:@"date_created"];
-            note.dateClosed = [resultSet dateForColumn:@"date_closed"];
-            ShapeKitPoint *point = [resultSet objectForColumnName:@"geom"];
-            note.coordinate = point.coordinate;
-        }
-        
-        if (note) {
-             resultSet = [db executeQueryWithFormat:@"SELECT * FROM notes_comments WHERE note_id = %lld ORDER BY local_order",osmId];
-            
-            NSMutableArray *commentsMutableArray = [NSMutableArray array];
-            while ([resultSet next]) {
-                OSMKComment *comment = [[OSMKComment alloc] init];
-                comment.noteId = osmId;
-                comment.userId = [resultSet longLongIntForColumn:@"user_id"];
-                comment.user = [resultSet stringForColumn:@"user"];
-                comment.date = [resultSet dateForColumn:@"date"];
-                comment.text = [resultSet stringForColumn:@"text"];
-                comment.action = [resultSet stringForColumn:@"action"];
-                [commentsMutableArray addObject:comment];
-            }
-            
-            if ([commentsMutableArray count]) {
-                note.commentsArray = [commentsMutableArray copy];
-            }
-            
-            
-        }
-       
-        
-    }];
-    return note;
-}
-
 - (void)noteWithOsmId:(int64_t)osmId completion:(void (^)(OSMKNote *note, NSError *error))completionBlock
 {
     dispatch_async(self.storageQueue, ^{
-        OSMKNote *note =[self noteWithOsmId:osmId];
+        __block OSMKNote *note = nil;
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            note = [db osmk_noteWithOsmId:osmId];
+        }];
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(note,nil);
@@ -467,70 +220,10 @@
     });
 }
 
-#pragma - mark Public Saving Methods
-
-
-#pragma - mark OSMKStorageDelegateProtocol
-/*
- FIXME
-
-- (void)parserDidStart:(OSMKParser *)parser
-{
-    [self didStartImporting];
-}
-- (void)parser:(OSMKParser *)parser didFindNode:(OSMKNode *)node
-{
-    [self addElementToBuffer:node];
-}
-- (void)parser:(OSMKParser *)parser didFindWay:(OSMKWay *)way
-{
-    [self addElementToBuffer:way];
-}
-- (void)parser:(OSMKParser *)parser didFindRelation:(OSMKRelation *)relation
-{
-    [self addElementToBuffer:relation];
-}
-- (void)parser:(OSMKParser *)parser didFindNote:(OSMKNote *)note
-{
-    [self addElementToBuffer:note];
-}
-- (void)parser:(OSMKParser *)parser didFindUser:(OSMKUser *)user
-{
-    [self addElementToBuffer:user];
-}
-
-- (void)parserDidFinish:(OSMKParser *)parser
-{
-    [self finalFlushElementBuffer];
-}
-
- */
 #pragma - mark Class Methods
-
-+ (instancetype)spatiaLiteStorageWithFilePath:(NSString *)filePath overwrite:(BOOL)overwrite;
++ (instancetype)spatiaLiteStorageWithFilePath:(NSString *)filePath overwrite:(BOOL)overwrite
 {
     return [[self alloc] initWithFilePath:filePath overwrite:overwrite];
-}
-
-+ (NSString *)tableNameForObject:(id)object
-{
-    if ([object isKindOfClass:[OSMKNode class]]) {
-        return OSMKNodeElementName;
-    }
-    else if ([object isKindOfClass:[OSMKWay class]]) {
-        return OSMKWayElementName;
-    }
-    else if ([object isKindOfClass:[OSMKWay class]]) {
-        return OSMKRelationElementName;
-    }
-    else if ([object isKindOfClass:[OSMKUser class]]) {
-        return OSMKUserElementName;
-    }
-    else if ([object isKindOfClass:[OSMKNote class]]) {
-        return OSMKNoteElementName;
-    }
-    
-    return nil;
 }
 
 @end

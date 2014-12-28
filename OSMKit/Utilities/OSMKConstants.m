@@ -1,12 +1,12 @@
 //
-//  OSMKXMLParser.m
-//  OSMKit
+//  OSMKitConstants.m
+//  Pods
 //
-//  Created by David Chiles on 4/10/14.
-//  Copyright (c) 2014 davidchiles. All rights reserved.
+//  Created by David Chiles on 12/11/14.
+//
 //
 
-#import "OSMKXMLParseOperation.h"
+#import "OSMKConstants.h"
 
 NSString *const OSMKNodeElementName = @"node";
 NSString *const OSMKWayElementName = @"way";
@@ -18,9 +18,3 @@ NSString *const OSMKUserElementName = @"user";
 NSString *const OSMKUserRolesElementName = @"roles";
 NSString *const OSMKNoteElementName = @"note";
 NSString *const OSMKNoteCommentsElementName = @"comments";
-
-
-@implementation OSMKXMLParseOperation
-
-
-@end

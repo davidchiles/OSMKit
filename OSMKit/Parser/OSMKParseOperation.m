@@ -8,10 +8,6 @@
 
 #import "OSMKParseOperation.h"
 
-@interface OSMKParseOperation ()
-
-@end
-
 @implementation OSMKParseOperation
 
 - (instancetype)initWithData:(NSData *)data
