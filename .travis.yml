@@ -2,5 +2,5 @@ language: objective-c
 podfile: Tests/Podfile
 
 script:
-	- cd Tests
-	- xctool -workspace OSMKit.xcworkspace -scheme OSMKit -sdk iphonesimulator -arch i386 test
+    - cd Tests
+    - xctool -workspace OSMKit.xcworkspace -scheme OSMKit -sdk iphonesimulator -arch i386 test
