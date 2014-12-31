@@ -5,3 +5,13 @@ link_with 'OSMKit', 'OSMKitTests'
 
 pod "OSMKit", :path => "../"
 pod "SpatialDBKit", :git => 'https://github.com/davidchiles/SpatialDBKit' , :branch => 'master'
+
+pre_install do |installer_representation|
+    path = Pathname(installer_representation.sandbox.pod_dir("spatialite"))+"src/spatialite/spatialite.c"
+
+    text = File.read(path)
+  	new_text = text.gsub(/#include <spatialite\/spatialite\.h>/, "#include <spatialite/spatialite/spatialite.h>")
+
+  	File.open(path, "w") {|file| file.puts new_text }
+
+end
