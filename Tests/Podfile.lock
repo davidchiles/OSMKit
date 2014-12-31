@@ -52,9 +52,9 @@ PODS:
   - spatialite/standard (4.1.1):
     - spatialite/geos
     - spatialite/proj4
-  - sqlite3 (3.8.7.2):
-    - sqlite3/common (= 3.8.7.2)
-  - sqlite3/common (3.8.7.2)
+  - sqlite3 (3.8.7.4):
+    - sqlite3/common (= 3.8.7.4)
+  - sqlite3/common (3.8.7.4)
   - TBXML (1.5)
 
 DEPENDENCIES:
@@ -84,7 +84,7 @@ SPEC CHECKSUMS:
   ShapeKit: 02665237746d95b4df7eda049608980602ec5372
   SpatialDBKit: 110895d14ad388efb24786d90360a587ede1c9e2
   spatialite: 701bc40513aed25ee4c85801d91f8c13222689aa
-  sqlite3: c20b49d16950b99b0e5fad03be703b2fdc7ba65a
+  sqlite3: 1c279dfc3ce9351fd86002f7bf455cab92330aa4
   TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
 
 COCOAPODS: 0.35.0

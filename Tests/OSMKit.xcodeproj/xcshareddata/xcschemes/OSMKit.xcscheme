@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C3941A8C377FAAF7A31858D1"
+               BlueprintIdentifier = "5ABDED826DE27B9EAF8BE8FB"
                BuildableName = "libPods.a"
                BlueprintName = "Pods"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A07AECDFF2FCAE6097354ADE"
+               BlueprintIdentifier = "7F3BC13693BB193B58276C94"
                BuildableName = "libPods-FMDB.a"
                BlueprintName = "Pods-FMDB"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "26A962E13CA78333EBE98D08"
+               BlueprintIdentifier = "A3D4F20ECEE8293189FEB2A8"
                BuildableName = "libPods-ShapeKit.a"
                BlueprintName = "Pods-ShapeKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39454BDA7C20C99C36DFB0C0"
+               BlueprintIdentifier = "3AEA6D176DA9947FF2339528"
                BuildableName = "libPods-SpatialDBKit.a"
                BlueprintName = "Pods-SpatialDBKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4FB13E026D99DAE3228B9518"
+               BlueprintIdentifier = "5623F0058356B18702088C22"
                BuildableName = "libPods-TBXML.a"
                BlueprintName = "Pods-TBXML"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -98,7 +98,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "448DE3218FCD25559F411EAF"
+               BlueprintIdentifier = "65997863FC3D257BC4DAC62C"
                BuildableName = "libPods-geos.a"
                BlueprintName = "Pods-geos"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4FCB793828C1B53D4C32DADB"
+               BlueprintIdentifier = "8DD9CBE05F51AD5855818A0C"
                BuildableName = "libPods-proj4.a"
                BlueprintName = "Pods-proj4"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "16C04C00B87194462147A158"
+               BlueprintIdentifier = "730679B642943A900E8E0569"
                BuildableName = "libPods-spatialite.a"
                BlueprintName = "Pods-spatialite"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -140,7 +140,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D8EF4501DB1245F0BF8FA65D"
+               BlueprintIdentifier = "DB463602C73A97C50EE40775"
                BuildableName = "libPods-sqlite3.a"
                BlueprintName = "Pods-sqlite3"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
