@@ -28,7 +28,9 @@
 - (instancetype)initWithData:(NSData *)data error:(NSError *__autoreleasing *)error
 {
     if (self = [self init]) {
-        self.parser = [[TBXML alloc] initWithXMLData:data error:error];
+        if ([data length]) {
+            self.parser = [[TBXML alloc] initWithXMLData:data error:error];
+        }
     }
     return self;
 }

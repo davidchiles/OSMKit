@@ -84,20 +84,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1EA8616AD3E549D7BC513858"
-               BuildableName = "libPods-TRVSMonitor.a"
-               BlueprintName = "Pods-TRVSMonitor"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "65997863FC3D257BC4DAC62C"
                BuildableName = "libPods-geos.a"
                BlueprintName = "Pods-geos"

@@ -13,6 +13,8 @@
 
 @interface FMDatabase (OSMKitSpatiaLite)
 
+- (BOOL)osmk_setupDatabaseWithOverwrite:(BOOL)overwrite;
+
 - (BOOL)osmk_saveNode:(OSMKNode *)node error:(NSError **)error;
 - (BOOL)osmk_saveWay:(OSMKWay *)way error:(NSError **)error;
 - (BOOL)osmk_saveRelation:(OSMKRelation *)relation error:(NSError **)error;

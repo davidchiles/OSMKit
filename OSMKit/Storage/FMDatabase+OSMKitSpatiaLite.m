@@ -20,6 +20,78 @@
 
 @implementation FMDatabase (OSMKitSpatiaLite)
 
+#pragma - mark Setup Method
+
+- (BOOL)osmk_setupDatabaseWithOverwrite:(BOOL)overwrite
+{
+    BOOL sucess = YES;
+    if (overwrite) {
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",OSMKNodeElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKNodeElementName,OSMKTagElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",OSMKWayElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKWayElementName,OSMKTagElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKWayElementName,OSMKNodeElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",OSMKRelationElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKRelationElementName,OSMKTagElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKRelationElementName,OSMKRelationMemberElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",OSMKNoteElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKNoteElementName,OSMKNoteCommentsElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@",OSMKUserElementName]];
+        if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"DROP TABLE IF EXISTS %@_%@",OSMKUserElementName,OSMKUserRolesElementName]];
+    }
+    
+    FMResultSet *resultSet = [self executeQuery:@"SELECT InitSpatialMetaData();"];
+    if ([resultSet next]) {
+        NSLog(@"%@",[resultSet resultDictionary]);
+    }
+    
+    ////// Nodes //////
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName]];
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName]];
+    
+    resultSet = [self executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNodeElementName]];
+    if ([resultSet next]) {
+        NSArray *values = [[resultSet resultDictionary] allValues];
+        //sucess = [[values firstObject] boolValue];
+    }
+    
+    ////// Ways //////
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKWayElementName]];
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName]];
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName]];
+    
+    resultSet = [self executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName]];
+    if ([resultSet next]) {
+        NSArray *values = [[resultSet resultDictionary] allValues];
+        //sucess = [[values firstObject] boolValue];
+    }
+    
+    ////// Relations //////
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName]];
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), type TEXT CHECK ( type IN (\"%@\", \"%@\", \"%@\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )",OSMKRelationElementName,OSMKRelationMemberElementName,OSMKRelationElementName,OSMKNodeElementName,OSMKWayElementName,OSMKRelationElementName]];
+    
+    ////// Notes //////
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteElementName]];
+    
+    resultSet = [self executeQueryWithFormat:[NSString stringWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteElementName]];
+    if ([resultSet next]) {
+        NSArray *values = [[resultSet resultDictionary] allValues];
+        sucess = [[values firstObject] boolValue];
+    }
+    
+    ////// Comments //////
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName]];
+    
+    ////// Users //////
+    
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName]];
+    
+    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName]];
+    
+    return sucess;
+}
+
 #pragma - mark Saving Methods
 
 - (BOOL)osmk_saveNode:(OSMKNode *)node error:(NSError **)error
