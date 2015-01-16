@@ -79,9 +79,11 @@
         
         dispatch_group_async(nodeGroup, concurrentQueue, ^{
             //Parse all nodes
+            NSLog(@"Start Parsing Nodes");
             NSArray *nodes = [parser parseNodes];
             //Store all nodes
             NSLog(@"Finished Parsing Nodes");
+            NSLog(@"Start Saving Nodes");
             [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 [nodes enumerateObjectsUsingBlock:^(OSMKNode *node, NSUInteger idx, BOOL *stop) {
                     [db osmk_saveNode:node error:nil];
@@ -92,6 +94,7 @@
         
         dispatch_group_async(nodeGroup, concurrentQueue, ^{
             //Parse all ways
+            NSLog(@"Start Parsing Ways");
             parsedWays = [parser parseWays];
             NSLog(@"Fnished Parsing Ways");
         });
@@ -100,6 +103,7 @@
             //Once nodes have been stored & ways have been parsed
             //Save ways
             dispatch_group_async(wayGroup, concurrentQueue, ^{
+                NSLog(@"Start Saving Ways");
                 [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                     [parsedWays enumerateObjectsUsingBlock:^(OSMKWay *way, NSUInteger idx, BOOL *stop) {
                         [db osmk_saveWay:way error:nil];
@@ -112,6 +116,7 @@
         });
         
         dispatch_group_async(wayGroup, concurrentQueue, ^{
+            NSLog(@"Start Parsing Relations");
             parsedRelations = [parser parseRelations];
             NSLog(@"Finished Parsing Relations");
         });
@@ -119,6 +124,7 @@
         dispatch_group_notify(wayGroup, concurrentQueue, ^{
             //Once ways have been stored & relatoins parsed
             //Save relations
+            NSLog(@"Start Saving Relations");
             [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 [parsedRelations enumerateObjectsUsingBlock:^(OSMKRelation *relation, NSUInteger idx, BOOL *stop) {
                     [db osmk_saveRelation:relation error:nil];

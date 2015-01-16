@@ -51,7 +51,7 @@
 
 - (void)runTestImport:(id)sender
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"small_berkeley" ofType:@"osm"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"berkeley" ofType:@"osm"];
     NSData *xmlData = [NSData dataWithContentsOfFile:path];
     NSDate *startDate = [NSDate date];
     

@@ -46,8 +46,8 @@
     }
     
     ////// Nodes //////
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName]];
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (node_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action TEXT, time_stamp TEXT)",OSMKNodeElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (node_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( node_id, key, value ))",OSMKNodeElementName,OSMKTagElementName,OSMKWayNodeElementName]];
     
     resultSet = [self executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNodeElementName]];
     if ([resultSet next]) {
@@ -57,37 +57,37 @@
     
     ////// Ways //////
     if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (way_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKWayElementName]];
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName]];
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( way_id, key, value ))",OSMKWayElementName,OSMKTagElementName,OSMKWayElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (way_id INTEGER REFERENCES %@ ( way_id ), node_id INTEGER REFERENCES %@ ( id ), local_order INTEGER, UNIQUE ( way_id, local_order ))",OSMKWayElementName,OSMKNodeElementName,OSMKWayElementName,OSMKNodeElementName]];
     
-    resultSet = [self executeQueryWithFormat:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName]];
+    resultSet = [self executeQuery:[NSString stringWithFormat: @"SELECT AddGeometryColumn('%@', 'geom', 4326, 'LINESTRING', 2)",OSMKWayElementName]];
     if ([resultSet next]) {
         NSArray *values = [[resultSet resultDictionary] allValues];
         //sucess = [[values firstObject] boolValue];
     }
     
     ////// Relations //////
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName]];
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (relation_id INTEGER PRIMARY KEY NOT NULL,version INTEGER ,changeset INTEGER, user_id INTEGER, visible INTEGER,user TEXT,action INTEGER, time_stamp TEXT)",OSMKRelationElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), key TEXT NOT NULL,value TEXT NOT NULL, UNIQUE ( relation_id, key, value ))",OSMKRelationElementName,OSMKTagElementName,OSMKRelationElementName]];
     if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (relation_id INTEGER REFERENCES %@ ( relation_id ), type TEXT CHECK ( type IN (\"%@\", \"%@\", \"%@\")),ref INTEGER NOT NULL , role TEXT, local_order INTEGER,UNIQUE (relation_id,ref,local_order) )",OSMKRelationElementName,OSMKRelationMemberElementName,OSMKRelationElementName,OSMKNodeElementName,OSMKWayElementName,OSMKRelationElementName]];
     
     ////// Notes //////
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (note_id INTEGER PRIMARY KEY NOT NULL, open INTEGER, date_created TEXT, date_closed TEXT)",OSMKNoteElementName]];
     
-    resultSet = [self executeQueryWithFormat:[NSString stringWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteElementName]];
+    resultSet = [self executeQuery:[NSString stringWithFormat:@"SELECT AddGeometryColumn('%@', 'geom', 4326, 'POINT', 'XY')",OSMKNoteElementName]];
     if ([resultSet next]) {
         NSArray *values = [[resultSet resultDictionary] allValues];
         sucess = [[values firstObject] boolValue];
     }
     
     ////// Comments //////
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (note_id INTEGER REFERENCES %@ ( note_id ), user_id INTEGER,user TEXT, date TEXT, text TEXT, action TEXT, local_order INTEGER)",OSMKNoteElementName,OSMKNoteCommentsElementName,OSMKNoteElementName]];
     
     ////// Users //////
     
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@ (user_id INTEGER, display_name TEXT, date_created TEXT, image_url TEXT, user_description TEXT, terms_agreed INTEGER, changeset_count INTEGER, trace_count INTEGER,received_blocks INTEGER, active_received_blocks INTEGER, issued_blocks INTEGER, active_issued_blocks INTEGER)",OSMKUserElementName]];
     
-    if (sucess) sucess = [self executeUpdateWithFormat:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName]];
+    if (sucess) sucess = [self executeUpdate:[NSString stringWithFormat: @"CREATE TABLE IF NOT EXISTS %@_%@ (user_id INTEGER REFERENCES %@ (user_id), role TEXT)",OSMKUserElementName,OSMKUserRolesElementName,OSMKUserElementName]];
     
     return sucess;
 }
@@ -105,7 +105,8 @@
         BOOL nodeResult = [self executeUpdate:updateString,@(node.osmId),@(node.version),@(node.changeset),@(node.userId),@(node.visible),node.user,@(node.action),node.timeStamp];
         
         //Delete any existing tags
-        BOOL tagDeleteResult = [self executeUpdateWithFormat:[NSString stringWithFormat:@"DELETE FROM %@ WHERE node_id = %lld",[[self class] osmk_tagTableNameForObject:node],node.osmId]];
+        NSString *sqlString =[NSString stringWithFormat:@"DELETE FROM %@ WHERE node_id = ?",[[self class] osmk_tagTableNameForObject:node]];
+        BOOL tagDeleteResult = [self executeUpdate:sqlString withArgumentsInArray:@[@(node.osmId)]];
         
         //Insert tags
         __block BOOL tagInsertResult = YES;
@@ -135,12 +136,14 @@
         NSMutableArray *pointStringArray = [[NSMutableArray alloc] initWithCapacity:[way.nodes count]];
         
         //DELETE all old ways_nodes that might be in the database
-        NSString *deleteString = [NSString stringWithFormat:@"DELETE FROM %@ WHERE way_id == ?",[[self class] osmk_tagTableNameForObject:way]];
-        BOOL deleteNodesResult = [self executeUpdate:deleteString,@(way.osmId)];
+        NSString *deleteString = [NSString stringWithFormat:@"DELETE FROM way_node WHERE way_id == ?",[[self class] osmk_tagTableNameForObject:way]];
+        BOOL deleteNodesResult = [self executeUpdate:deleteString withArgumentsInArray:@[@(way.osmId)]];
         __block BOOL nodeInsertResult = YES;
         
         [way.nodes enumerateObjectsUsingBlock:^(NSNumber *nodeId, NSUInteger idx, BOOL *stop) {
+            // about 10% speed up if we don't have to go to the database to look up node coordinate
             CLLocationCoordinate2D nodeCenter = [self osmk_coordinateOfNodeWithId:[nodeId longLongValue]];
+            
             if (nodeCenter.latitude != DBL_MAX) {
                 [pointStringArray addObject:[NSString stringWithFormat:@"%f %f",nodeCenter.latitude,nodeCenter.longitude]];
             }
@@ -162,7 +165,7 @@
         
         //Delete Tags
         NSString *deleteTagString = [NSString stringWithFormat:@"DELETE FROM %@ WHERE way_id = ?",[[self class] osmk_tagTableNameForObject:way]];
-        BOOL tagDeleteResult = [self executeUpdate:deleteTagString,@(way.osmId)];
+        BOOL tagDeleteResult = [self executeUpdate:deleteTagString withArgumentsInArray:@[@(way.osmId)]];
         
         
         //INsert new tags
@@ -190,11 +193,12 @@
         NSString *insertString = [NSString stringWithFormat:@"INSERT OR REPLACE INTO %@ (relation_id,version,changeset,user_id,visible,user,action,time_stamp) VALUES (?,?,?,?,?,?,?,?)",[[self class] osmk_tableNameForObject:relation]];
         BOOL insertRelationResult = [self executeUpdate:insertString,@(relation.osmId),@(relation.version),@(relation.changeset),@(relation.userId),@(relation.visible),relation.user,@(relation.action),relation.timeStamp];
         
-        BOOL deleteRelationMembersResults = [self executeUpdateWithFormat:@"DELETE FROM relation_member WHERE relation_id = %lld",relation.osmId];
+        BOOL deleteRelationMembersResults = [self executeUpdate:@"DELETE FROM relation_member WHERE relation_id = ?",@(relation.osmId)];
+        
         __block BOOL insertMembersResult = YES;
         [relation.members enumerateObjectsUsingBlock:^(OSMKRelationMember *member, NSUInteger idx, BOOL *stop) {
             
-            insertMembersResult = [self executeUpdateWithFormat:@"INSERT INTO relation_member (relation_id,type,ref,role,local_order) VALUES (%lld,%@,%lld,%@,%ld)",relation.osmId,[OSMKObject stringForType:member.type],member.ref,member.role,idx];
+            insertMembersResult = [self executeUpdate:@"INSERT INTO relation_member (relation_id,type,ref,role,local_order) VALUES (?,?,?,?,?)",@(relation.osmId),[OSMKObject stringForType:member.type],@(member.ref),member.role,@(idx)];
             
         }];
         
@@ -288,7 +292,7 @@
     if (way) {
         way.tags = [self osmk_tagsForElementType:OSMKElementTypeWay elementId:osmId];
         
-        FMResultSet *resultSet = [self executeQueryWithFormat:@"SELECT * FROM way_node WHERE way_id = %lld ORDER BY local_order",osmId];
+        FMResultSet *resultSet = [self executeQuery:@"SELECT * FROM way_node WHERE way_id = ? ORDER BY local_order",@(osmId)];
         
         NSMutableArray *nodeIds = [NSMutableArray array];
         while ([resultSet next]) {
@@ -311,7 +315,7 @@
     if (relation) {
         relation.tags = [self osmk_tagsForElementType:OSMKElementTypeRelation elementId:osmId];
         
-        FMResultSet *resultSet = [self executeQueryWithFormat:@"SELECT * FROM relation_member WHERE relation_id = %lld ORDER BY local_order",osmId];
+        FMResultSet *resultSet = [self executeQuery:@"SELECT * FROM relation_member WHERE relation_id = ? ORDER BY local_order",@(osmId)];
         
         NSMutableArray *membersMutable = [NSMutableArray array];
         while ([resultSet next]) {
@@ -380,7 +384,7 @@
 {
     OSMKUser *user = [[OSMKUser alloc] initWIthOsmId:osmId];
     
-    FMResultSet *resultsSet = [self executeQueryWithFormat:[NSString stringWithFormat:@"SELECT * FROM %@ WHERE user_id = %lld LIMIT 1",[[self class] osmk_tableNameForObject:user],osmId]];
+    FMResultSet *resultsSet = [self executeQuery:[NSString stringWithFormat:@"SELECT * FROM %@ WHERE user_id = %lld LIMIT 1",[[self class] osmk_tableNameForObject:user],@(osmId)]];
     if ([resultsSet next]) {
         user.displayName = [resultsSet stringForColumn:@"display_name"];
         user.dateCreated = [resultsSet dateForColumn:@"date_created"];
@@ -398,7 +402,7 @@
     }
     
     if (user) {
-        FMResultSet *rolesResultSet = [self executeQueryWithFormat:@"SELECT * FROM user_roles WHERE user_id = %lld",osmId];
+        FMResultSet *rolesResultSet = [self executeQuery:@"SELECT * FROM user_roles WHERE user_id = ?",@(osmId)];
         
         NSMutableSet *roleMutableSet = [NSMutableSet set];
         while ([rolesResultSet next]) {
@@ -417,7 +421,7 @@
 {
     __block OSMKNote *note = [[OSMKNote alloc] init];;
         
-    FMResultSet *resultSet = [self executeQueryWithFormat:[NSString stringWithFormat:@"SELECT * from %@ where note_id = %lld LIMIT 1",[[self class] osmk_tableNameForObject:note],osmId]];
+    FMResultSet *resultSet = [self executeQuery:[NSString stringWithFormat:@"SELECT * from %@ where note_id = ? LIMIT 1",[[self class] osmk_tableNameForObject:note],@(osmId)]];
     
     if ([resultSet next]) {
         note.osmId = osmId;
@@ -457,10 +461,10 @@
 
 - (CLLocationCoordinate2D)osmk_coordinateOfNodeWithId:(int64_t)nodeId
 {
-    NSString *queryString = [NSString stringWithFormat:@"SELECT geom FROM %@ WHERE node_id = ? LIMIT 1",OSMKNodeElementName];
+    NSString *queryString = [NSString stringWithFormat:@"SELECT geom FROM %@ WHERE node_id = ?",OSMKNodeElementName];
     FMResultSet *resultSet = [self executeQuery:queryString,@(nodeId)];
     
-    while (resultSet.next) {
+    if (resultSet.next) {
         ShapeKitPoint *point = [resultSet objectForColumnName:@"geom"];
         return point.coordinate;
     }

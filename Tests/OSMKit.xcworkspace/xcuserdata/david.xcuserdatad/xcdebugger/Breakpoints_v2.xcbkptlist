@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../OSMKit/Storage/FMDatabase+OSMKitSpatiaLite.m"
-            timestampString = "442897464.736579"
+            timestampString = "443073318.220322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-osmk_saveWay:error:"
             landmarkType = "5">
          </BreakpointContent>
