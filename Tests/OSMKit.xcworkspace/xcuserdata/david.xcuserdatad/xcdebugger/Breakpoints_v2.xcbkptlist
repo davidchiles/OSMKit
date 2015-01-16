@@ -79,36 +79,6 @@
             endingLineNumber = "174"
             landmarkName = "-osmk_saveWay:error:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[FMDatabase(OSMKitSpatiaLite) osmk_saveWay:error:]_block_invoke144"
-                  moduleName = "OSMKit"
-                  urlString = "file:///Users/david/Documents/OSMKit/OSMKit/Storage/FMDatabase+OSMKitSpatiaLite.m"
-                  timestampString = "442898017.527671"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "174"
-                  endingLineNumber = "174"
-                  offsetFromSymbolStart = "390">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[FMDatabase(OSMKitSpatiaLite) osmk_saveWay:error:]_block_invoke144"
-                  moduleName = "OSMKitTests"
-                  urlString = "file:///Users/david/Documents/OSMKit/OSMKit/Storage/FMDatabase+OSMKitSpatiaLite.m"
-                  timestampString = "442898018.609805"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "174"
-                  endingLineNumber = "174"
-                  offsetFromSymbolStart = "390">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

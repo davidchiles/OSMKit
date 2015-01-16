@@ -29,6 +29,8 @@
 		632C3CBE18FDE815001E8C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C3CA618FDE815001E8C69 /* UIKit.framework */; };
 		632C3CC618FDE815001E8C69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 632C3CC418FDE815001E8C69 /* InfoPlist.strings */; };
 		635F4FD619469589006D2EF8 /* OSMKAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F4FD519469589006D2EF8 /* OSMKAPITests.m */; };
+		63A5E4551A68A68A0021EC67 /* OSMKTestImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E4541A68A68A0021EC67 /* OSMKTestImportViewController.m */; };
+		63A5E4581A68AB2D0021EC67 /* OSMKTestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A5E4571A68AB2D0021EC67 /* OSMKTestResult.m */; };
 		63C6D5381A2EC66D009FB1B0 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DE1A2EBEA800FA8F71 /* note.json */; };
 		63C6D5391A2EC672009FB1B0 /* notes.json in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4DF1A2EBEA800FA8F71 /* notes.json */; };
 		63C6D53A1A2EC674009FB1B0 /* notes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6322F4E01A2EBEA800FA8F71 /* notes.xml */; };
@@ -75,6 +77,10 @@
 		632C3CC318FDE815001E8C69 /* OSMKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OSMKitTests-Info.plist"; sourceTree = "<group>"; };
 		632C3CC518FDE815001E8C69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		635F4FD519469589006D2EF8 /* OSMKAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKAPITests.m; sourceTree = "<group>"; };
+		63A5E4531A68A68A0021EC67 /* OSMKTestImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKTestImportViewController.h; sourceTree = "<group>"; };
+		63A5E4541A68A68A0021EC67 /* OSMKTestImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKTestImportViewController.m; sourceTree = "<group>"; };
+		63A5E4561A68AB2D0021EC67 /* OSMKTestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMKTestResult.h; sourceTree = "<group>"; };
+		63A5E4571A68AB2D0021EC67 /* OSMKTestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKTestResult.m; sourceTree = "<group>"; };
 		63E409861A2EC6F700C7B5E1 /* berkeley.osm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = berkeley.osm; sourceTree = "<group>"; };
 		63F7F7D91A65FE4B0010D9D5 /* OSMKImporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMKImporterTests.m; sourceTree = "<group>"; };
 		6D3E5B0C9150F393546435EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 			children = (
 				632C3CB118FDE815001E8C69 /* OSMKAppDelegate.h */,
 				632C3CB218FDE815001E8C69 /* OSMKAppDelegate.m */,
+				63A5E4531A68A68A0021EC67 /* OSMKTestImportViewController.h */,
+				63A5E4541A68A68A0021EC67 /* OSMKTestImportViewController.m */,
+				63A5E4561A68AB2D0021EC67 /* OSMKTestResult.h */,
+				63A5E4571A68AB2D0021EC67 /* OSMKTestResult.m */,
 				632C3CB418FDE815001E8C69 /* Images.xcassets */,
 				632C3CA918FDE815001E8C69 /* Supporting Files */,
 			);
@@ -262,6 +272,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = davidchiles;
 				TargetAttributes = {
+					632C3C9E18FDE815001E8C69 = {
+						DevelopmentTeam = SF3NXKQQ64;
+					};
 					632C3CB918FDE815001E8C69 = {
 						TestTargetID = 632C3C9E18FDE815001E8C69;
 					};
@@ -385,7 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A5E4581A68AB2D0021EC67 /* OSMKTestResult.m in Sources */,
 				632C3CB318FDE815001E8C69 /* OSMKAppDelegate.m in Sources */,
+				63A5E4551A68A68A0021EC67 /* OSMKTestImportViewController.m in Sources */,
 				632C3CAF18FDE815001E8C69 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +463,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
