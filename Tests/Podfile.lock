@@ -1,36 +1,36 @@
 PODS:
-  - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection (= 2.5.0)
-    - AFNetworking/NSURLSession (= 2.5.0)
-    - AFNetworking/Reachability (= 2.5.0)
-    - AFNetworking/Security (= 2.5.0)
-    - AFNetworking/Serialization (= 2.5.0)
-    - AFNetworking/UIKit (= 2.5.0)
-  - AFNetworking/NSURLConnection (2.5.0):
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.0):
+  - AFNetworking/NSURLSession (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.0)
-  - AFNetworking/Security (2.5.0)
-  - AFNetworking/Serialization (2.5.0)
-  - AFNetworking/UIKit (2.5.0):
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FMDB/common (2.4)
+  - FMDB/common (2.5)
   - geos (3.4.2)
   - gtm-oauth (0.0.1):
     - gtm-oauth/nibs (= 0.0.1)
   - gtm-oauth/nibs (0.0.1)
   - KissXML (5.0)
   - OSMKit (0.1):
-    - AFNetworking
-    - gtm-oauth
-    - KissXML
-    - TBXML
+    - AFNetworking (~> 2.6)
+    - gtm-oauth (~> 0.0)
+    - KissXML (~> 5.0)
+    - TBXML (~> 1.5)
   - proj4 (4.8.0)
   - ShapeKit (0.9.6):
     - geos
@@ -52,9 +52,9 @@ PODS:
   - spatialite/standard (4.1.1):
     - spatialite/geos
     - spatialite/proj4
-  - sqlite3 (3.8.7.4):
-    - sqlite3/common (= 3.8.7.4)
-  - sqlite3/common (3.8.7.4)
+  - sqlite3 (3.8.11.1):
+    - sqlite3/common (= 3.8.11.1)
+  - sqlite3/common (3.8.11.1)
   - TBXML (1.5)
 
 DEPENDENCIES:
@@ -63,28 +63,28 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   OSMKit:
-    :path: ../
+    :path: "../"
   SpatialDBKit:
     :branch: master
     :git: https://github.com/davidchiles/SpatialDBKit
 
 CHECKOUT OPTIONS:
   SpatialDBKit:
-    :commit: 87bdecc2666efe5a572fdf78c3378257899c18a4
+    :commit: 171648b2d877bcdca9efb6b23e841f9d23586bdd
     :git: https://github.com/davidchiles/SpatialDBKit
 
 SPEC CHECKSUMS:
-  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
-  geos: 20db9ad19fae60249357572b5a2e46882005451f
-  gtm-oauth: 3c779195cf6c9ef3d79b791b742da6679d0e0b89
-  KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
-  OSMKit: 43e1cfa6226629e951701f9e219db7ff5c2899b9
-  proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
-  ShapeKit: 02665237746d95b4df7eda049608980602ec5372
-  SpatialDBKit: 110895d14ad388efb24786d90360a587ede1c9e2
-  spatialite: 701bc40513aed25ee4c85801d91f8c13222689aa
-  sqlite3: 1c279dfc3ce9351fd86002f7bf455cab92330aa4
-  TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  geos: 836ecf4b0d1baf6c3dda536126aaee6fdde0ebee
+  gtm-oauth: 34a7210eb8e2dd00a977f42af7d99f994c1e7917
+  KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
+  OSMKit: 648abdc3bcb84ce39e369fe7bc44a3be85dd693c
+  proj4: 234525105d05a33b2ae9a90a6fe3935f7a246f7e
+  ShapeKit: 81669c6073b6bacc013a43312039ba013b2c47e5
+  SpatialDBKit: 6234cd21307470dc6fd5e1cb77bff714e63f09f7
+  spatialite: d85f4ee401c5af29528556d43a01a6210f5d682a
+  sqlite3: 73d6ec33f24f74ceb91df8f1b6e1809251f0f580
+  TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.38.2

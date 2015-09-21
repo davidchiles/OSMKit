@@ -49,8 +49,7 @@
                          [expectation fulfill];
                      }
                 completionQueue:self.completionQueue];
-        count++
-        ;
+        count++;
     }];
     
     

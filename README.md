@@ -6,8 +6,23 @@ OSMKit is helpful library for parsing and storing [OpenStreetMap](https://openst
 ###Install
 Add it to your Podfile.
 
-```ruby 
-pod
+```ruby
+pod OSMKit
+```
+
+For Now you'll also have to add:
+```ruby
+pod "SpatialDBKit", :git => 'https://github.com/davidchiles/SpatialDBKit' , :branch => 'master'
+
+pre_install do |installer_representation|
+    path = Pathname(installer_representation.sandbox.pod_dir("spatialite"))+"src/spatialite/spatialite.c"
+
+    text = File.read(path)
+  	new_text = text.gsub(/#include <spatialite\/spatialite\.h>/, "#include <spatialite/spatialite/spatialite.h>")
+
+  	File.open(path, "w") {|file| file.puts new_text }
+
+end
 ```
 
 Then run `pod install`.
@@ -17,37 +32,21 @@ Then run `pod install`.
 
 ####Parsing
 ```objective-c
-OSMKTBXMLParser *xmlParser = [[OSMKTBXMLParser alloc] initWithDelegate:parserDelegate delegateQueue:nil];
-[xmlParser parseXMLData:osmXMLData];
-```
-
-Then just implement the parser delegate protocol: `OSMKParserDelegateProtocol`
-
-```objective-c
-- (void)parserDidStart:(OSMKParser *)parser;
-- (void)parser:(OSMKParser *)parser didFindNode:(OSMKNode *)node;
-- (void)parser:(OSMKParser *)parser didFindWay:(OSMKWay *)way;
-- (void)parser:(OSMKParser *)parser didFindRelation:(OSMKRelation *)relation;
-- (void)parser:(OSMKParser *)parser didFindNote:(OSMKNote *)note;
-- (void)parser:(OSMKParser *)parser didFindUser:(OSMKUser *)user;
-- (void)parserDidFinish:(OSMKParser *)parser;
-- (void)parser:(OSMKParser *)parser parseErrorOccurred:(NSError *)parseError;
+OSMKTBXMLParser *parser = [[OSMKTBXMLParser alloc] initWithData:data error:&error];
+NSArray *nodes = [parser parseNodes];
+NSArray *ways = [parser parseWays];
+NSArray *relations = [parser parseRelations];
+NSArray *users = [parser parseUsers];
+NSArray *notes = [parser parseNotes];
 ```
 
 ####Parsing + Storage
 ```objective-c
-OSMKSpatiaLiteStorage * spatiaLiteStorage = [[OSMKSpatiaLiteStorage alloc] initWithdatabaseFilePath:databasePath delegate:storageDelegate delegateQueue:nil];
-[spatiaLiteStorage importXMLData:osmXMLData];
-```
-
-Then just implement the storage delegate protocol: `OSMKStorageDelegateProtocol`
-
-```objective-c
-- (void)storageDidStartImporting:(OSMKStorage *)storage;
-- (void)storage:(OSMKStorage *)storage didSaveNodes:(NSArray *)nodes;
-- (void)storage:(OSMKStorage *)storage didSaveWays:(NSArray *)ways;
-- (void)storage:(OSMKStorage *)storage didSaveRelations:(NSArray *)relations;
-- (void)storage:(OSMKStorage *)storage didSaveUsers:(NSArray *)users;
-- (void)storage:(OSMKStorage *)storage didSaveNotes:(NSArray *)notes;
-- (void)storageDidFinishImporting:(OSMKStorage *)storage;
+OSMKImporter *importer = [[OSMKImporter alloc] init];
+[importer setupDatbaseWithPath:path overwrite:YES];
+[importer importXMLData:testObject.data
+                     completion:^{
+                         NSLog(@"all done");
+                     }
+                completionQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 ```

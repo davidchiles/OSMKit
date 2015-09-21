@@ -79,6 +79,38 @@
             endingLineNumber = "177"
             landmarkName = "-osmk_saveWay:error:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[FMDatabase(OSMKitSpatiaLite) osmk_saveWay:error:]_block_invoke149"
+                  moduleName = "OSMKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/david/Documents/OSMKit/OSMKit/Storage/FMDatabase+OSMKitSpatiaLite.m"
+                  timestampString = "464498587.768341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "390">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[FMDatabase(OSMKitSpatiaLite) osmk_saveWay:error:]_block_invoke149"
+                  moduleName = "OSMKitTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/david/Documents/OSMKit/OSMKit/Storage/FMDatabase+OSMKitSpatiaLite.m"
+                  timestampString = "464498588.68513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "390">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
