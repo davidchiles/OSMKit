@@ -7,7 +7,7 @@ OSMKit is helpful library for parsing and storing [OpenStreetMap](https://openst
 Add it to your Podfile.
 
 ```ruby
-pod OSMKit
+pod 'OSMKit', :git => 'https://github.com/davidchiles/OSMKit' , :tag => '0.2'
 ```
 
 For Now you'll also have to add:
